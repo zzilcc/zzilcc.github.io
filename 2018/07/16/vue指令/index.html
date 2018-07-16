@@ -87,7 +87,10 @@
 <meta property="og:description" content="vue指令这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，将产生的影响，响应的作用在DOM上。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/07/16/vue指令/v-html.png">
-<meta property="og:updated_time" content="2018-07-16T06:17:30.309Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/16/vue指令/v-bind1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/16/vue指令/v-bind2.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/16/vue指令/v-model1.png">
+<meta property="og:updated_time" content="2018-07-16T06:18:15.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue指令">
 <meta name="twitter:description" content="vue指令这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，将产生的影响，响应的作用在DOM上。">
@@ -373,6 +376,98 @@ var vue = new Vue({
 </code></pre><p>输出结果为：</p>
 <p><img src="v-html.png" alt=""></p>
 <p>注意： 在站点上动态的渲染任意的HTML可能会很危险，因为它很容易导致XSS攻击，所以最好慎用。</p>
+<h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>v-bind一般用来绑定元素属性，属性值可以是字符串，对象或数组。可以用来绑定class、style或者是图片，链接的地址属性src、href等。v-bind可以简写成“:”。</p>
+<pre><code>&lt;style&gt;
+.fd-head {
+    color: red;
+}
+.fd-nav {
+    background-color: yellow;
+}
+.active {
+    font-size: 20px;
+}
+.text-danger {
+    color: red;
+    border: 1px solid &apos;#000&apos;;
+}
+&lt;/style&gt;
+
+&lt;div id=&quot;app&quot;&gt;
+    &lt;h1&gt;1. 绑定到src和href属性上&lt;/h1&gt;
+        &lt;img v-bind:src=&quot;imgSrc&quot;&gt;
+        &lt;a :href=&quot;url&quot;&gt;github传送门&lt;/a&gt;
+    &lt;h1&gt;2. 绑定到样式&lt;/h1&gt;
+        &lt;div :class=&quot;{&apos;fd-head&apos;:isOk, &apos;active&apos;:isActive}&quot;&gt;
+            &lt;p&gt;(1)一般绑定方法&lt;/p&gt;
+            字体为红色
+        &lt;/div&gt;
+        &lt;div class=&quot;fd-nav&quot; :class=&quot;{&apos;fd-head&apos;:isOk, &apos;active&apos;:isActive}&quot;&gt;
+            &lt;p&gt;(2)v-bind:class也可以与普通的class属性共存&lt;/p&gt;
+            字体为红色且背景颜色为黄色
+        &lt;/div&gt;
+        &lt;div :class=&quot;isTrue?fd-head:active&quot;&gt;
+            &lt;p&gt;用三元运算符来选择样式,字体大小为20px&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div :class=&quot;[activeClass,errorClass]&quot;&gt;
+            绑定到数组
+        &lt;/div&gt;
+    &lt;h1&gt;3. 绑定内联样式style&lt;/h1&gt;
+        &lt;h2&gt;对象语法&lt;/h2&gt;
+        &lt;div :style=&quot;{color:activeColor,fontSize:fontSize + &apos;px&apos;,&apos;background-color&apos;:bgcolor}&quot;&gt;
+            (1)我们给:style赋值的是一个对象，该对象语法看上去有点像css，但其实是一个JavaScript对象，css的属性名可以用驼峰式，这样就需要用括号括起来，或者用短横线分隔，这样就需要用括号括起来。
+        &lt;/div&gt;
+        &lt;div :style=&quot;styleObj1&quot;&gt;
+            &lt;p&gt;(2)或者我们直接绑定到一个样式对象，这样比较简单明了。
+        &lt;/div&gt;
+        &lt;h2&gt;数组语法&lt;/h2&gt;
+        &lt;div :style=&quot;[styleObj1,styleObj2,styleObj3]&quot;&gt;
+            &lt;p&gt;数组语法可以将多个样式对象应用到同一个元素上。
+        &lt;/div&gt;
+&lt;/div&gt;
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        imgSrc: &quot;http://2b.zol-img.com.cn/product/131/741/ceUvYp3mRk5w.jpg&quot;,
+        url: &quot;https://github.com/zzilcc&quot;,
+        isOk: true,
+        isActive: false,
+        isTrue: false,
+        activeClass: &apos;active&apos;,
+        errorClass: &apos;text-danger&apos;,
+        activeColor: &apos;red&apos;,
+        &apos;fd-head&apos;: &apos;fd-head&apos;,
+        active: &apos;active&apos;,
+        fontSize: 30,
+        bgcolor: &apos;blue&apos;,
+        styleObj1: {
+            color: &apos;red&apos;,
+            fontSize: &apos;13px&apos;
+        },
+        styleObj2: {
+            position: &apos;relative&apos;
+        },
+        styleObj3: {
+            backgroundColor: &apos;blue&apos;
+        }
+    }
+})
+</code></pre><p>结果为：<br><img src="v-bind1.png" alt=""></p>
+<p><img src="v-bind2.png" alt=""></p>
+<h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p>v-model指令主要用来在表单<code>&lt;input&gt;</code>及<code>&lt;textarea&gt;</code>元素上进行双向数据绑定。v-model会忽略所有表单元素的value,checked,selected特性的初始值，而总是将Vue实例的数据当做数据来源。</p>
+<h3 id="文本绑定"><a href="#文本绑定" class="headerlink" title="文本绑定"></a>文本绑定</h3><pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;input v-model=&quot;message&quot; placeholder=&quot;请输入&quot;&gt;
+    &lt;p&gt; Message is : &lt;span v-text=&quot;message&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        message: &quot;&quot;
+    }
+})
+</code></pre><p><img src="v-model1.png" alt=""></p>
 
       
     </div>
@@ -519,7 +614,7 @@ var vue = new Vue({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue指令"><span class="nav-number">1.</span> <span class="nav-text">vue指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#v-if、v-else和v-else-if"><span class="nav-number">1.1.</span> <span class="nav-text">v-if、v-else和v-else-if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-show和v-once"><span class="nav-number">1.2.</span> <span class="nav-text">v-show和v-once</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-text和v-html"><span class="nav-number">1.3.</span> <span class="nav-text">v-text和v-html</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue指令"><span class="nav-number">1.</span> <span class="nav-text">vue指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#v-if、v-else和v-else-if"><span class="nav-number">1.1.</span> <span class="nav-text">v-if、v-else和v-else-if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-show和v-once"><span class="nav-number">1.2.</span> <span class="nav-text">v-show和v-once</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-text和v-html"><span class="nav-number">1.3.</span> <span class="nav-text">v-text和v-html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-bind"><span class="nav-number">1.4.</span> <span class="nav-text">v-bind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-model"><span class="nav-number">1.5.</span> <span class="nav-text">v-model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本绑定"><span class="nav-number">1.5.1.</span> <span class="nav-text">文本绑定</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
