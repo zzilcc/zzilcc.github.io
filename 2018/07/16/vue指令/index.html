@@ -86,10 +86,12 @@
 <meta property="og:site_name" content="Zzilcc&#39;s Blog">
 <meta property="og:description" content="vue指令这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，将产生的影响，响应的作用在DOM上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-16T06:13:52.241Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/16/vue指令/v-html.png">
+<meta property="og:updated_time" content="2018-07-16T06:15:27.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue指令">
 <meta name="twitter:description" content="vue指令这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，将产生的影响，响应的作用在DOM上。">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/16/vue指令/v-html.png">
 
 
 
@@ -344,7 +346,33 @@ var vue = new Vue({
 </code></pre><h2 id="v-show和v-once"><a href="#v-show和v-once" class="headerlink" title="v-show和v-once"></a>v-show和v-once</h2><p>v-show指令也是用于条件展示的，用法和v-if一样，只不过没有v-else指令在后面。</p>
 <p>不同的是带有v-show的元素是一开始就会被渲染并保留在DOM中，它是决定的是css属性display来显示或者不显示元素。而v-if是条件渲染，为真才渲染，若为假是不会渲染出相应的元素的，也就是为假的时候DOM上是找不到该元素的。</p>
 <p>v-once顾名思义，一次性的插值。</p>
-<p>此时渲染结果为 Hello!,若是后期我们把message的值改为Hello,world！,元素p里的内容还是Hello!，不会随着data里的message的改变而改变。</p>
+<p>此时渲染结果为 Hello!,若是后期我们把message的值改为Hello,world！,元素p里的内容还是Hello!，不会随着data里的message的改变而改变</p>
+<h2 id="v-text和v-html"><a href="#v-text和v-html" class="headerlink" title="v-text和v-html"></a>v-text和v-html</h2><p>v-text的作用等价于,用不好的地方是当网速很慢或者js报错的时候，会直接显示，但是使用v-text就不会，所以在实际开发的时候，建议使用v-text。</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;{{message}}&lt;/p&gt; == &lt;p v-text=&quot;message&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        message: &quot;Hello!&quot;
+    }
+});
+</code></pre><p>v-html: 会将元素当成html标签解析然后输出。</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;p v-text=&quot;message&quot;&gt;&lt;/p&gt;
+    &lt;p v-html=&quot;message&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        message: &quot;&lt;h1&gt;hello&lt;/h1&gt;&quot;
+    }
+});
+</code></pre><p>输出结果为：</p>
+<p><img src="v-html.png" alt=""></p>
+<p>注意： 在站点上动态的渲染任意的HTML可能会很危险，因为它很容易导致XSS攻击，所以最好慎用。</p>
 
       
     </div>
@@ -491,7 +519,7 @@ var vue = new Vue({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue指令"><span class="nav-number">1.</span> <span class="nav-text">vue指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#v-if、v-else和v-else-if"><span class="nav-number">1.1.</span> <span class="nav-text">v-if、v-else和v-else-if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-show和v-once"><span class="nav-number">1.2.</span> <span class="nav-text">v-show和v-once</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue指令"><span class="nav-number">1.</span> <span class="nav-text">vue指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#v-if、v-else和v-else-if"><span class="nav-number">1.1.</span> <span class="nav-text">v-if、v-else和v-else-if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-show和v-once"><span class="nav-number">1.2.</span> <span class="nav-text">v-show和v-once</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-text和v-html"><span class="nav-number">1.3.</span> <span class="nav-text">v-text和v-html</span></a></li></ol></li></ol></div>
             
 
           </div>
