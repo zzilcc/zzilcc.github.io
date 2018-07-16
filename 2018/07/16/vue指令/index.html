@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="北京华宇信息技术有限公司">
+<meta name="description" content="vue指令这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，将产生的影响，响应的作用在DOM上。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue指令">
 <meta property="og:url" content="http://yoursite.com/2018/07/16/vue指令/index.html">
 <meta property="og:site_name" content="Zzilcc&#39;s Blog">
-<meta property="og:description" content="北京华宇信息技术有限公司">
+<meta property="og:description" content="vue指令这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，将产生的影响，响应的作用在DOM上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-16T06:12:10.073Z">
+<meta property="og:updated_time" content="2018-07-16T06:13:23.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue指令">
-<meta name="twitter:description" content="北京华宇信息技术有限公司">
+<meta name="twitter:description" content="vue指令这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，将产生的影响，响应的作用在DOM上。">
 
 
 
@@ -299,7 +299,49 @@
       
 
       
-        
+        <h1 id="vue指令"><a href="#vue指令" class="headerlink" title="vue指令"></a>vue指令</h1><p>这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个<br>JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，<br>将产生的影响，响应的作用在DOM上。<a id="more"></a></p>
+<h2 id="v-if、v-else和v-else-if"><a href="#v-if、v-else和v-else-if" class="headerlink" title="v-if、v-else和v-else-if"></a>v-if、v-else和v-else-if</h2><p>使用场景：我们需要进行条件判断来决定这个元素是否显示的时候，就需要用到这些指令。</p>
+<p>有v-else指令的元素必须跟在带有v-if或者v-else-if的元素后面，否则将不会被识别</p>
+<p>使用方法：</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;div v-if=&quot;param&quot;&gt;
+        登陆成功       &lt;!--param的值为true的时候--&gt;
+    &lt;/div&gt;
+    &lt;div v-else&gt;
+        请登录    &lt;!--param的值为false的时候--&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        param: true
+    }
+});
+</code></pre><p>v-else-if 是在2.1.0版本新增的一个指令。学过c,c++,java语言的都应该可以理解，也就是否则如果，可以连续使用，该指令也是只能跟在v-if后面。</p>
+<p>使用方法：</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;div v-if=&quot;param===0&quot;&gt;
+         &lt;!--param的值为0的时候--&gt;
+    &lt;/div&gt;
+    &lt;div v-else-if=&quot;param===1&quot;&gt;
+         &lt;!--param的值为1的时候--&gt;
+    &lt;/div&gt;
+    &lt;div v-else-if=&quot;param===2&quot;&gt;
+         &lt;!--param的值为2的时候--&gt;
+    &lt;/div&gt;
+    &lt;div v-else&gt;
+         &lt;!--param的值是非1，非2，非0的时候--&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        param: 0
+    }
+});
+</code></pre>
       
     </div>
     
@@ -383,8 +425,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -426,6 +477,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue指令"><span class="nav-number">1.</span> <span class="nav-text">vue指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#v-if、v-else和v-else-if"><span class="nav-number">1.1.</span> <span class="nav-text">v-if、v-else和v-else-if</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
