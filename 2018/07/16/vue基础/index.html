@@ -1,92 +1,154 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/npm/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/npm/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/npm/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/npm/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/npm/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/npm/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/npm/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/npm/atom.xml" title="Zzilcc's Blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/npm/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/npm/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/npm/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/npm/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/npm/css/page.css">
+<link rel="stylesheet" type="text/css" href="/npm/css/post.css">
 
-  
-  <title>vue基础 | Zzilcc&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue.js是什么Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vue基础">
-<meta property="og:url" content="http://yoursite.com/2018/07/16/vue基础/index.html">
-<meta property="og:site_name" content="Zzilcc&#39;s Blog">
-<meta property="og:description" content="Vue.js是什么Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-16T03:29:14.548Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue基础">
-<meta name="twitter:description" content="Vue.js是什么Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。">
-  
-    <link rel="alternate" href="/npm/atom.xml" title="Zzilcc&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/npm/css/style.css">
-</head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/npm/" id="logo">Zzilcc&#39;s Blog</a>
-      </h1>
+    <link rel="stylesheet" type="text/css" href="/npm/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/npm/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/npm/css/lightgallery.min.css">
+    <script type="text/javascript" src="/npm/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/npm/js/util.js"></script>
+    <script defer type="text/javascript" src="/npm/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/npm/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/npm/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/npm/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/npm/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/npm/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/npm/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/npm/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/npm/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/npm/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/npm/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/npm/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/npm/js/custom.js"></script>
+    <title>vue基础 | Zzilcc's Blog</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/npm/">Zzilcc's Blog</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/npm/images/ARIA_logo.png" alt="logo">
+      </div>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/npm/">Home</a>
-        
-          <a class="main-nav-link" href="/npm/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/npm/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
+    
+    <li role="menuitem"><a href="/npm/">Home</a></li>
+    
+    <li role="menuitem"><a href="/npm/archives/">Archives</a></li>
+    
+  </ul>
+</nav>
+
+
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-vue基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/npm/2018/07/16/vue基础/" class="article-date">
-  <time datetime="2018-07-16T03:28:25.000Z" itemprop="datePublished">2018-07-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      vue基础
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h2><p>Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。<br><a id="more"></a></p>
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/npm/2018/07/16/vue基础/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Zzilcc">
+       <meta itemprop="description" content="北京华宇信息技术有限公司">
+       <meta itemprop="image" content="/npm/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Zzilcc's Blog">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">vue基础</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-07-16T11:28:25+08:00">2018-07-16 11:28:25</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h2><p>Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。<br><a id="more"></a></p>
 <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Vue有两个版本，一个开发版本，包含完整的警告和调试模式；一个是生产版本，删除了警告，进行了压缩。</p>
 <p>GitHub地址传送门：<a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">github</a></p>
 <h2 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h2><p>我们一般通过Vue函数创建一个新的Vue实例。</p>
@@ -180,107 +242,159 @@ var vue = new Vue({
     }
 })
 </code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/vue基础/" data-id="cjkwrn6bw0000nb8m0903r90n" class="article-share-link">Share</a>
-      
+    </main>
+    <footer class="post-footer">
       
     </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/npm/2018/07/16/vue指令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          vue指令
-        
-      </div>
-    </a>
+  </article>
   
   
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/npm/archives/2018/07/">July 2018</a></li></ul>
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/npm/2018/07/16/vue指令/" rel="prev" title="vue指令"><span class="nav-title">vue指令</span><i class="fas fa-angle-right"></i></a>
+      
     </div>
   </div>
-
-
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/npm/2018/07/16/vue指令/">vue指令</a>
-          </li>
-        
-          <li>
-            <a href="/npm/2018/07/16/vue基础/">vue基础</a>
-          </li>
-        
-      </ul>
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/npm/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
     </div>
   </div>
-
+  <div class="search-result-box" id="search-result"></div>
   
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/npm/images/avatar.png" alt="Zzilcc">
+  
+  <h1 class="author-name">Zzilcc</h1>
+  <h2 class="author-description">北京华宇信息技术有限公司</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">Archives</div>
+      <div><a href="/npm/archives/">2</a></div>
+    </div>
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/npm/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Vue-js是什么"><span class="toc-text">Vue.js是什么</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Vue实例"><span class="toc-text">Vue实例</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#声明式渲染"><span class="toc-text">声明式渲染</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#选项"><span class="toc-text">选项</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#el"><span class="toc-text">el</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#data"><span class="toc-text">data</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#methods"><span class="toc-text">methods</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#computed"><span class="toc-text">computed</span></a></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>Social Links</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:youremail@youremailhost" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>Blogroll</div>
+  <ul>
+    
+    <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
 </aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Zzilcc</span><span class="year"><i class="far fa-copyright"></i>2018</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
+</div>
+
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 Zzilcc<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/npm/" class="mobile-nav-link">Home</a>
-  
-    <a href="/npm/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/npm/fancybox/jquery.fancybox.css">
-  <script src="/npm/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/npm/js/script.js"></script>
-
-
-
-  </div>
-</body>
+  </body>
 </html>
