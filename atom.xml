@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Zzilcc&#39;s Blog</title>
-  <icon>https://www.gravatar.com/avatar/22042664fba938d7ec44ab1daea57c96</icon>
+  <title>黄紫茜的博客</title>
   
-  <link href="/npm/atom.xml" rel="self"/>
+  
+  <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
   <updated>2018-07-16T06:18:15.863Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Zzilcc</name>
-    <email>hzq_56@163.com</email>
+    <name>黄紫茜</name>
+    
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
