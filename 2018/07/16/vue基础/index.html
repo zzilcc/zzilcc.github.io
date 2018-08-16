@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue基础 | Zzilcc&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Vue.js是什么Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue基础">
+<meta property="og:url" content="http://yoursite.com/2018/07/16/vue基础/index.html">
+<meta property="og:site_name" content="Zzilcc&#39;s Blog">
+<meta property="og:description" content="Vue.js是什么Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-16T03:29:14.548Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue基础">
+<meta name="twitter:description" content="Vue.js是什么Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。">
+  
+    <link rel="alternate" href="/npm/atom.xml" title="Zzilcc&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/npm/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/npm/" id="logo">Zzilcc&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/npm/">Home</a>
+        
+          <a class="main-nav-link" href="/npm/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/npm/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/npm/2018/07/16/vue基础/" class="article-date">
+  <time datetime="2018-07-16T03:28:25.000Z" itemprop="datePublished">2018-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h2><p>Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。<br><a id="more"></a></p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Vue有两个版本，一个开发版本，包含完整的警告和调试模式；一个是生产版本，删除了警告，进行了压缩。</p>
+<p>GitHub地址传送门：<a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">github</a></p>
+<h2 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h2><p>我们一般通过Vue函数创建一个新的Vue实例。</p>
+<pre><code>var vue = new Vue({
+    //选项
+});
+</code></pre><h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><p>Vue是声明式渲染，这是Vue的核心，我看过比较好的解释就是“我们只需要告诉程序我们想要什么效果，其他交给程序去做”。</p>
+<p>官网的例子就很好理解：</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    {{message}} //Hi
+&lt;/div&gt;
+
+var vue = new Vue ({
+    el: &quot;#app&quot;,
+    data: {
+        message: &apos;Hi!&apos;
+    }
+}) 
+</code></pre><p>  通过这样我们已经把数据渲染进DOM，而且是响应式的。主要data里的message值发生变化，在页面上也会跟着变化。</p>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p>当创建一个实例后，我们可以传入一个选项对象，下面列出一些常用选项：</p>
+<ul>
+<li>el</li>
+<li>data</li>
+<li>methods</li>
+<li>computed</li>
+</ul>
+<h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><p> 选择挂载目标，可以是css选择器，也可以是html元素，在实例挂载后，元素可以通过vue.$el访问。</p>
+<p> 如果是在实例化时存在这个选项，实例将立即进入编译过程，否则需要显式调用vue.$mount()手动开始编译。</p>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p> Vue实例的数据对象。Vue是响应式的数据变化的，因为Vue会递归的将data的属性转换为getter/setter。data对象必须是纯粹的对象，也就是含有零个或多个的键值对。</p>
+<p> 实例创建后，可以通过vue.$data访问，并且Vue实例，也就是vue实际上也代理了data对象上的不是以“_”或者“$”开头的属性。也就是vue.$data.a等价于 vue.a.</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    {{message}}  //Hello,world
+&lt;/div&gt;
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        message: &quot;Hello world!&quot;
+    }
+});
+
+vue.$data.message === vue.message //true
+</code></pre><h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><p> 用来定义一些方法，用这些方法是实现你想要的一些功能，比如点击事件，或者发送ajax请求等等。这些方法可以通过实例来访问，或者在指令表达式中使用，方法中的this会自动绑定为Vue实例。</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+     {{message}}  //Hello
+     &lt;button v-on:click=&quot;show&quot;&gt;展示完整信息&lt;/button&gt;//点击按钮后会出现Hello,world!
+&lt;/div&gt;
+
+
+
+var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        message: &quot;Hello&quot;
+    },
+    methods: {
+        show: function() {
+            return message = + &quot;,world!&quot;
+        }
+    }
+})
+</code></pre><p> 在这个例子我们使用v-on命令，用来监听事件，这个命令下节会解释。我们在button标签里绑定了点击事件，所以一点击的时候，就会触发了show函数，该函数就会执行，所以message的值为“Hello,world！”。</p>
+<h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p> 计算属性，它是基于依赖进行缓存的，只有相关的依赖的值发生了改变，才会重新执行函数，否则只会返回之前的结果。</p>
+<p> 类型：{[key: string]: Function|{get: Function,set: Function}}</p>
+<pre><code>var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        a: 1
+    },
+    computed: {
+        add: function() {
+             return this.a + 1
+        }
+    }
+})
+</code></pre><p> or</p>
+<pre><code>var vue = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        a: 1
+    },
+    computed: {
+        add: {
+            get: function() {
+                return this.a + 1
+            },
+            set: function(data) {
+                this.a = data -1
+            }
+        }
+    }
+})
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/16/vue基础/" data-id="cjkwramsu0000hs8mi7vg122s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/npm/2018/07/16/vue指令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue指令
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/npm/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/npm/2018/07/16/vue指令/">vue指令</a>
+          </li>
+        
+          <li>
+            <a href="/npm/2018/07/16/vue基础/">vue基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Zzilcc<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/npm/" class="mobile-nav-link">Home</a>
+  
+    <a href="/npm/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/npm/fancybox/jquery.fancybox.css">
+  <script src="/npm/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/npm/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
