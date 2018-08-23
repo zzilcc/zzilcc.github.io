@@ -46,6 +46,9 @@
     <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
     
     
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
     <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
@@ -79,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>黄紫茜的博客</title>
+    <title>JavaScript的創建方法 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -101,7 +104,7 @@
   <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
   <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li role="menuitem"><a href="/" class="current">Home</a></li>
+    <li role="menuitem"><a href="/">Home</a></li>
     
     <li role="menuitem"><a href="/archives/">Archives</a></li>
     
@@ -124,25 +127,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index">
+<div id="post" class="post">
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/JavaScript的創建方法/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
+       <meta itemprop="name" content="黄紫茜的博客">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/08/23/JavaScript的創建方法/" itemprop="url">JavaScript的創建方法</a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">JavaScript的創建方法</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -154,7 +154,6 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
       <h1 id="JavaScript创建对象的几种方法"><a href="#JavaScript创建对象的几种方法" class="headerlink" title="JavaScript创建对象的几种方法"></a>JavaScript创建对象的几种方法</h1><h2 id="一、理解对象"><a href="#一、理解对象" class="headerlink" title="一、理解对象"></a>一、理解对象</h2><p>ECMA-262把对象定义为： 无序属性的集合，其属性可以包含基本值，对象或者函数。每个对象都是基于一个引用<br>类型创建的，这个引用类型可以是原生类型，比如Object，Array等，也可以是自己定义的类型。</p>
 <h2 id="二、常用方法"><a href="#二、常用方法" class="headerlink" title="二、常用方法"></a>二、常用方法</h2><h3 id="（1）创建单个对象"><a href="#（1）创建单个对象" class="headerlink" title="（1）创建单个对象"></a>（1）创建单个对象</h3><p>情景模式： 现在我们要创建一家公司的人员。<br>创建单个对象，也就是我们要创建一个人员。</p>
 <h4 id="a-创建Object实例"><a href="#a-创建Object实例" class="headerlink" title="a. 创建Object实例"></a>a. 创建Object实例</h4><pre><code>传说女娲造人，Object其实可以想象成女娲，所有的对象都是Object的实例。
@@ -275,7 +274,6 @@ var person1 = new Person();
 person1.sayName();//&quot;aa&quot;
 </code></pre><p>我们把公用属性和方法放到了Person的原型中， 所以每个实例访问的都是同一组属性和同一个方法。这样就不用把方法放到全局环境去写了，就解决了构造函数把私有方法放到全局的问题</p>
 
-      
     </main>
     <footer class="post-footer">
       
@@ -291,112 +289,17 @@ person1.sayName();//&quot;aa&quot;
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/vue指令/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/07/16/vue指令/" itemprop="url">vue指令</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-07-16T14:09:37+08:00">2018-07-16 14:09:37</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h1 id="vue指令"><a href="#vue指令" class="headerlink" title="vue指令"></a>vue指令</h1><p>这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个<br>JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，<br>将产生的影响，响应的作用在DOM上。
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/Vue-js/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Vue.js</a>
-        
-      </div>
-      
-    </footer>
-  </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/vue基础/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/07/16/vue指令/" rel="next" title="vue指令"><i class="fas fa-angle-left"></i><span class="nav-title">vue指令</span></a>
+      
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/07/16/vue基础/" itemprop="url">vue基础</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-07-16T11:28:25+08:00">2018-07-16 11:28:25</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
+    <div class="post-nav-prev post-nav-item">
       
-      <h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h2><p>Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。<br>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/Vue-js/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Vue.js</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
+    </div>
+  </div>
   
   
 </div>
@@ -456,6 +359,20 @@ person1.sayName();//&quot;aa&quot;
 
 
   <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#JavaScript创建对象的几种方法"><span class="toc-text">JavaScript创建对象的几种方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、理解对象"><span class="toc-text">一、理解对象</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、常用方法"><span class="toc-text">二、常用方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#（1）创建单个对象"><span class="toc-text">（1）创建单个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-创建Object实例"><span class="toc-text">a. 创建Object实例</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-对象字面量方法"><span class="toc-text">b .对象字面量方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-创建多个对象"><span class="toc-text">(2) 创建多个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-工厂模式"><span class="toc-text">a. 工厂模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-构造函数模式"><span class="toc-text">b. 构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#c-原型模式"><span class="toc-text">c. 原型模式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+</div>
+
+
+
     
     
     
