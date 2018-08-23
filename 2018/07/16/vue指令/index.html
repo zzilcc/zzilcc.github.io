@@ -108,6 +108,12 @@
     
     <li role="menuitem"><a href="/archives/">Archives</a></li>
     
+    <li role="menuitem"><a href="/categories/">Categories</a></li>
+    
+    <li role="menuitem"><a href="/tags/">Tags</a></li>
+    
+    <li role="menuitem"><a href="/about/">About</a></li>
+    
   </ul>
 </nav>
 
@@ -129,7 +135,7 @@
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="黄紫茜">
        <meta itemprop="description" content="">
-       <meta itemprop="image" content="/images/avatar.png">
+       <meta itemprop="image" content="/images/logo.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
        <meta itemprop="name" content="黄紫茜的博客">
@@ -143,6 +149,14 @@
           <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-07-16T14:09:37+08:00">2018-07-16 14:09:37</time></span>
         </span>
         
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+        </span>
         
         
       </div>
@@ -316,6 +330,15 @@ var vue = new Vue({
     </main>
     <footer class="post-footer">
       
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/Vue-js/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Vue.js</a>
+        
+      </div>
+      
     </footer>
   </article>
   
@@ -350,7 +373,7 @@ var vue = new Vue({
   
 <div class="info sidebar-item" id="info">
   
-  <img class="author-avatar" src="/images/avatar.png" alt="黄紫茜">
+  <img class="author-avatar" src="/images/logo.jpg" alt="黄紫茜">
   
   <h1 class="author-name">黄紫茜</h1>
   <h2 class="author-description"></h2>
@@ -362,6 +385,22 @@ var vue = new Vue({
     </div>
     
     
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">Categories</div>
+      <div><a href="/categories/">1</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">Tags</div>
+      <div><a href="/tags/">1</a></div>
+    </div>
     
   </div>
   
@@ -395,11 +434,9 @@ var vue = new Vue({
   <div><i class="far fa-address-card"></i>Social Links</p></div>
   <ul>
     
-    <li><i class="fas fa-envelope"></i><a href="mailto:youremail@youremailhost" target="_blank">E-Mail</a></li>
+    <li><i class="fas fa-envelope"></i><a href="hzq_56@163.com" target="_blank">E-Mail</a></li>
     
-    <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
-    
-    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+    <li><i class="fab fa-github"></i><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
     
   </ul>
 </div>
@@ -413,7 +450,7 @@ var vue = new Vue({
   <div><i class="fas fa-link"></i>Blogroll</div>
   <ul>
     
-    <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+    <li><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
     
     <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
     
