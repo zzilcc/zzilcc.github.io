@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-23T03:39:06.018Z</updated>
+  <updated>2018-08-27T16:03:44.151Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>变基git rebase中的基是什么</title>
+    <link href="http://yoursite.com/2018/08/28/%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/"/>
+    <id>http://yoursite.com/2018/08/28/变基git-rebase中的基是什么/</id>
+    <published>2018-08-27T16:01:26.000Z</published>
+    <updated>2018-08-27T16:03:44.151Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript的創建方法</title>
