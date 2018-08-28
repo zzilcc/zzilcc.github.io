@@ -151,7 +151,7 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       <h1 id="变基-git-rebase-中的基是什么？"><a href="#变基-git-rebase-中的基是什么？" class="headerlink" title="变基(git rebase)中的基是什么？"></a>变基(git rebase)中的基是什么？</h1><p>git rebase 在官网中的定义是：重新应用commits到要合并到的分支的顶端。（一个英语渣的直译，见笑了）。其实也可以这么说是重新应用commits到要合并到的分支的最新提交。如果现在还没有理解，没有关系，现在我开始仔细说明git rebase都干了什么。</p>
-<p>假设我们现在是A研发人员，此时本地分支是master,然后远程有两个分支：origin/master,origin/develop。此时我们接到一个任务，我们要在develop分支上开发一个功能，所以此时我们要切换分支。</p>
+<p>假设我们现在是A研发人员，此时本地分支是master,然后远程有两个分支：origin/master,origin/develop。此时我们接到一个任务，我们要在develop分支上开发一个功能，所以此时我们要切换分支。<br><a id="more"></a></p>
 <p><img src="changj.png" alt=""></p>
 <p>切换分支我们需要用到的命令是：</p>
 <pre><code>git checkout -b local_develop origin/develop
@@ -172,7 +172,8 @@
 <p>现在我们也可以来了解一下另一个合并分支的命令(git merge).</p>
 <p>merge命令非常简单粗暴，就是把你本地最新的提交和远程最新的提交合并一下，得到一份最新的提交。</p>
 <p><img src="006.png" alt=""></p>
-<p>用merge命令的话树状图就会看着很乱，</p>
+<p>用merge命令的话树状图就会看着很乱，有各种线交叉，看着非常不友好。</p>
+<p>所以拉代码推荐git fetch + git rebase.</p>
 
     </main>
     <footer class="post-footer">
