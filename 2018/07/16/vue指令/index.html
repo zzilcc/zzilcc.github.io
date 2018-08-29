@@ -228,7 +228,7 @@ var vue = new Vue({
     }
 });
 </code></pre><p>输出结果为：</p>
-<p><img src="vue指令/v-html.png" alt=""></p>
+<p><img src="/2018/07/16/vue指令/v-html.png" alt=""></p>
 <p>注意： 在站点上动态的渲染任意的HTML可能会很危险，因为它很容易导致XSS攻击，所以最好慎用。</p>
 <h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>v-bind一般用来绑定元素属性，属性值可以是字符串，对象或数组。可以用来绑定class、style或者是图片，链接的地址属性src、href等。v-bind可以简写成“:”。</p>
 <pre><code>&lt;style&gt;
@@ -307,8 +307,8 @@ var vue = new Vue({
         }
     }
 })
-</code></pre><p>结果为：<br><img src="vue指令/v-bind1.png" alt=""></p>
-<p><img src="vue指令/v-bind2.png" alt=""></p>
+</code></pre><p>结果为：<br><img src="/2018/07/16/vue指令/v-bind1.png" alt=""></p>
+<p><img src="/2018/07/16/vue指令/v-bind2.png" alt=""></p>
 <h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p>v-model指令主要用来在表单<code>&lt;input&gt;</code>及<code>&lt;textarea&gt;</code>元素上进行双向数据绑定。v-model会忽略所有表单元素的value,checked,selected特性的初始值，而总是将Vue实例的数据当做数据来源。</p>
 <h3 id="文本绑定"><a href="#文本绑定" class="headerlink" title="文本绑定"></a>文本绑定</h3><pre><code>&lt;div id=&quot;app&quot;&gt;
     &lt;input v-model=&quot;message&quot; placeholder=&quot;请输入&quot;&gt;
@@ -321,7 +321,7 @@ var vue = new Vue({
         message: &quot;&quot;
     }
 })
-</code></pre><p><img src="vue指令/v-model1.png" alt=""></p>
+</code></pre><p><img src="/2018/07/16/vue指令/v-model1.png" alt=""></p>
 
     </main>
     <footer class="post-footer">
