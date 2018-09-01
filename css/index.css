@@ -1,6 +1,7 @@
 .header {
   padding-bottom: 3em;
   margin-bottom: 0;
+  background: none;
   color: #eee;
 }
 .header .header-container {
