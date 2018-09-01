@@ -527,7 +527,7 @@ body,
 }
 body {
   color: #26272b;
-  background: #ccc;
+  background: url("../images/hexo_bg.jpg") #ccc;
   font: 16px "Roboto", "Noto Sans", Helvetica, Arial, sans-serif;
   word-wrap: break-word;
   display: -webkit-box;
