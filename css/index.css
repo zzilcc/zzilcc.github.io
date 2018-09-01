@@ -148,14 +148,12 @@
 }
 .nav ul li a:hover {
   color: #c15f93;
-  background: #fae3d9 r;
 }
 .nav ul li a:active {
   top: 0;
 }
 .nav ul li a.current {
   color: #c15f93;
-  background: #fae3d9 r;
 }
 .nav .nav-toggle {
   text-align: center;
