@@ -111,7 +111,7 @@
   position: relative;
   margin: 0;
   padding: 0 0.5em;
-  background: #ffb6b9;
+  background: #bbded6;
   -webkit-box-shadow: 0 -0.5em 1em 0.5em rgba(0,0,0,0.19);
   box-shadow: 0 -0.5em 1em 0.5em rgba(0,0,0,0.19);
   border-top-left-radius: 0.2em;
@@ -525,7 +525,7 @@ body,
 }
 body {
   color: #26272b;
-  background: #bbded6;
+  background: #ffb6b9;
   font: 16px "Roboto", "Noto Sans", Helvetica, Arial, sans-serif;
   word-wrap: break-word;
   display: -webkit-box;
