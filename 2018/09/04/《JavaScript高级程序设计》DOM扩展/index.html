@@ -82,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>vue基础 | 黄紫茜的博客</title>
+    <title>《JavaScript高级程序设计》DOM扩展 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -123,7 +123,7 @@
   
   <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/vue基础/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/《JavaScript高级程序设计》DOM扩展/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="黄紫茜">
        <meta itemprop="description" content="">
@@ -134,120 +134,78 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">vue基础</h1>
+      <h1 class="post-title" itemprop="name headline">《JavaScript高级程序设计》DOM扩展</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-07-16T11:28:25+08:00">2018-07-16 11:28:25</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-04T15:46:57+08:00">2018-09-04 15:46:57</time></span>
         </span>
         
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
-        </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h2><p>Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。<br><a id="more"></a></p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Vue有两个版本，一个开发版本，包含完整的警告和调试模式；一个是生产版本，删除了警告，进行了压缩。</p>
-<p>GitHub地址传送门：<a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">github</a></p>
-<h2 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h2><p>我们一般通过Vue函数创建一个新的Vue实例。</p>
-<pre><code>var vue = new Vue({
-    //选项
-});
-</code></pre><h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><p>Vue是声明式渲染，这是Vue的核心，我看过比较好的解释就是“我们只需要告诉程序我们想要什么效果，其他交给程序去做”。</p>
-<p>官网的例子就很好理解：</p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-    {{message}} //Hi
+      <h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a>DOM扩展</h1><h2 id="选择符API（重要）"><a href="#选择符API（重要）" class="headerlink" title="选择符API（重要）"></a>选择符API（重要）</h2><p>平时我们写代码的时候最常用的一个操作就是根据css选择符选择与某个模式匹配的DOM元素，比如$(“css选择符”)。但是用jquery的话我们必须引用jquery库。现在我们可以不需要引js库就可以实现这个功能。</p>
+<p>选择符API的核心是两个方法：querySelector()和querySelectorAll()。</p>
+<p>Document、Element，DocumentFragment三种类型的元素都有这两个方法。</p>
+<h3 id="1-querySelector"><a href="#1-querySelector" class="headerlink" title="1. querySelector()"></a>1. querySelector()</h3><p>该方法接收一个css选择器，返回与该模式匹配的第一个元素，如果没有找到匹配的元素，则会返回null。如果传入了不被支持的选择符，会报错。</p>
+<p>通过Document类型调用该方法，会在文档元素的范围内查找匹配的元素。而通过Element类型调用，只会在该元素后代元素范围内查找匹配的元素。</p>
+<p><code>html</code></p>
+<pre><code>&lt;span class=&quot;outside&quot;&gt;outside&lt;/span&gt;
+&lt;div id=&quot;my-id&quot;&gt;
+        &lt;span class=&quot;outside&quot;&gt;my-id outside&lt;/span&gt;
+     &lt;span id=&quot;inside&quot;&gt;inside&lt;/span&gt;
+     &lt;div class=&quot;lonely&quot;&gt;lonely&lt;/div&gt;
+     &lt;div class=&quot;outer&quot;&gt;
+          &lt;div class=&quot;inner&quot;&gt;inner&lt;/div&gt;
+     &lt;/div&gt;
 &lt;/div&gt;
-
-var vue = new Vue ({
-    el: &quot;#app&quot;,
-    data: {
-        message: &apos;Hi!&apos;
-    }
-}) 
-</code></pre><p>  通过这样我们已经把数据渲染进DOM，而且是响应式的。主要data里的message值发生变化，在页面上也会跟着变化。</p>
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p>当创建一个实例后，我们可以传入一个选项对象，下面列出一些常用选项：</p>
-<ul>
-<li>el</li>
-<li>data</li>
-<li>methods</li>
-<li>computed</li>
-</ul>
-<h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><p> 选择挂载目标，可以是css选择器，也可以是html元素，在实例挂载后，元素可以通过vue.$el访问。</p>
-<p> 如果是在实例化时存在这个选项，实例将立即进入编译过程，否则需要显式调用vue.$mount()手动开始编译。</p>
-<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p> Vue实例的数据对象。Vue是响应式的数据变化的，因为Vue会递归的将data的属性转换为getter/setter。data对象必须是纯粹的对象，也就是含有零个或多个的键值对。</p>
-<p> 实例创建后，可以通过vue.$data访问，并且Vue实例，也就是vue实际上也代理了data对象上的不是以“_”或者“$”开头的属性。也就是vue.$data.a等价于 vue.a.</p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-    {{message}}  //Hello,world
-&lt;/div&gt;
-
-var vue = new Vue({
-    el: &quot;#app&quot;,
-    data: {
-        message: &quot;Hello world!&quot;
-    }
-});
-
-vue.$data.message === vue.message //true
-</code></pre><h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><p> 用来定义一些方法，用这些方法是实现你想要的一些功能，比如点击事件，或者发送ajax请求等等。这些方法可以通过实例来访问，或者在指令表达式中使用，方法中的this会自动绑定为Vue实例。</p>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-     {{message}}  //Hello
-     &lt;button v-on:click=&quot;show&quot;&gt;展示完整信息&lt;/button&gt;//点击按钮后会出现Hello,world!
-&lt;/div&gt;
-
-
-
-var vue = new Vue({
-    el: &quot;#app&quot;,
-    data: {
-        message: &quot;Hello&quot;
-    },
-    methods: {
-        show: function() {
-            return message = + &quot;,world!&quot;
-        }
-    }
-})
-</code></pre><p> 在这个例子我们使用v-on命令，用来监听事件，这个命令下节会解释。我们在button标签里绑定了点击事件，所以一点击的时候，就会触发了show函数，该函数就会执行，所以message的值为“Hello,world！”。</p>
-<h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p> 计算属性，它是基于依赖进行缓存的，只有相关的依赖的值发生了改变，才会重新执行函数，否则只会返回之前的结果。</p>
-<p> 类型：{[key: string]: Function|{get: Function,set: Function}}</p>
-<pre><code>var vue = new Vue({
-    el: &quot;#app&quot;,
-    data: {
-        a: 1
-    },
-    computed: {
-        add: function() {
-             return this.a + 1
-        }
-    }
-})
-</code></pre><p> or</p>
-<pre><code>var vue = new Vue({
-    el: &quot;#app&quot;,
-    data: {
-        a: 1
-    },
-    computed: {
-        add: {
-            get: function() {
-                return this.a + 1
-            },
-            set: function(data) {
-                this.a = data -1
-            }
-        }
-    }
-})
-</code></pre>
+</code></pre><p>Document</p>
+<p><code>js</code></p>
+<pre><code>var lonely = document.querySelector(&quot;#my-id .lonely&quot;);
+var outside1 = document.querySelector(&quot;#outside1&quot;); //null
+var inside = document.querySelector(&quot;#.inside&quot;);//报错
+</code></pre><p>结果：</p>
+<p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelector.png" alt=""></p>
+<p>Element</p>
+<pre><code>var myId = document.querySelector(&quot;#my-id&quot;);
+var outer = myId.querySelector(&quot;.outer&quot;);
+var outside = myId.querySelector(&quot;.outside&quot;);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelector-element.png" alt=""></p>
+<h3 id="2-querySelectorAll"><a href="#2-querySelectorAll" class="headerlink" title="2.querySelectorAll()"></a>2.querySelectorAll()</h3><p>该方法接收的参数也是一个css选择符，返回的是一个NodeList的实例，返回的是所有匹配的元素而不仅仅是返回的一个元素。</p>
+<p>NodeList 对象是一个节点的集合，是由 Node.childNodes 和 document.querySelectorAll 返回的.</p>
+<p>大多数情况下，我们使用Node.childNodes返回的NodeList是一个实时的集合，也就是页面节点又变化是，NodeList会跟着改变。</p>
+<pre><code>var myId = document.querySelector(&quot;#my-id&quot;);
+var childNodes = myId.childNodes; //9
+myId.appendChild(document.createElement(&apos;div&apos;));
+var childNodes2 = myId.childNodes;//10
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/childnodes.png" alt=""> </p>
+<p>querySelectorAll()返回的是一个静态的nodeList，是一个快照。这样可以避免使用NodeList对象通常会引起的大多数性能问题。</p>
+<pre><code>var myId = document.querySelector(&quot;#my-id&quot;);
+var nodes = document.querySelectorAll(&quot;div&quot;);
+console.log(&quot;nodes:&quot;);
+console.log(nodes);
+myId.appendChild(document.createElement(&apos;div&apos;));
+var nodes2 = document.querySelectorAll(&quot;div&quot;);
+console.log(&quot;nodes2:&quot;);
+console.log(nodes2);
+console.log(&quot;nodes:&quot;);
+console.log(nodes);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelectorAll.png" alt=""></p>
+<p> 只要传给querySelectorAll()方法的css选择符有效，该方法都会返回一个NodeList对象，如果没有找到匹配的元素，NodeList就是空的。  </p>
+<pre><code>var aNodes = document.querySelectorAll(&quot;a&quot;);   
+console.log(&quot;aNodes&quot;);
+console.log(aNodes);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/nodelist-null.png" alt=""><br>思考：下面两个获取方法得到的内容是一样的么？</p>
+<pre><code>var div = document.querySelectorAll(&quot;#my-id div div&quot;);
+console.log(&quot;div:&quot;);
+console.log(div);
+var div2 = document.querySelector(&quot;#my-id&quot;).querySelectorAll(&quot;div div&quot;);
+console.log(&quot;div2:&quot;);
+console.log(div2);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelectorAll2.png" alt=""></p>
+<h2 id="元素遍历"><a href="#元素遍历" class="headerlink" title="元素遍历"></a>元素遍历</h2><h2 id="HTML5（重要）"><a href="#HTML5（重要）" class="headerlink" title="HTML5（重要）"></a>HTML5（重要）</h2><h2 id="专有扩展"><a href="#专有扩展" class="headerlink" title="专有扩展"></a>专有扩展</h2>
     </main>
     <footer class="post-footer">
       
@@ -256,7 +214,7 @@ var vue = new Vue({
         
         
         
-        <a class="post-tag button" href="/tags/Vue-js/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Vue.js</a>
+        <a class="post-tag button" href="/tags/JavaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript</a>
         
       </div>
       
@@ -267,10 +225,10 @@ var vue = new Vue({
   <div class="post-nav">
     <div class="post-nav-next post-nav-item">
       
+      <a href="/2018/08/28/变基git-rebase中的基是什么/" rel="next" title="变基git rebase中的基是什么"><i class="fas fa-angle-left"></i><span class="nav-title">变基git rebase中的基是什么</span></a>
+      
     </div>
     <div class="post-nav-prev post-nav-item">
-      
-      <a href="/2018/07/16/vue指令/" rel="prev" title="vue指令"><span class="nav-title">vue指令</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </div>
@@ -343,7 +301,7 @@ var vue = new Vue({
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Vue-js是什么"><span class="toc-text">Vue.js是什么</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Vue实例"><span class="toc-text">Vue实例</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#声明式渲染"><span class="toc-text">声明式渲染</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#选项"><span class="toc-text">选项</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#el"><span class="toc-text">el</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#data"><span class="toc-text">data</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#methods"><span class="toc-text">methods</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#computed"><span class="toc-text">computed</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#DOM扩展"><span class="toc-text">DOM扩展</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#选择符API（重要）"><span class="toc-text">选择符API（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-querySelector"><span class="toc-text">1. querySelector()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-querySelectorAll"><span class="toc-text">2.querySelectorAll()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#元素遍历"><span class="toc-text">元素遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#HTML5（重要）"><span class="toc-text">HTML5（重要）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#专有扩展"><span class="toc-text">专有扩展</span></a></li></ol></li></ol></div>
 </div>
 
 
