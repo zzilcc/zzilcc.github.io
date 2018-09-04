@@ -146,9 +146,10 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a>DOM扩展</h1><h2 id="选择符API（重要）"><a href="#选择符API（重要）" class="headerlink" title="选择符API（重要）"></a>选择符API（重要）</h2><p>平时我们写代码的时候最常用的一个操作就是根据css选择符选择与某个模式匹配的DOM元素，比如$(“css选择符”)。但是用jquery的话我们必须引用jquery库。现在我们可以不需要引js库就可以实现这个功能。</p>
-<p>选择符API的核心是两个方法：querySelector()和querySelectorAll()。</p>
+      <h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a><center>DOM扩展</center></h1><h2 id="一、选择符API（重要）"><a href="#一、选择符API（重要）" class="headerlink" title="一、选择符API（重要）"></a>一、选择符API（重要）</h2><p>平时我们写代码的时候最常用的一个操作就是根据css选择符选择与某个模式匹配的DOM元素，比如$(“css选择符”)。但是用jquery的话我们必须引用jquery库。现在我们可以不需要引js库就可以实现这个功能。</p>
+<p>选择符API的核心是两个方法：querySelector()和querySelectorAll()。还有一个matchesSelector()方法。</p>
 <p>Document、Element，DocumentFragment三种类型的元素都有这两个方法。</p>
+<p>兼容性(2018.09.04查询)<br><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/jrx.png" alt=""></p>
 <h3 id="1-querySelector"><a href="#1-querySelector" class="headerlink" title="1. querySelector()"></a>1. querySelector()</h3><p>该方法接收一个css选择器，返回与该模式匹配的第一个元素，如果没有找到匹配的元素，则会返回null。如果传入了不被支持的选择符，会报错。</p>
 <p>通过Document类型调用该方法，会在文档元素的范围内查找匹配的元素。而通过Element类型调用，只会在该元素后代元素范围内查找匹配的元素。</p>
 <p><code>html</code></p>
@@ -205,7 +206,12 @@ var div2 = document.querySelector(&quot;#my-id&quot;).querySelectorAll(&quot;div
 console.log(&quot;div2:&quot;);
 console.log(div2);
 </code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelectorAll2.png" alt=""></p>
-<h2 id="元素遍历"><a href="#元素遍历" class="headerlink" title="元素遍历"></a>元素遍历</h2><h2 id="HTML5（重要）"><a href="#HTML5（重要）" class="headerlink" title="HTML5（重要）"></a>HTML5（重要）</h2><h2 id="专有扩展"><a href="#专有扩展" class="headerlink" title="专有扩展"></a>专有扩展</h2>
+<p>原因：CSS选择器是独立于整个页面的！</p>
+<p>这里的querySelectorAll里面的选择器也同样是这也全局特性。document.querySelector(“#my-id”).querySelectorAll(“div div”)翻译成白话文就是：查询#my-id的子元素，同时满足整个页面下div div选择器条件的DOM元素们。</p>
+<p>使用场景？</p>
+<h3 id="3-matchesSelector（）方法"><a href="#3-matchesSelector（）方法" class="headerlink" title="3.matchesSelector（）方法"></a>3.matchesSelector（）方法</h3><p>这个方法接收一个参数，css选择符，如果调用元素与该选择符匹配，返回true，否则为false。</p>
+<p>if(document.body.webkitMatchesSelector(“body”)){<br>        console.log(“webkitMatchesSelector”);<br>    }</p>
+<h2 id="二、元素遍历"><a href="#二、元素遍历" class="headerlink" title="二、元素遍历"></a>二、元素遍历</h2><h2 id="三、HTML5（重要）"><a href="#三、HTML5（重要）" class="headerlink" title="三、HTML5（重要）"></a>三、HTML5（重要）</h2><h3 id="1-与类相关的扩充"><a href="#1-与类相关的扩充" class="headerlink" title="1.与类相关的扩充"></a>1.与类相关的扩充</h3><h3 id="2-焦点管理"><a href="#2-焦点管理" class="headerlink" title="2.焦点管理"></a>2.焦点管理</h3><h3 id="3-HTMLDocument的变化"><a href="#3-HTMLDocument的变化" class="headerlink" title="3.HTMLDocument的变化"></a>3.HTMLDocument的变化</h3><h3 id="4-字符集属性"><a href="#4-字符集属性" class="headerlink" title="4.字符集属性"></a>4.字符集属性</h3><h3 id="5-自定义数据属性"><a href="#5-自定义数据属性" class="headerlink" title="5.自定义数据属性"></a>5.自定义数据属性</h3><h3 id="6-插入标记"><a href="#6-插入标记" class="headerlink" title="6.插入标记"></a>6.插入标记</h3><h3 id="7-scrollIntoView"><a href="#7-scrollIntoView" class="headerlink" title="7.scrollIntoView()"></a>7.scrollIntoView()</h3><h2 id="四、专有扩展"><a href="#四、专有扩展" class="headerlink" title="四、专有扩展"></a>四、专有扩展</h2>
     </main>
     <footer class="post-footer">
       
@@ -301,7 +307,7 @@ console.log(div2);
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#DOM扩展"><span class="toc-text">DOM扩展</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#选择符API（重要）"><span class="toc-text">选择符API（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-querySelector"><span class="toc-text">1. querySelector()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-querySelectorAll"><span class="toc-text">2.querySelectorAll()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#元素遍历"><span class="toc-text">元素遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#HTML5（重要）"><span class="toc-text">HTML5（重要）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#专有扩展"><span class="toc-text">专有扩展</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#DOM扩展"><span class="toc-text">DOM扩展</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、选择符API（重要）"><span class="toc-text">一、选择符API（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-querySelector"><span class="toc-text">1. querySelector()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-querySelectorAll"><span class="toc-text">2.querySelectorAll()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-matchesSelector（）方法"><span class="toc-text">3.matchesSelector（）方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、元素遍历"><span class="toc-text">二、元素遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#三、HTML5（重要）"><span class="toc-text">三、HTML5（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-与类相关的扩充"><span class="toc-text">1.与类相关的扩充</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-焦点管理"><span class="toc-text">2.焦点管理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-HTMLDocument的变化"><span class="toc-text">3.HTMLDocument的变化</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-字符集属性"><span class="toc-text">4.字符集属性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#5-自定义数据属性"><span class="toc-text">5.自定义数据属性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#6-插入标记"><span class="toc-text">6.插入标记</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#7-scrollIntoView"><span class="toc-text">7.scrollIntoView()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#四、专有扩展"><span class="toc-text">四、专有扩展</span></a></li></ol></li></ol></div>
 </div>
 
 
