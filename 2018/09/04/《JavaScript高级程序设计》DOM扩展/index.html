@@ -148,8 +148,7 @@
     <main class="post-main" itemprop="articleBody">
       <h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a><center>DOM扩展</center></h1><h2 id="一、选择符API（重要）"><a href="#一、选择符API（重要）" class="headerlink" title="一、选择符API（重要）"></a>一、选择符API（重要）</h2><p>平时我们写代码的时候最常用的一个操作就是根据css选择符选择与某个模式匹配的DOM元素，比如$(“css选择符”)。但是用jquery的话我们必须引用jquery库。现在我们可以不需要引js库就可以实现这个功能。</p>
 <p>选择符API的核心是两个方法：querySelector()和querySelectorAll()。还有一个matchesSelector()方法。</p>
-<p>Document、Element，DocumentFragment三种类型的元素都有这两个方法。</p>
-<p>兼容性(2018.09.04查询)<br><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/jrx.png" alt=""></p>
+<p>Document、Element，DocumentFragment三种类型的元素都有这两个方法。<br><a id="more"></a><br>兼容性(2018.09.04查询)<br><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/jrx.png" alt=""></p>
 <h3 id="1-querySelector"><a href="#1-querySelector" class="headerlink" title="1. querySelector()"></a>1. querySelector()</h3><p>该方法接收一个css选择器，返回与该模式匹配的第一个元素，如果没有找到匹配的元素，则会返回null。如果传入了不被支持的选择符，会报错。</p>
 <p>通过Document类型调用该方法，会在文档元素的范围内查找匹配的元素。而通过Element类型调用，只会在该元素后代元素范围内查找匹配的元素。</p>
 <p><code>html</code></p>
