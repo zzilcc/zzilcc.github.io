@@ -210,7 +210,64 @@ console.log(div2);
 <p>使用场景？</p>
 <h3 id="3-matchesSelector（）方法"><a href="#3-matchesSelector（）方法" class="headerlink" title="3.matchesSelector（）方法"></a>3.matchesSelector（）方法</h3><p>这个方法接收一个参数，css选择符，如果调用元素与该选择符匹配，返回true，否则为false。</p>
 <p>if(document.body.webkitMatchesSelector(“body”)){<br>        console.log(“webkitMatchesSelector”);<br>    }</p>
-<h2 id="二、元素遍历"><a href="#二、元素遍历" class="headerlink" title="二、元素遍历"></a>二、元素遍历</h2><h2 id="三、HTML5（重要）"><a href="#三、HTML5（重要）" class="headerlink" title="三、HTML5（重要）"></a>三、HTML5（重要）</h2><h3 id="1-与类相关的扩充"><a href="#1-与类相关的扩充" class="headerlink" title="1.与类相关的扩充"></a>1.与类相关的扩充</h3><h3 id="2-焦点管理"><a href="#2-焦点管理" class="headerlink" title="2.焦点管理"></a>2.焦点管理</h3><h3 id="3-HTMLDocument的变化"><a href="#3-HTMLDocument的变化" class="headerlink" title="3.HTMLDocument的变化"></a>3.HTMLDocument的变化</h3><h3 id="4-字符集属性"><a href="#4-字符集属性" class="headerlink" title="4.字符集属性"></a>4.字符集属性</h3><h3 id="5-自定义数据属性"><a href="#5-自定义数据属性" class="headerlink" title="5.自定义数据属性"></a>5.自定义数据属性</h3><h3 id="6-插入标记"><a href="#6-插入标记" class="headerlink" title="6.插入标记"></a>6.插入标记</h3><h3 id="7-scrollIntoView"><a href="#7-scrollIntoView" class="headerlink" title="7.scrollIntoView()"></a>7.scrollIntoView()</h3><h2 id="四、专有扩展"><a href="#四、专有扩展" class="headerlink" title="四、专有扩展"></a>四、专有扩展</h2>
+<h2 id="二、元素遍历"><a href="#二、元素遍历" class="headerlink" title="二、元素遍历"></a>二、元素遍历</h2><p> 对于元素间的空格，IE9及之前的版本不会返回文本节点，这样就导致了在使用childNodes和firstChild等属性时行为不一致。</p>
+<p> 所以Element Traversal API 为DOM元素添加了以下5个属性。</p>
+<p> childElementCount： 返回子元素（不包括文本节点和注释）的个数</p>
+<p> firstElementChild：只想第一个子元素</p>
+<p> lastElementChild： 指向最后一个元素</p>
+<p> previousElmentSlibling：指向前一个同辈元素</p>
+<p> nextElementSibling：指向后一个同辈元素</p>
+<h2 id="三、HTML5（重要）"><a href="#三、HTML5（重要）" class="headerlink" title="三、HTML5（重要）"></a>三、HTML5（重要）</h2><h3 id="1-与类相关的扩充"><a href="#1-与类相关的扩充" class="headerlink" title="1.与类相关的扩充"></a>1.与类相关的扩充</h3><ol>
+<li><p>getElementsByClassName()<br> 该方法接收一个参数，即包含一或多个类名的字符串，返回带有指定类的所有元素的NodeList。类名的先后顺序无所谓。</p>
+</li>
+<li><p>classLists属性</p>
+<pre><code>&lt;div id=&quot;dd&quot; class=&quot;bd user do&quot;&gt;2222&lt;/div&gt;
+
+var dd = document.querySelector(&quot;#dd&quot;);
+console.log(dd.classList);
+</code></pre></li>
+</ol>
+<p>add(value): 将给定的字符串添加到列表中，如果值有，就不添加</p>
+<p>contains(value): 表示列表中是否存在给定的值，如果存在则返回true，如果不存在false</p>
+<p>remove(value):从列表中删除给定的字符串</p>
+<p>toggle(value):如果列表中已经存在给定的值，删除它，如果列表中每一给定的值，添加它。</p>
+<h3 id="2-自定义数据属性"><a href="#2-自定义数据属性" class="headerlink" title="2 自定义数据属性"></a>2 自定义数据属性</h3><p>html5规定要添加非标准的属性，但是要加前缀data-，目的是为元素提供与渲染无关的信息，或者提供语义信息</p>
+<p>例如：</p>
+<pre><code>&lt;div id=&quot;myDiv&quot; data-appId=&quot;123&quot; data-myname=&quot;hzq&quot;&gt;
+</code></pre><p>t添加了自定义属性后，我们可以通过元素的dataset属性来访问自定义属性的值</p>
+<h3 id="3-插入标记"><a href="#3-插入标记" class="headerlink" title="3.插入标记"></a>3.插入标记</h3><p>使用场景：</p>
+<p>我们需要给文档插入大量新的标记，我们不仅要创建一系列DOM节点，然后还要小心的按照正确的顺序把他们连接起来。</p>
+<h4 id="a：innerHTML属性"><a href="#a：innerHTML属性" class="headerlink" title="a：innerHTML属性"></a>a：innerHTML属性</h4><p>在读模式，innerHTML属性返回与调用元素的所有子节点（包括元素，注释和文本节点）对应的HTML标记。</p>
+<p>在写模式，innnerHTML会根据制定的值创建新的DOM树，然后用这个DOM树完全替换调用元素原先的所有子节点。</p>
+<pre><code>&lt;div id=&quot;content&quot;&gt;
+    &lt;p&gt;hello&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+     &lt;/ul&gt;
+ &lt;/div&gt;
+
+var innerHTML = document.querySelector(&quot;#content&quot;).innerHTML;
+console.log(innerHTML);
+</code></pre><p>返回的是</p>
+<pre><code>&lt;p&gt;hello&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+    &lt;/ul&gt;
+</code></pre><p> 写模式：</p>
+<pre><code>document.querySelector(&quot;#content&quot;).innerHTML = &quot;&lt;p&gt;hello,world&lt;/p&gt;&quot;;  
+ var innerHTML = document.querySelector(&quot;#content&quot;).innerHTML;
+ console.log(innerHTML);//&lt;p&gt;hello,world&lt;/p&gt;
+</code></pre><p>并不是所有元素都支持innerHTML属性，不支持的有：<br>    <code>&lt;col</code>&gt;,<code>&lt;colgroup</code>&gt;,<code>&lt;frameset&gt;</code>,<code>&lt;head&gt;</code>,<code>&lt;html&gt;</code>,<code>&lt;style&gt;</code>,<code>&lt;table&gt;</code>,<code>&lt;tbody&gt;</code>,<code>&lt;thead&gt;</code>,<code>&lt;tfoot&gt;</code>,<code>&lt;tr&gt;</code></p>
+<h4 id="b-outerHTML"><a href="#b-outerHTML" class="headerlink" title="b: outerHTML"></a>b: outerHTML</h4><p>在读模式，outerHTML返回调用它的元素及所有子节点的HTML标签，在写模式下，outerHTML会根据制定的HTML字符串去创建新的DOM子树，然后用这个DOM树去完全替换调用元素。</p>
+<h4 id="c：内存与性能问题"><a href="#c：内存与性能问题" class="headerlink" title="c：内存与性能问题"></a>c：内存与性能问题</h4><p>我们在使用这两个属性时，可能删除了之前的元素，元素上有一个事件处理程序，从文档树中删除了元素，但是元素与事件处理程序之间的绑定关系在内存中并没有删除，这样日积月累，页面占有的内存会越来越多，所以我们使用上面的方法时最好手动删除要被删除的元素的事件处理程序和js对象属性。</p>
+<h3 id="4-scrollIntoView"><a href="#4-scrollIntoView" class="headerlink" title="4.scrollIntoView()"></a>4.scrollIntoView()</h3><p>为了方便开发人员更好的控制页面滚动，HTML5选择了scrollIntoView()作为标准方法。</p>
+<p>scrollIntoView()可以在所有HTML元素上调用，通过滚动浏览器窗口或者某个容器元素，调用元素就会出现在视口中。如果给这个方法传入true作为参数，或者不传入参数，那么窗口滚动之后会 让调用元素的顶部与视口顶部尽可能齐平。如果传入false作为参数，调用元素会尽可能全部出现在视口中，可能的话调用元素的底部会与视口底部齐平。</p>
+<p>移动端开发可能用的比较多，input和键盘。</p>
+
     </main>
     <footer class="post-footer">
       
@@ -306,7 +363,7 @@ console.log(div2);
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#DOM扩展"><span class="toc-text">DOM扩展</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、选择符API（重要）"><span class="toc-text">一、选择符API（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-querySelector"><span class="toc-text">1. querySelector()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-querySelectorAll"><span class="toc-text">2.querySelectorAll()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-matchesSelector（）方法"><span class="toc-text">3.matchesSelector（）方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、元素遍历"><span class="toc-text">二、元素遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#三、HTML5（重要）"><span class="toc-text">三、HTML5（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-与类相关的扩充"><span class="toc-text">1.与类相关的扩充</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-焦点管理"><span class="toc-text">2.焦点管理</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-HTMLDocument的变化"><span class="toc-text">3.HTMLDocument的变化</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-字符集属性"><span class="toc-text">4.字符集属性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#5-自定义数据属性"><span class="toc-text">5.自定义数据属性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#6-插入标记"><span class="toc-text">6.插入标记</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#7-scrollIntoView"><span class="toc-text">7.scrollIntoView()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#四、专有扩展"><span class="toc-text">四、专有扩展</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#DOM扩展"><span class="toc-text">DOM扩展</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、选择符API（重要）"><span class="toc-text">一、选择符API（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-querySelector"><span class="toc-text">1. querySelector()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-querySelectorAll"><span class="toc-text">2.querySelectorAll()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-matchesSelector（）方法"><span class="toc-text">3.matchesSelector（）方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、元素遍历"><span class="toc-text">二、元素遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#三、HTML5（重要）"><span class="toc-text">三、HTML5（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-与类相关的扩充"><span class="toc-text">1.与类相关的扩充</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-自定义数据属性"><span class="toc-text">2 自定义数据属性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-插入标记"><span class="toc-text">3.插入标记</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a：innerHTML属性"><span class="toc-text">a：innerHTML属性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-outerHTML"><span class="toc-text">b: outerHTML</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#c：内存与性能问题"><span class="toc-text">c：内存与性能问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-scrollIntoView"><span class="toc-text">4.scrollIntoView()</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 
