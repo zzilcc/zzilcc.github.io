@@ -148,26 +148,13 @@
     <main class="post-main" itemprop="articleBody">
       
       <h1 id="前端笔试面试题"><a href="#前端笔试面试题" class="headerlink" title="前端笔试面试题"></a>前端笔试面试题</h1><h2 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h2><h3 id="1-从URL输入到页面展现前发生了什么？"><a href="#1-从URL输入到页面展现前发生了什么？" class="headerlink" title="1. 从URL输入到页面展现前发生了什么？"></a>1. 从URL输入到页面展现前发生了什么？</h3><ul>
-<li>浏览器去查找当前的URL是否有缓存，缓存是否过期。</li>
+<li>浏览器去查找当前的URL是否有缓存，缓存是否过期，没过期则不会有以下操作</li>
 <li>浏览器通过DNS域名解析拿到服务器IP地址</li>
 <li>根据IP建立TCP连接（3次握手）</li>
 <li>发送HTTP请求</li>
 <li>服务器处理请求并返回响应</li>
 <li>浏览器解析渲染页面</li>
-<li>断开链接，TCP四次挥手</li>
-</ul>
-<h4 id="URL：-统一资源定位符，网址"><a href="#URL：-统一资源定位符，网址" class="headerlink" title="URL： 统一资源定位符，网址"></a>URL： 统一资源定位符，网址</h4><p>语法规则： scheme://host:domain:port/path/filename</p>
-<ul>
-<li>scheme 协议，http协议，ftp协议，file协议等</li>
-<li>host 定义域主机（http 的默认主机是 www）</li>
-<li>domain 定义因特网域名 比如w3school.com</li>
-<li>port 端口号</li>
-<li>path 服务器上的路径</li>
-<li>filename 文档/资源的名称</li>
-</ul>
-<p>####域名解析</p>
-<p>域名到IP地址的一个转换过程，由DNS服务器来完成</p>
-<h4 id="TCP连接（3次握手）"><a href="#TCP连接（3次握手）" class="headerlink" title="TCP连接（3次握手）"></a>TCP连接（3次握手）</h4>
+<li>断开链接，TCP四次挥手</li></ul>
       
     </main>
     <footer class="post-footer">
