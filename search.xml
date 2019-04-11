@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>JavaScript运行机制</title>
+      <link href="/2019/04/12/JavaScript%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
+      <url>/2019/04/12/JavaScript%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
+      <content type="html"><![CDATA[<h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><pre><code>console.log(0)setTimeout(function(){    console.log(1)},0)console.log(2)</code></pre><p>输出结果是什么？</p><h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p>单线程说明在同一个时间里只能做一件事情，有人会说js为什么是单线程，不能多线程，多线程效率不更高吗。原因是js主要用来做页面交互，操作DOM。如果是多线程的话，有可能会发生两个线程同时对一个DOM进行操作，比如一个是添加了一个节点，一个是删除节点，那么浏览器怎么去执行？所以为了避免复杂性，js就是单线程的。</p><h2 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h2>]]></content>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>D3.js画3D方柱</title>
       <link href="/2019/03/28/D3.js%E7%94%BB3D%E6%96%B9%E6%9F%B1/"/>
       <url>/2019/03/28/D3.js%E7%94%BB3D%E6%96%B9%E6%9F%B1/</url>
@@ -12,21 +27,6 @@
         <tags>
             
             <tag> D3.js </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>前端笔试面试题总结</title>
-      <link href="/2019/03/17/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-      <url>/2019/03/17/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<p>最近趁着金三银四在找工作，总结一下常见笔试面试题</p><h1 id="前端笔试面试题"><a href="#前端笔试面试题" class="headerlink" title="前端笔试面试题"></a>前端笔试面试题</h1><h2 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h2><h3 id="1-从URL输入到页面展现前发生了什么？"><a href="#1-从URL输入到页面展现前发生了什么？" class="headerlink" title="1. 从URL输入到页面展现前发生了什么？"></a>1. 从URL输入到页面展现前发生了什么？</h3><ul><li>浏览器去查找当前的URL是否有缓存，缓存是否过期，没过期则不会有以下操作</li><li>浏览器通过DNS域名解析拿到服务器IP地址</li><li>根据IP建立TCP连接（3次握手）</li><li>发送HTTP请求</li><li>服务器处理请求并返回响应</li><li>浏览器解析渲染页面</li><li>断开链接，TCP四次挥手<a id="more"></a></li></ul><h4 id="URL：-统一资源定位符，网址"><a href="#URL：-统一资源定位符，网址" class="headerlink" title="URL： 统一资源定位符，网址"></a>URL： 统一资源定位符，网址</h4><p>语法规则： scheme://host:domain:port/path/filename</p><ul><li>scheme 协议，http协议，ftp协议，file协议等</li><li>host 定义域主机（http 的默认主机是 www）</li><li>domain 定义因特网域名 比如w3school.com</li><li>port 端口号</li><li>path 服务器上的路径</li><li>filename 文档/资源的名称</li></ul><p>####域名解析</p><p>域名到IP地址的一个转换过程，由DNS服务器来完成</p><h4 id="TCP连接（3次握手）"><a href="#TCP连接（3次握手）" class="headerlink" title="TCP连接（3次握手）"></a>TCP连接（3次握手）</h4><ul><li>第一次握手 客户端向服务端发送SYN（seq=x）包， 序号为x，并且进入SYN_SENT状态</li><li>第二次握手 服务端收到SYN包，并且向客户确认ACK（ack=x+1），并且也像客户发送SYN包（seq=y），进入SYN_RECV状态，到这为止着两次握手时正常的，必须的，有人会觉得，客服端发起请求，服务端也知道有客户端请求了并且响应了，客户端也收到服务端的响应了，那这样就可以开始传递数据了，为什么还要进行第三次握手？第三次握手时为了防止已经失效的请求突然到了服务端，然后服务端响应了并等待着，其实这时候客户端并没有想发起请求，所以不会理会服务端返回了的响应，所以服务端会一直傻傻的等着，这样会造成资源的浪费。</li><li>第三次握手，客户端收到了SYN+ACK包，并且发送ACK包（ack=y+1），这样服务端就可以确认现在客户端是要传递数据的。</li></ul><h4 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h4><p>请求报文由起始行，请求头，请求体三部分组成</p><h4 id="服务器处理请求并返回"><a href="#服务器处理请求并返回" class="headerlink" title="服务器处理请求并返回"></a>服务器处理请求并返回</h4><p>响应报文由响应行，响应头部，响应主体三个部分组成。</p><p>响应行由协议版本，状态码，状态码描述组成。</p><p>常用状态码</p><ul><li>200 请求成功</li><li>301 资源（网页等）被永久转移到其它URL</li><li>304 请求资源微更新</li><li>400 非法请求，一般是请求参数不对</li><li>404 找不到页面</li><li>500 服务器内部报错</li></ul><h4 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h4><ul><li>根据HTML解析出DOM树</li><li>根据CSS解析生成CSS规则树</li><li>结合DOM树和CSS规则树，生成渲染树</li><li>根据渲染树计算每个节点的信息</li><li>然后根据信息去渲染页面</li></ul><h4 id="断开连接（四次挥手）"><a href="#断开连接（四次挥手）" class="headerlink" title="断开连接（四次挥手）"></a>断开连接（四次挥手）</h4><ul><li>第一次挥手 发起方发送一个fin包（x+2），告诉对方，没有要传递的数据了，要关闭连接。</li><li>第二次挥手 被动方发起报文，ACK，seq，表示同意关闭。</li><li>被动方发送报文，请求关闭，</li><li>发起方发送报文，被动方收到报文后关闭连接，发起方等待一定时间位收到回复，则正常关闭。</li></ul><h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><h3 id="1-js原始类型有哪几种？"><a href="#1-js原始类型有哪几种？" class="headerlink" title="1. js原始类型有哪几种？"></a>1. js原始类型有哪几种？</h3><p>boolean，null，undefined， number，symbol，string</p><h3 id="2-对象类型和原始类型的不同？"><a href="#2-对象类型和原始类型的不同？" class="headerlink" title="2. 对象类型和原始类型的不同？"></a>2. 对象类型和原始类型的不同？</h3><p>原始类型存储的是值，对象类型存储的是值的地址。</p><pre><code>let a = []let b = aa.push(1)console.log(a) // [1]console.log(b) // [1]</code></pre><h2 id="CSS-3"><a href="#CSS-3" class="headerlink" title="CSS(3)"></a>CSS(3)</h2><h3 id="css3六大新特性"><a href="#css3六大新特性" class="headerlink" title="css3六大新特性"></a>css3六大新特性</h3><ol><li>边框<ul><li>border-radius</li><li>box-shadow</li><li>border-image</li></ul></li><li>背景<ul><li>background-size 背景大小</li><li>background-origin 背景定位 值可以为content-box、padding-box 或 border-box</li><li>多重背景图片 background url(),url()</li><li>background-clip 背景切割</li></ul></li><li>文本效果<ul><li>text-shadow ie10+</li><li>word-wrap</li></ul></li><li>字体<ul><li>@font-face{font-family: myFont,src: url()} 使用 font-family: myFont</li></ul></li><li><p>2D转换</p><ul><li>移动translate() </li><li>缩放scale()</li><li>转动rotate()</li><li>翻转skew()</li><li>所有混合matrix() 方法</li></ul></li><li><p>3D转换</p></li><li>过渡</li><li>动画</li><li>多列</li><li>用户界面</li></ol><h2 id="html-5"><a href="#html-5" class="headerlink" title="html(5)"></a>html(5)</h2><h3 id="1-html5新特性"><a href="#1-html5新特性" class="headerlink" title="1. html5新特性"></a>1. html5新特性</h3><ol><li>语义化标签 section，header，footer， nav</li><li>增强型表单 type = date，datalist</li><li>视频，音频</li><li>svg</li><li>canvas</li><li>storage</li><li>定位</li><li>拖放</li><li>web worker</li><li>socket</li></ol><h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><h2 id="智力"><a href="#智力" class="headerlink" title="智力"></a>智力</h2>]]></content>
-      
-      
-        <tags>
-            
-            <tag> 笔试面试题 </tag>
             
         </tags>
       
