@@ -147,13 +147,10 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><pre><code>console.log(0)
-setTimeout(function(){
-    console.log(1)
-},0)
-console.log(2)
-</code></pre><p>输出结果是什么？</p>
-<h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p>单线程说明在同一个时间里只能做一件事情，有人会说js为什么是单线程，不能多线程，多线程效率不更高吗。原因是js主要用来做页面交互，操作DOM。如果是多线程的话，有可能会发生两个线程同时对一个DOM进行操作，比如一个是添加了一个节点，一个是删除节点，那么浏览器怎么去执行？所以为了避免复杂性，js就是单线程的。<br></p>
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="ES5，ES6和JavaScript的关系"><a href="#ES5，ES6和JavaScript的关系" class="headerlink" title="ES5，ES6和JavaScript的关系"></a>ES5，ES6和JavaScript的关系</h3><p>众所周知，JavaScript是一位网景公司的奇人布兰登艾奇花了十天就开发出来的。一开始JavaScript叫LiveScript，当时Java特别火，为了蹭个热度，网景公司将其改名成了JavaScript。</p>
+<p>微软在IE3的时候加入了JavaScript的实现，为了避免纠纷，命名为JScript。还有其他公司自己研发了JavaScript，所以这样兼容性就称为一个很头疼的事情，所以业内人士强烈呼吁定制一个标准。</p>
+<p>1996年，网景公司将JavaScript提交给国际标准化组织ECMA，次年，该组织发布了浏览器脚本语言的标准，并将这种语言称为ECMAScript，也就是我们常说的ES。所以ES是一种标准，JavaScript是ES的实现。</p>
+<p>ES5是指ECMAScript5.0，ECMAScript5.1版本，ES6是泛指，指5.1版本以后的JavaScript的下一代标准。</p>
       
     </main>
     <footer class="post-footer">
