@@ -2,7 +2,7 @@
   position: relative;
   margin: 0;
   padding: 0 0.5em;
-  background: #fae3d9;
+  background: rgba(250,227,217,0.6);
   -webkit-box-shadow: 0 -0.5em 1em 0.5em rgba(0,0,0,0.19);
   box-shadow: 0 -0.5em 1em 0.5em rgba(0,0,0,0.19);
   border-top-left-radius: 0.2em;
