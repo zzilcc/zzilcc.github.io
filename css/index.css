@@ -526,6 +526,9 @@ body,
 body {
   color: #26272b;
   background: url("../images/flower1.jpg");
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
   font: 16px "Roboto", "Noto Sans", Helvetica, Arial, sans-serif;
   word-wrap: break-word;
   display: -webkit-box;
