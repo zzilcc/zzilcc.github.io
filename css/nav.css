@@ -51,7 +51,7 @@
   font-size: 2em;
   position: relative;
   cursor: pointer;
-  color: #fae3d9;
+  color: rgba(250,227,217,0.6);
   display: none;
   width: 100%;
   text-align: center;

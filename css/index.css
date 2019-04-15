@@ -160,7 +160,7 @@
   font-size: 2em;
   position: relative;
   cursor: pointer;
-  color: #fae3d9;
+  color: rgba(250,227,217,0.6);
   display: none;
   width: 100%;
   text-align: center;
@@ -388,9 +388,9 @@
 }
 .footer a {
   position: relative;
-  color: #fae3d9;
+  color: rgba(250,227,217,0.6);
   text-decoration: none;
-  border-bottom: 0.05em dotted #fae3d9;
+  border-bottom: 0.05em dotted rgba(250,227,217,0.6);
   -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
@@ -684,7 +684,7 @@ article table tbody tr {
 }
 article table tbody tr td {
   padding: 0.4em 0.7em;
-  border: 0.1em solid #fae3d9;
+  border: 0.1em solid rgba(250,227,217,0.6);
 }
 article table tbody tr td:nth-child(2n) {
   background: #fff;
@@ -694,7 +694,7 @@ article table tbody tr:nth-child(2n) {
 }
 article table tbody tr:nth-child(2n) td {
   padding: 0.4em 0.7em;
-  border: 0.1em solid #fae3d9;
+  border: 0.1em solid rgba(250,227,217,0.6);
 }
 article table tbody tr:nth-child(2n) td:nth-child(2n) {
   background: #eee;

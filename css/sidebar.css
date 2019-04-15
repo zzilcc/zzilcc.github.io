@@ -114,7 +114,7 @@
   border-bottom: 0.05em solid #006bde;
 }
 .sidebar {
-  background: #fae3d9;
+  background: rgba(250,227,217,0.6);
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
