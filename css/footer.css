@@ -67,9 +67,9 @@
 }
 .footer a {
   position: relative;
-  color: rgba(250,227,217,0.6);
+  color: rgba(255,255,255,0.5);
   text-decoration: none;
-  border-bottom: 0.05em dotted rgba(250,227,217,0.6);
+  border-bottom: 0.05em dotted rgba(255,255,255,0.5);
   -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;

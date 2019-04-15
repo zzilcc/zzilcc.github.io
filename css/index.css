@@ -111,7 +111,7 @@
   position: relative;
   margin: 0;
   padding: 0 0.5em;
-  background: rgba(250,227,217,0.6);
+  background: rgba(255,255,255,0.6);
   -webkit-box-shadow: 0 -0.5em 1em 0.5em rgba(0,0,0,0.19);
   box-shadow: 0 -0.5em 1em 0.5em rgba(0,0,0,0.19);
   border-top-left-radius: 0.2em;
@@ -160,7 +160,7 @@
   font-size: 2em;
   position: relative;
   cursor: pointer;
-  color: rgba(250,227,217,0.6);
+  color: rgba(255,255,255,0.5);
   display: none;
   width: 100%;
   text-align: center;
@@ -387,9 +387,9 @@
 }
 .footer a {
   position: relative;
-  color: rgba(250,227,217,0.6);
+  color: rgba(255,255,255,0.5);
   text-decoration: none;
-  border-bottom: 0.05em dotted rgba(250,227,217,0.6);
+  border-bottom: 0.05em dotted rgba(255,255,255,0.5);
   -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
@@ -686,7 +686,7 @@ article table tbody tr {
 }
 article table tbody tr td {
   padding: 0.4em 0.7em;
-  border: 0.1em solid rgba(250,227,217,0.6);
+  border: 0.1em solid rgba(255,255,255,0.5);
 }
 article table tbody tr td:nth-child(2n) {
   background: #fff;
@@ -696,7 +696,7 @@ article table tbody tr:nth-child(2n) {
 }
 article table tbody tr:nth-child(2n) td {
   padding: 0.4em 0.7em;
-  border: 0.1em solid rgba(250,227,217,0.6);
+  border: 0.1em solid rgba(255,255,255,0.5);
 }
 article table tbody tr:nth-child(2n) td:nth-child(2n) {
   background: #eee;
@@ -832,7 +832,7 @@ blockquote p {
 }
 .card {
   display: block;
-  background: #fff;
+  background: rgba(255,255,255,0.5);
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
   -o-transition: 0.2s ease-in-out;
