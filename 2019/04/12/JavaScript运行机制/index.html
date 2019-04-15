@@ -146,30 +146,29 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <!-- TOC -->autoauto- <a href="#前言">前言</a>auto    - <a href="#es5es6和javascript的关系">ES5，ES6和JavaScript的关系</a>auto- <a href="#编译性语言-vs-解释性语言">编译性语言 vs 解释性语言</a>auto- <a href="#浏览器内核">浏览器内核</a>auto- <a href="#引子">引子</a>auto- <a href="#单线程">单线程</a>auto- <a href="#事件循环机制">事件循环机制</a>auto    - <a href="#练习题-写出以下输出结果">练习题 写出以下输出结果</a>auto- <a href="#css常见布局">css常见布局</a>auto    - <a href="#上定高中间分左右左定宽右自适应">上定高，中间分左右，左定宽，右自适应</a>auto    - <a href="#div垂直水平居中">div垂直水平居中</a>autoauto<!-- /TOC -->
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="ES5，ES6和JavaScript的关系"><a href="#ES5，ES6和JavaScript的关系" class="headerlink" title="ES5，ES6和JavaScript的关系"></a>ES5，ES6和JavaScript的关系</h3><p>众所周知，JavaScript是一位网景公司的奇人布兰登艾奇花了十天就开发出来的。一开始JavaScript叫LiveScript，当时Java特别火，为了蹭个热度，网景公司将其改名成了JavaScript。</p>
+      <h2 id="0-1-前言"><a href="#0-1-前言" class="headerlink" title="0.1. 前言"></a>0.1. 前言</h2><h3 id="0-1-1-ES5，ES6和JavaScript的关系"><a href="#0-1-1-ES5，ES6和JavaScript的关系" class="headerlink" title="0.1.1. ES5，ES6和JavaScript的关系"></a>0.1.1. ES5，ES6和JavaScript的关系</h3><p>众所周知，JavaScript是一位网景公司的奇人布兰登艾奇花了十天就开发出来的。一开始JavaScript叫LiveScript，当时Java特别火，为了蹭个热度，网景公司将其改名成了JavaScript。</p>
 <p>微软在IE3的时候加入了JavaScript的实现，为了避免纠纷，命名为JScript。还有其他公司自己研发了JavaScript，所以这样兼容性就称为一个很头疼的事情，所以业内人士强烈呼吁定制一个标准。</p>
 <p>1996年，网景公司将JavaScript提交给国际标准化组织ECMA，次年，该组织发布了浏览器脚本语言的标准，并将这种语言称为ECMAScript，也就是我们常说的ES。所以ES是一种标准，JavaScript是ES的实现。</p>
 <p>ES5是指ECMAScript5.0，ECMAScript5.1版本，ES6是泛指，指5.1版本以后的JavaScript的下一代标准。</p>
 <a id="more"></a>
-<h2 id="编译性语言-vs-解释性语言"><a href="#编译性语言-vs-解释性语言" class="headerlink" title="编译性语言 vs 解释性语言"></a>编译性语言 vs 解释性语言</h2><p>高级语言要经过翻译，称为机器语言，然后才能被计算机识别。</p>
+<h2 id="0-2-编译性语言-vs-解释性语言"><a href="#0-2-编译性语言-vs-解释性语言" class="headerlink" title="0.2. 编译性语言 vs 解释性语言"></a>0.2. 编译性语言 vs 解释性语言</h2><p>高级语言要经过翻译，称为机器语言，然后才能被计算机识别。</p>
 <p>翻译分为编译和解释。</p>
 <p>编译性语言在程序运行前有一个专门的编译过程，把程序编译成计算机可执行的文件，比如.exe,以后要运行的话就不用在编译了，直接执行就可以了。Java就是比较典型的编译性语言。Java有一句很有名的口号：一次编译，到处运行。</p>
 <p>解释性语言也是要转换成计算机能识别的语言，只是它是在代码运行时执行，所以需要将解释器安装在环境中。</p>
 <p>JavaScript，python是解释性语言。</p>
 <p>需要注意的一点是解释性语言不是说没有编译，它们有的会有编译特性，即时编译的。</p>
-<h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><p>浏览器内核指的是浏览器运行的最核心的程序，分为两个部分，JS引擎和渲染引擎。</p>
+<h2 id="0-3-浏览器内核"><a href="#0-3-浏览器内核" class="headerlink" title="0.3. 浏览器内核"></a>0.3. 浏览器内核</h2><p>浏览器内核指的是浏览器运行的最核心的程序，分为两个部分，JS引擎和渲染引擎。</p>
 <p><img src="/2019/04/12/JavaScript运行机制/浏览器内核.jpg" alt=""></p>
 <p><img src="/2019/04/12/JavaScript运行机制/js引擎.jpg" alt=""></p>
 <p>JavaScript引擎的主要作用是，读取网页中的JavaScript代码，对其处理后运行。</p>
-<h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><pre><code>console.log(0)
+<h2 id="0-4-引子"><a href="#0-4-引子" class="headerlink" title="0.4. 引子"></a>0.4. 引子</h2><pre><code>console.log(0)
 setTimeout(function(){
     console.log(1)
 },0)
 console.log(2)
 </code></pre><p>输出结果是什么？</p>
-<h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p>单线程说明在同一个时间里只能做一件事情，有人会说js为什么是单线程，不能多线程，多线程效率不更高吗。原因是js主要用来做页面交互，操作DOM。如果是多线程的话，有可能会发生两个线程同时对一个DOM进行操作，比如一个是添加了一个节点，一个是删除节点，那么浏览器怎么去执行？所以为了避免复杂性，js就是单线程的。</p>
-<h2 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h2><p>事件循环机制分为浏览器和node事件循环机制，在此主要介绍浏览器事件循环机制。</p>
+<h2 id="0-5-单线程"><a href="#0-5-单线程" class="headerlink" title="0.5. 单线程"></a>0.5. 单线程</h2><p>单线程说明在同一个时间里只能做一件事情，有人会说js为什么是单线程，不能多线程，多线程效率不更高吗。原因是js主要用来做页面交互，操作DOM。如果是多线程的话，有可能会发生两个线程同时对一个DOM进行操作，比如一个是添加了一个节点，一个是删除节点，那么浏览器怎么去执行？所以为了避免复杂性，js就是单线程的。</p>
+<h2 id="0-6-事件循环机制"><a href="#0-6-事件循环机制" class="headerlink" title="0.6. 事件循环机制"></a>0.6. 事件循环机制</h2><p>事件循环机制分为浏览器和node事件循环机制，在此主要介绍浏览器事件循环机制。</p>
 <p><img src="/2019/04/12/JavaScript运行机制/eventLoop.png" alt=""></p>
 <p>在js中任务分为两种，同步任务和异步任务。</p>
 <p>所谓同步就是函数或方法执行时要接收到返回的值或者消息才会往下执行，相当于打电话，你说一句，我说一句，一句接一句。</p>
@@ -189,7 +188,7 @@ console.log(2)
 <li>主线程不断重复以上3个行为。</li>
 </ol>
 <p>因为这个过程是循环不断的，所以称为事件循环机制。</p>
-<h3 id="练习题-写出以下输出结果"><a href="#练习题-写出以下输出结果" class="headerlink" title="练习题 写出以下输出结果"></a>练习题 写出以下输出结果</h3><p>练习题1</p>
+<h3 id="0-6-1-练习题-写出以下输出结果"><a href="#0-6-1-练习题-写出以下输出结果" class="headerlink" title="0.6.1. 练习题 写出以下输出结果"></a>0.6.1. 练习题 写出以下输出结果</h3><p>练习题1</p>
 <pre><code>console.log(&apos;a&apos;)
 while(true){}
 console.log(&apos;b&apos;)
@@ -211,7 +210,7 @@ while(true){}
 } 
 </code></pre><p>作业</p>
 <p>怎么依次隔秒输出0，1，2，3，4</p>
-<h2 id="css常见布局"><a href="#css常见布局" class="headerlink" title="css常见布局"></a>css常见布局</h2><h3 id="上定高，中间分左右，左定宽，右自适应"><a href="#上定高，中间分左右，左定宽，右自适应" class="headerlink" title="上定高，中间分左右，左定宽，右自适应"></a>上定高，中间分左右，左定宽，右自适应</h3><h3 id="div垂直水平居中"><a href="#div垂直水平居中" class="headerlink" title="div垂直水平居中"></a>div垂直水平居中</h3><ol>
+<h2 id="0-7-css常见布局"><a href="#0-7-css常见布局" class="headerlink" title="0.7. css常见布局"></a>0.7. css常见布局</h2><h3 id="0-7-1-上定高，中间分左右，左定宽，右自适应"><a href="#0-7-1-上定高，中间分左右，左定宽，右自适应" class="headerlink" title="0.7.1. 上定高，中间分左右，左定宽，右自适应"></a>0.7.1. 上定高，中间分左右，左定宽，右自适应</h3><h3 id="0-7-2-div垂直水平居中"><a href="#0-7-2-div垂直水平居中" class="headerlink" title="0.7.2. div垂直水平居中"></a>0.7.2. div垂直水平居中</h3><ol>
 <li><p>行内元素居中 缺点： 会继承，影响到后代行内内容，子元素大于父元素宽度时无效</p>
 <p> text-align: center</p>
 </li>
@@ -335,7 +334,7 @@ margin-top：-50px; // translateY(-50%)
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ES5，ES6和JavaScript的关系"><span class="toc-text">ES5，ES6和JavaScript的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#编译性语言-vs-解释性语言"><span class="toc-text">编译性语言 vs 解释性语言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#浏览器内核"><span class="toc-text">浏览器内核</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#引子"><span class="toc-text">引子</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#单线程"><span class="toc-text">单线程</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#事件循环机制"><span class="toc-text">事件循环机制</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#练习题-写出以下输出结果"><span class="toc-text">练习题 写出以下输出结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#css常见布局"><span class="toc-text">css常见布局</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#上定高，中间分左右，左定宽，右自适应"><span class="toc-text">上定高，中间分左右，左定宽，右自适应</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#div垂直水平居中"><span class="toc-text">div垂直水平居中</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0-1-前言"><span class="toc-text">0.1. 前言</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#0-1-1-ES5，ES6和JavaScript的关系"><span class="toc-text">0.1.1. ES5，ES6和JavaScript的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0-2-编译性语言-vs-解释性语言"><span class="toc-text">0.2. 编译性语言 vs 解释性语言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0-3-浏览器内核"><span class="toc-text">0.3. 浏览器内核</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0-4-引子"><span class="toc-text">0.4. 引子</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0-5-单线程"><span class="toc-text">0.5. 单线程</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0-6-事件循环机制"><span class="toc-text">0.6. 事件循环机制</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#0-6-1-练习题-写出以下输出结果"><span class="toc-text">0.6.1. 练习题 写出以下输出结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0-7-css常见布局"><span class="toc-text">0.7. css常见布局</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#0-7-1-上定高，中间分左右，左定宽，右自适应"><span class="toc-text">0.7.1. 上定高，中间分左右，左定宽，右自适应</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#0-7-2-div垂直水平居中"><span class="toc-text">0.7.2. div垂直水平居中</span></a></li></ol></li></ol></div>
 </div>
 
 
