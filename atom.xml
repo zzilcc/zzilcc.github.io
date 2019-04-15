@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-15T13:13:35.472Z</updated>
+  <updated>2019-04-15T13:10:21.365Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,20 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>js作用域和闭包</title>
-    <link href="http://yoursite.com/2019/04/15/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85-1/"/>
-    <id>http://yoursite.com/2019/04/15/js作用域和闭包-1/</id>
-    <published>2019-04-15T13:13:35.000Z</published>
-    <updated>2019-04-15T13:13:35.472Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>js作用域和闭包</title>
