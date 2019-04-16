@@ -23,7 +23,7 @@
   transform: rotateY(720deg);
 }
 .info .author-name {
-  color: #fff;
+  color: #000;
   font-size: 1.8em;
   font-weight: normal;
   margin: 0.5em;
