@@ -121,6 +121,193 @@
   
   <article class="index-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/this和常用css/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黄紫茜">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/04/26/this和常用css/" itemprop="url">this和常用css</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-26T09:44:50+08:00">2019-04-26 09:44:50</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="this对象"><a href="#this对象" class="headerlink" title="this对象"></a>this对象</h2><pre><code>var name = &apos;windowName&apos;;
+function a () {
+    var name = &apos;aName&apos;;
+    console.log(&apos;a: &apos; + this.name)
+}
+a()
+console.log(&apos;window: &apos; + this.name)
+</code></pre><p>输出？</p>
+<pre><code>var name = &apos;windowName&apos;;
+function a () {
+    var name = &apos;aName&apos;;
+    console.log(&apos;a: &apos; + this.name)
+}
+a()
+function b() {
+    console.log(this.name)
+}
+console.log(&apos;window: &apos; + this.name)
+</code></pre><h2 id="绑定数据"><a href="#绑定数据" class="headerlink" title="绑定数据"></a>绑定数据</h2><h2 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h2><ol>
+<li><p>css背景属性</p>
+<ul>
+<li>background: #fff url() center 100% no-repeat<ul>
+<li>background-color<ul>
+<li>background-image</li>
+<li>background-position</li>
+<li>background-size</li>
+<li>background-repeat</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>css边框属性</p>
+<ul>
+<li>border<ul>
+<li>border-color</li>
+<li>border-width</li>
+<li>border-style</li>
+</ul>
+</li>
+<li>border-top: 1px solid #fff<ul>
+<li>border-top-color: #fff</li>
+<li>border-top-width: 1px</li>
+<li>border-top-style: solid(实线)/dotted(点状)/dashed(虚线)</li>
+</ul>
+</li>
+<li>border-right<ul>
+<li>border-right-color</li>
+<li>border-right-width</li>
+<li>border-right-style</li>
+</ul>
+</li>
+<li>border-bottom<ul>
+<li>border-bottom-color</li>
+<li>border-bottom-width</li>
+<li>border-bottom-style</li>
+</ul>
+</li>
+<li>border-left<ul>
+<li>border-left-color</li>
+<li>border-left-width</li>
+<li>border-left-style</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>css尺寸属性</p>
+<ul>
+<li>height</li>
+<li>max-height</li>
+<li>min-height</li>
+<li>width</li>
+<li>min-width</li>
+<li>max-width</li>
+</ul>
+</li>
+<li><p>css字体属性</p>
+<ul>
+<li>font<ul>
+<li>font-size</li>
+<li>font-family</li>
+<li>font-style</li>
+<li>font-weight</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>css外边距属性</p>
+<ul>
+<li>margin<ul>
+<li>margin-top</li>
+<li>margin-right</li>
+<li>margin-bottom</li>
+<li>margin-left</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>css内边距属性</p>
+<ul>
+<li>padding<ul>
+<li>padding-top</li>
+<li>padding-right</li>
+<li>padding-bottom</li>
+<li>padding-left</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>css定位属性</p>
+<ul>
+<li>position</li>
+<li>top</li>
+<li>right</li>
+<li>bottom</li>
+<li>left</li>
+<li>overflow</li>
+<li>float</li>
+<li>display</li>
+<li>z-index</li>
+<li>vertical-align</li>
+<li>cursor: default|pointer</li>
+</ul>
+</li>
+<li><p>css文本属性</p>
+<ul>
+<li>color: #fff; // 颜色</li>
+<li>line-height:40px; //行高 </li>
+<li>text-align: left|center|right// 规定文本的水平对齐方式</li>
+<li>text-indent: 2px|1% // 属性规定文本块中首行文本的缩进。</li>
+<li>white-space:nowrap //     文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止</li>
+<li>text-overflow:ellipsis // 规定当文本溢出包含元素时发生的事情。</li>
+<li>word-break: normal|break-all|keep-all;// 规定非中日韩文本的换行规则。</li>
+<li>word-wrap: normal|break-word // 单词分割且换行</li>
+</ul>
+</li>
+</ol>
+<h2 id="常用css解决某些问题"><a href="#常用css解决某些问题" class="headerlink" title="常用css解决某些问题"></a>常用css解决某些问题</h2><ol>
+<li>css画各种形状</li>
+<li>省略号</li>
+</ol>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/this-css/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>this | css</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/js作用域和闭包/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="黄紫茜">
@@ -604,7 +791,7 @@ var a = 2;
     
     <div class="archives-count">
       <div class="site-count-title">Archives</div>
-      <div><a href="/archives/">9</a></div>
+      <div><a href="/archives/">10</a></div>
     </div>
     
     
@@ -622,7 +809,7 @@ var a = 2;
     
     <div class="tags-count">
       <div class="site-count-title">Tags</div>
-      <div><a href="/tags/">6</a></div>
+      <div><a href="/tags/">7</a></div>
     </div>
     
   </div>
