@@ -294,6 +294,22 @@ var b = {
 a.fn.apply(b,[ 11, &apos;man&apos;])
 
 b.fn1.call(b,  11, &apos;man&apos;)
+</code></pre><h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><p>我们经常说没有对象，new一个就行。这里的new将this指向</p>
+<pre><code>var Person (name) {
+    this.name = name
+}
+
+new Person(&apos;zzilcc&apos;)
+</code></pre><p>new 做了什么，下面解释一下</p>
+<ol>
+<li>创建了一个空对象obj</li>
+<li>把obj的_proto_z指向Person的原型对象prototype，此时便建立了obj对象的原型链obj-&gt;Person.prototype-&gt;Object.prototype-&gt;null</li>
+<li>在obj的执行环境调用Person的方法，也就是Person.call(obj,’zzilcc’),然后执行obj.name = ‘zzilcc’</li>
+<li>将obj当作返回值返回</li>
+</ol>
+<p>所以我们用一个变量去接受下这个obj</p>
+<pre><code>var person1 = new Person(&apos;zzilcc&apos;)
+person1.name === &apos;zzilcc&apos; // true
 </code></pre><h2 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h2><ol>
 <li><p>css背景属性</p>
 <ul>
@@ -509,7 +525,7 @@ b.fn1.call(b,  11, &apos;man&apos;)
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this"><span class="toc-text">this</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第一段代码"><span class="toc-text">第一段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第二段代码"><span class="toc-text">第二段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第三段代码"><span class="toc-text">第三段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第四段代码"><span class="toc-text">第四段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第五段代码"><span class="toc-text">第五段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第六段代码"><span class="toc-text">第六段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#总结："><span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#改变this指向"><span class="toc-text">改变this指向</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#es6的箭头函数"><span class="toc-text">es6的箭头函数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#this-that-self"><span class="toc-text">_this,that,self</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#call-apply-bind"><span class="toc-text">call,apply,bind</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#彩蛋"><span class="toc-text">彩蛋</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this"><span class="toc-text">this</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第一段代码"><span class="toc-text">第一段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第二段代码"><span class="toc-text">第二段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第三段代码"><span class="toc-text">第三段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第四段代码"><span class="toc-text">第四段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第五段代码"><span class="toc-text">第五段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第六段代码"><span class="toc-text">第六段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#总结："><span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#改变this指向"><span class="toc-text">改变this指向</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#es6的箭头函数"><span class="toc-text">es6的箭头函数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#this-that-self"><span class="toc-text">_this,that,self</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#call-apply-bind"><span class="toc-text">call,apply,bind</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#new"><span class="toc-text">new</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#彩蛋"><span class="toc-text">彩蛋</span></a></li></ol></div>
 </div>
 
 

@@ -295,6 +295,22 @@ var b = {
 a.fn.apply(b,[ 11, &apos;man&apos;])
 
 b.fn1.call(b,  11, &apos;man&apos;)
+</code></pre><h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><p>我们经常说没有对象，new一个就行。这里的new将this指向</p>
+<pre><code>var Person (name) {
+    this.name = name
+}
+
+new Person(&apos;zzilcc&apos;)
+</code></pre><p>new 做了什么，下面解释一下</p>
+<ol>
+<li>创建了一个空对象obj</li>
+<li>把obj的_proto_z指向Person的原型对象prototype，此时便建立了obj对象的原型链obj-&gt;Person.prototype-&gt;Object.prototype-&gt;null</li>
+<li>在obj的执行环境调用Person的方法，也就是Person.call(obj,’zzilcc’),然后执行obj.name = ‘zzilcc’</li>
+<li>将obj当作返回值返回</li>
+</ol>
+<p>所以我们用一个变量去接受下这个obj</p>
+<pre><code>var person1 = new Person(&apos;zzilcc&apos;)
+person1.name === &apos;zzilcc&apos; // true
 </code></pre><h2 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h2><ol>
 <li><p>css背景属性</p>
 <ul>
