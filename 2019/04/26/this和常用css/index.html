@@ -146,7 +146,20 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="this对象"><a href="#this对象" class="headerlink" title="this对象"></a>this对象</h2><pre><code>var name = &apos;windowName&apos;;
+      <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><pre><code>var count = 1;
+function a () {
+    this.count ++
+    console.log(this.count)
+}
+a.count = 0;
+a()
+console.log(a.count)
+</code></pre><p>谣言： this指向自身</p>
+<p>重要的事情说三遍</p>
+<p>this永远指向最后调用它的对象</p>
+<p>this永远指向最后调用它的对象</p>
+<p>this永远指向最后调用它的对象</p>
+<pre><code>var name = &apos;windowName&apos;;
 function a () {
     var name = &apos;aName&apos;;
     console.log(&apos;a: &apos; + this.name)
@@ -154,27 +167,42 @@ function a () {
 a()
 console.log(&apos;window: &apos; + this.name)
 </code></pre><p>输出？</p>
+<p>两个都是输出windowName，因为a函数在全局对象里调用的，所以this指向的是window，所以输出的是windowName</p>
 <pre><code>var name = &apos;windowName&apos;;
 function a () {
     var name = &apos;aName&apos;;
-    console.log(&apos;a: &apos; + this.name)
+    console.log(&apos;a: &apos; + this.name);
+}
+var obj = {
+    name: &apos;objName&apos;,
+    fn: a
+}
+obj.fn()
+</code></pre><p>输出？</p>
+<p>因为最后调用this的对象是obj，所以this指向obj，this.name指的是obj.name</p>
+<pre><code>var name = &apos;windowName&apos;;
+function a () {
+    var name = &apos;aName&apos;;
+    console.log(&apos;a: &apos; + this.name);
+    function b() {
+        console.log(&apos;b: &apos; + this.name)
+     }
+     b();
 }
 a()
-function b() {
-    console.log(this.name)
-}
 console.log(&apos;window: &apos; + this.name)
-</code></pre><h2 id="绑定数据"><a href="#绑定数据" class="headerlink" title="绑定数据"></a>绑定数据</h2><h2 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h2><ol>
+</code></pre><p>输出？</p>
+<p>在js里，函数是一种特殊的对象，只要函数里没有被正常对象包裹着，函数调用this都是指向window。</p>
+<p>所以这里输出都是windowName</p>
+<h2 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h2><ol>
 <li><p>css背景属性</p>
 <ul>
 <li>background: #fff url() center 100% no-repeat<ul>
-<li>background-color<ul>
+<li>background-color</li>
 <li>background-image</li>
 <li>background-position</li>
 <li>background-size</li>
 <li>background-repeat</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -288,7 +316,7 @@ console.log(&apos;window: &apos; + this.name)
 <li>css画各种形状</li>
 <li>省略号</li>
 </ol>
-
+<h2 id="绑定数据"><a href="#绑定数据" class="headerlink" title="绑定数据"></a>绑定数据</h2><h2 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h2>
     </main>
     <footer class="post-footer">
       
@@ -381,7 +409,7 @@ console.log(&apos;window: &apos; + this.name)
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this对象"><span class="toc-text">this对象</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this"><span class="toc-text">this</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#彩蛋"><span class="toc-text">彩蛋</span></a></li></ol></div>
 </div>
 
 
