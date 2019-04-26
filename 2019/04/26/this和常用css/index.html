@@ -146,7 +146,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><pre><code>var count = 1;
+      <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="第一段代码"><a href="#第一段代码" class="headerlink" title="第一段代码"></a>第一段代码</h3><pre><code>var count = 1;
 function a () {
     this.count ++
     console.log(this.count)
@@ -155,7 +155,7 @@ a.count = 0;
 a()
 console.log(a.count)
 </code></pre><p>谣言： this指向自身</p>
-<p>重要的事情说三遍</p>
+<h3 id="第二段代码"><a href="#第二段代码" class="headerlink" title="第二段代码"></a>第二段代码</h3><p>重要的事情说三遍</p>
 <p>this永远指向最后调用它的对象</p>
 <p>this永远指向最后调用它的对象</p>
 <p>this永远指向最后调用它的对象</p>
@@ -167,8 +167,8 @@ function a () {
 a()
 console.log(&apos;window: &apos; + this.name)
 </code></pre><p>输出？</p>
-<p>两个都是输出windowName，因为a函数在全局对象里调用的，所以this指向的是window，所以输出的是windowName</p>
-<pre><code>var name = &apos;windowName&apos;;
+<p>两个都是输出windowName，因为a函数在全局对象里调用的，所以this指向的是window，所以第一个代码a函数里this.count++,这个count是全局的coount，也就是window.count,a.count不会变,所以输出的是2，0。然后第二段代码两个输出都是windowName</p>
+<h3 id="第三段代码"><a href="#第三段代码" class="headerlink" title="第三段代码"></a>第三段代码</h3><pre><code>var name = &apos;windowName&apos;;
 function a () {
     var name = &apos;aName&apos;;
     console.log(&apos;a: &apos; + this.name);
@@ -180,7 +180,7 @@ var obj = {
 obj.fn()
 </code></pre><p>输出？</p>
 <p>因为最后调用this的对象是obj，所以this指向obj，this.name指的是obj.name</p>
-<pre><code>var name = &apos;windowName&apos;;
+<h3 id="第四段代码"><a href="#第四段代码" class="headerlink" title="第四段代码"></a>第四段代码</h3><pre><code>var name = &apos;windowName&apos;;
 function a () {
     var name = &apos;aName&apos;;
     console.log(&apos;a: &apos; + this.name);
@@ -194,7 +194,107 @@ console.log(&apos;window: &apos; + this.name)
 </code></pre><p>输出？</p>
 <p>在js里，函数是一种特殊的对象，只要函数里没有被正常对象包裹着，函数调用this都是指向window。</p>
 <p>所以这里输出都是windowName</p>
-<h2 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h2><ol>
+<h3 id="第五段代码"><a href="#第五段代码" class="headerlink" title="第五段代码"></a>第五段代码</h3><pre><code>var name = &apos;windowName&apos;;
+function a () {
+    var name = &apos;aName&apos;;
+    console.log(&apos;a: &apos; + this.name);
+}
+var obj = {
+    name: &apos;objName&apos;,
+    fn: a
+}
+var foo =  obj.fn 
+foo()
+</code></pre><p>这里我们变形一下第三段代码，将obj.fn赋值给一个变量foo，然后再运行foo，这样会输出什么？</p>
+<p>很神奇，这里会输出的是‘windowName’,而不是‘objName’，这是因为把obj.fn赋值给foo时，是相当于foo指向了fn函数，然后foo时再全局执行的，所以相当于window.foo,所以this指向是window，所以输出的是‘windowName’。</p>
+<h3 id="第六段代码"><a href="#第六段代码" class="headerlink" title="第六段代码"></a>第六段代码</h3><pre><code>var name = &apos;windowName&apos;;
+setTimeout(function(){
+    var name = &apos;setTimeout_name&apos;
+    console.log(this.name)
+},1000)
+</code></pre><p>我们之前说过setTimeout是window的方法，setTimeout的回调函数是在window里执行的，所以setTimeout回调函数里的this指向的是window。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>this永远指向最后调用它的对象</p>
+<p>this永远指向最后调用它的对象</p>
+<p>this永远指向最后调用它的对象</p>
+<h2 id="改变this指向"><a href="#改变this指向" class="headerlink" title="改变this指向"></a>改变this指向</h2><ol>
+<li>使用es6的箭头函数</li>
+<li>在函数内部使用_this = this</li>
+<li>使用apply，call，bind</li>
+<li>new实例话一个对象。 </li>
+</ol>
+<h3 id="es6的箭头函数"><a href="#es6的箭头函数" class="headerlink" title="es6的箭头函数"></a>es6的箭头函数</h3><p>es6的箭头函数的this始终指向的是函数定义时的this，而非执行时。</p>
+<pre><code>var name = &apos;windowName&apos;;
+var obj = {
+    name: &apos;objName&apos;,
+    fn: function() {
+        setTimeout(()=&gt;{
+            console.log(this.name)
+        },0)
+    }
+}
+obj.fn()
+</code></pre><h3 id="this-that-self"><a href="#this-that-self" class="headerlink" title="_this,that,self"></a>_this,that,self</h3><p>这种方法最常见了，用一个变量_this,that,self保存一下调用这个函数的对象，然后在函数里用这个变量</p>
+<pre><code>var name = &apos;windowName&apos;;
+var obj = {
+    name: &apos;objName&apos;,
+    fn: function() {
+        var _this = this;
+        setTimeout(function(){
+            console.log(_this.name)
+        },0)
+    }
+}
+obj.fn()
+</code></pre><h3 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call,apply,bind"></a>call,apply,bind</h3><pre><code>var name = &apos;window_name&apos;
+var a = {
+    name: &apos;a_name&apos;,
+    fn: function(age){
+        console.log(this.name);
+    }
+}
+var b = {
+    name: &apos;b_name&apos;,
+    fn1: function(){
+        console.log(this.name);
+    }
+}
+a.fn.apply(b)
+b.fn1.apply(a)
+b.fn1.apply(this)
+
+a.fn.call(b)
+b.fn1.call(a)
+b.fn1.call(this)
+
+a.fn.bind(b)()
+b.fn1.bind(a)()
+b.fn1.bind(this)()
+</code></pre><p>apply 语法 fun.apply(thisArg, [argsArr])</p>
+<ul>
+<li>thisArg fun函数运行时指定的this值</li>
+<li>argsArr 一个数组或者类数组对象。</li>
+</ul>
+<p>call 语法 fun.call(thisArgs, arg1, arg2…)</p>
+<p>apply和call的区别是call是接受多个参数，apply接受一个参数数组</p>
+<pre><code>var a = {
+    name: &apos;a_name&apos;,
+    fn: function(age, sex){
+        debugger
+        var age = age;var sex = sex;
+        console.log(this.name);
+    }
+}
+var b = {
+    name: &apos;b_name&apos;,
+    fn1: function(age, sex){
+        debugger
+        console.log(this.name);
+    }
+}
+a.fn.apply(b,[ 11, &apos;man&apos;])
+
+b.fn1.call(b,  11, &apos;man&apos;)
+</code></pre><h2 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h2><ol>
 <li><p>css背景属性</p>
 <ul>
 <li>background: #fff url() center 100% no-repeat<ul>
@@ -409,7 +509,7 @@ console.log(&apos;window: &apos; + this.name)
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this"><span class="toc-text">this</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#彩蛋"><span class="toc-text">彩蛋</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this"><span class="toc-text">this</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第一段代码"><span class="toc-text">第一段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第二段代码"><span class="toc-text">第二段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第三段代码"><span class="toc-text">第三段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第四段代码"><span class="toc-text">第四段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第五段代码"><span class="toc-text">第五段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第六段代码"><span class="toc-text">第六段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#总结："><span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#改变this指向"><span class="toc-text">改变this指向</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#es6的箭头函数"><span class="toc-text">es6的箭头函数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#this-that-self"><span class="toc-text">_this,that,self</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#call-apply-bind"><span class="toc-text">call,apply,bind</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#彩蛋"><span class="toc-text">彩蛋</span></a></li></ol></div>
 </div>
 
 
