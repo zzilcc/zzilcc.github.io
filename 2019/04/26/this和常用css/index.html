@@ -430,9 +430,33 @@ person1.name === &apos;zzilcc&apos; // true
 </ol>
 <h2 id="常用css解决某些问题"><a href="#常用css解决某些问题" class="headerlink" title="常用css解决某些问题"></a>常用css解决某些问题</h2><ol>
 <li>css画各种形状</li>
-<li>省略号</li>
+</ol>
+<h3 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h3><pre><code>div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+}
+
+&lt;div&gt;&lt;/div&gt;
+</code></pre><h3 id="三角形"><a href="#三角形" class="headerlink" title="三角形"></a>三角形</h3><pre><code>div {
+      width: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid red;
+}
+</code></pre><ol start="2">
+<li><p>省略号</p>
+<h3 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h3><pre><code>max-width: 100px;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap
+</code></pre></li>
 </ol>
 <h2 id="绑定数据"><a href="#绑定数据" class="headerlink" title="绑定数据"></a>绑定数据</h2><h2 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h2><p>git reflog &amp;&amp; git reset –hard ‘哈希数’</p>
+<p>遇到一些奇怪的现象时我们可以用git reflog 找到我们最新的一次commit时的哈希数。</p>
+<p>然后灭霸一个响指可以消灭一半的‘人’</p>
+<p>我们git reset –hard ‘哈希数’则能让我们回到刚刚commit完的时候，仿佛之前进行了一切操作犹如云烟飘散。</p>
 
     </main>
     <footer class="post-footer">
@@ -526,7 +550,7 @@ person1.name === &apos;zzilcc&apos; // true
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this"><span class="toc-text">this</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第一段代码"><span class="toc-text">第一段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第二段代码"><span class="toc-text">第二段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第三段代码"><span class="toc-text">第三段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第四段代码"><span class="toc-text">第四段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第五段代码"><span class="toc-text">第五段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第六段代码"><span class="toc-text">第六段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#总结："><span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#改变this指向"><span class="toc-text">改变this指向</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#es6的箭头函数"><span class="toc-text">es6的箭头函数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#this-that-self"><span class="toc-text">_this,that,self</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#call-apply-bind"><span class="toc-text">call,apply,bind</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#new"><span class="toc-text">new</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#彩蛋"><span class="toc-text">彩蛋</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#this"><span class="toc-text">this</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第一段代码"><span class="toc-text">第一段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第二段代码"><span class="toc-text">第二段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第三段代码"><span class="toc-text">第三段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第四段代码"><span class="toc-text">第四段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第五段代码"><span class="toc-text">第五段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#第六段代码"><span class="toc-text">第六段代码</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#总结："><span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#改变this指向"><span class="toc-text">改变this指向</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#es6的箭头函数"><span class="toc-text">es6的箭头函数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#this-that-self"><span class="toc-text">_this,that,self</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#call-apply-bind"><span class="toc-text">call,apply,bind</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#new"><span class="toc-text">new</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css属性"><span class="toc-text">常用css属性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#常用css解决某些问题"><span class="toc-text">常用css解决某些问题</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#圆形"><span class="toc-text">圆形</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#三角形"><span class="toc-text">三角形</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#省略号"><span class="toc-text">省略号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#绑定数据"><span class="toc-text">绑定数据</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#彩蛋"><span class="toc-text">彩蛋</span></a></li></ol></div>
 </div>
 
 
