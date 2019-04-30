@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-30T08:32:49.269Z</updated>
+  <updated>2019-04-30T08:32:10.232Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,20 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>js原型和原型链</title>
-    <link href="http://yoursite.com/2019/04/30/js%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/"/>
-    <id>http://yoursite.com/2019/04/30/js原型和原型链-1/</id>
-    <published>2019-04-30T08:32:49.000Z</published>
-    <updated>2019-04-30T08:32:49.269Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>js原型和原型链</title>
