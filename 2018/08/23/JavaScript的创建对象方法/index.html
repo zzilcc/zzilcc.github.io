@@ -227,9 +227,8 @@ var person4 = createPerson(&quot;ddd&quot;,22);
 }
 var male1 = Male(&quot;aa&quot;,23);
 var male2 = Male(&quot;xx&quot;,22);
-按照惯例，构造函数的函数名首字母要大写。
-我们可以通过instanceof操作符检测对象类型。使用构造函数意味着把它实例标识为一种特定的类型，比如男人，女人，老人，小孩等等。这也是工厂函数无法解决的问题。
-console.log(male1 instanceof Object); //true
+</code></pre><p>按照惯例，构造函数的函数名首字母要大写。<br>我们可以通过instanceof操作符检测对象类型。使用构造函数意味着把它实例标识为一种特定的类型，比如男人，女人，老人，小孩等等。这也是工厂函数无法解决的问题。</p>
+<pre><code>console.log(male1 instanceof Object); //true
 console.log(male2 instanceof Object); //true
 console.log(male1 instanceof Male); //true
 console.log(male1 instanceof Male); //true
@@ -273,7 +272,23 @@ Person.sayName.sayName = function() {
 var person1 = new Person();
 person1.sayName();//&quot;aa&quot;
 </code></pre><p>我们把公用属性和方法放到了Person的原型中， 所以每个实例访问的都是同一组属性和同一个方法。这样就不用把方法放到全局环境去写了，就解决了构造函数把私有方法放到全局的问题</p>
+<h4 id="d-组合使用构造函数-原型模式"><a href="#d-组合使用构造函数-原型模式" class="headerlink" title="d. 组合使用构造函数+原型模式"></a>d. 组合使用构造函数+原型模式</h4><p>俗话说，我们要去其糟粕，取其精华，我们将两种方式的精华合并到一起，集两家之长，形成了组合模式。使用构造函数模式定义实例属性，用原型模式定义方法和共享的属性。</p>
+<pre><code>function Peroson (name, age) {
+    this.name = name;
+    this.age = age;
+    this.friends = [&apos;zz&apos;, &apos;aa&apos;];
+}
 
+Person.prototype = {
+    constructor: Person,
+    sayName: function () {
+        console.log(this.name)
+    }
+}
+
+var person1 = new Person(&apos;zzilcc&apos;, 23);
+var person2 = new Person(&apos;aaa&apos;, 22);
+</code></pre>
     </main>
     <footer class="post-footer">
       
@@ -368,7 +383,7 @@ person1.sayName();//&quot;aa&quot;
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#JavaScript创建对象的几种方法"><span class="toc-text">JavaScript创建对象的几种方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、理解对象"><span class="toc-text">一、理解对象</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、常用方法"><span class="toc-text">二、常用方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#（1）创建单个对象"><span class="toc-text">（1）创建单个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-创建Object实例"><span class="toc-text">a. 创建Object实例</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-对象字面量方法"><span class="toc-text">b .对象字面量方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-创建多个对象"><span class="toc-text">(2) 创建多个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-工厂模式"><span class="toc-text">a. 工厂模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-构造函数模式"><span class="toc-text">b. 构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#c-原型模式"><span class="toc-text">c. 原型模式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#JavaScript创建对象的几种方法"><span class="toc-text">JavaScript创建对象的几种方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、理解对象"><span class="toc-text">一、理解对象</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、常用方法"><span class="toc-text">二、常用方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#（1）创建单个对象"><span class="toc-text">（1）创建单个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-创建Object实例"><span class="toc-text">a. 创建Object实例</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-对象字面量方法"><span class="toc-text">b .对象字面量方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-创建多个对象"><span class="toc-text">(2) 创建多个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-工厂模式"><span class="toc-text">a. 工厂模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-构造函数模式"><span class="toc-text">b. 构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#c-原型模式"><span class="toc-text">c. 原型模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#d-组合使用构造函数-原型模式"><span class="toc-text">d. 组合使用构造函数+原型模式</span></a></li></ol></li></ol></li></ol></li></ol></div>
 </div>
 
 
