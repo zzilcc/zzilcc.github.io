@@ -169,8 +169,7 @@
 </ul>
 </li>
 </ol>
-<p>总的来说，正则表达式可以用来匹配字符，也可以匹配位置，可以使我们少写很多行代码。</p>
-<p><a href="https://www.jianshu.com/p/e7bb97218946" target="_blank" rel="noopener">知道这20个正则表达式，能让你少写1,000行代码</a></p>
+<p>总的来说，正则表达式可以用来匹配字符，也可以匹配位置，可以使我们少写很多行代码。<br><a id="more"></a><br><a href="https://www.jianshu.com/p/e7bb97218946" target="_blank" rel="noopener">知道这20个正则表达式，能让你少写1,000行代码</a></p>
 <blockquote>
 <p>​ “如果罗列计算机软件领域的伟大发明, 我相信绝对不会超过二十项, 在这个名单当中, 当然应该包括分组交换网络, Web, Lisp, 哈希算法, UNIX, 编译技术, 关系模型, 面向对象, XML这些大名鼎鼎的家伙, 而正则表达式也绝对不应该被漏掉.</p>
 </blockquote>
@@ -348,7 +347,15 @@ console.log(res)
 //[&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, &quot; and baby&quot;, index: 3, input: &quot;m  mom and dad and baby&quot;, groups: undefined]
 </code></pre><h4 id="search"><a href="#search" class="headerlink" title="search"></a>search</h4><pre><code>语法
 str.search(regexp) 如果匹配成功，会返回匹配成功的位置 ，如果匹配失败，则返回-1
-</code></pre><h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p><a name="第一次课堂作业答案">第一次课堂作业答案</a></p>
+
+var str = &quot;hello,world&quot;
+var reg = /world/i
+var res = str.search(reg)
+console.log(res)// 6
+var res1 = str.search(/hi/i)
+console.log(res1) // -1
+</code></pre><p>注意： search方法会忽略全局标’g’</p>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p><a name="第一次课堂作业答案">第一次课堂作业答案</a></p>
 <ol>
 <li>/(?=(\d{3})+$)/g</li>
 </ol>
