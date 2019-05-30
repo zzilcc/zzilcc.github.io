@@ -315,13 +315,15 @@ var str = &quot;mom and dad and baby&quot;
 var reg = new RegExp(&quot;mom( and dad( and baby)?)?&quot;, &quot;gi&quot;)
 var res = reg.exec(str)
 console.log(res)
-// [&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, &quot; and baby&quot;, index: 0, input: &quot;mom and dad and baby&quot;, groups: undefined]
+// [&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;,
+ &quot; and baby&quot;, index: 0, input: &quot;mom and dad and baby&quot;, groups: undefined]
 </code></pre><p>exec返回数组的第一项是匹配的整个字符串，然后第二项是第一个捕获组匹配的内容，第三项是第二个捕获组匹配的内容，然后是index属性，为0是因为整个字符串本身和模式匹配。</p>
 <pre><code>var str = &quot;m  mom and dad and baby&quot;
 var reg = new RegExp(&quot;mom( and dad( and baby)?)?&quot;, &quot;gi&quot;)
 var res = reg.exec(str)
 console.log(res)
-// [&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, &quot; and baby&quot;, index: 2, input: &quot;  mom and dad and baby&quot;, groups: undefined]
+// [&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, 
+&quot; and baby&quot;, index: 2, input: &quot;  mom and dad and baby&quot;, groups: undefined]
 </code></pre><p>因为是第三个字符匹配，所以index2</p>
 <h4 id="test"><a href="#test" class="headerlink" title="test"></a>test</h4><pre><code>语法 reg.test(str) 返回值为布尔值 true和false
 </code></pre><p>功能： 判断某个字符串是不是匹配某个正则</p>
@@ -344,7 +346,8 @@ console.log(res)
 var reg = new RegExp(&quot;mom( and dad( and baby)?)?&quot;, &quot;i&quot;)
 var res =str.match(reg)
 console.log(res)
-//[&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, &quot; and baby&quot;, index: 3, input: &quot;m  mom and dad and baby&quot;, groups: undefined]
+//[&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, 
+&quot; and baby&quot;, index: 3, input: &quot;m  mom and dad and baby&quot;, groups: undefined]
 </code></pre><h4 id="search"><a href="#search" class="headerlink" title="search"></a>search</h4><pre><code>语法
 str.search(regexp) 如果匹配成功，会返回匹配成功的位置 ，如果匹配失败，则返回-1
 
