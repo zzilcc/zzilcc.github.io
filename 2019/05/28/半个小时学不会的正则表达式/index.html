@@ -47,7 +47,7 @@
     
     
 <link rel="stylesheet" type="text/css" href="/css/page.css">
-<link rel="stylesheet" type="text/css" href="/css/tag.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
 
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
@@ -82,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Tag: js作用域 闭包 | 黄紫茜的博客</title>
+    <title>半个小时学不会的正则表达式 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -119,19 +119,106 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag">
-  <h1 class="tag-title">js作用域 闭包</h1>
+<div id="post" class="post">
   
-  <article class="tag-article card" itemscope itemtype="http://schema.org/Article">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-title-link post-title-link-external" href="/2019/04/15/js作用域和闭包/" itemprop="url">js作用域和闭包</a>
-    </h1>
-    
-    <span class="post-date">
-      <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-15T19:28:34+08:00">04-15</time>
-    </span>
-    
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/半个小时学不会的正则表达式/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">半个小时学不会的正则表达式</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-28T22:35:41+08:00">2019-05-28 22:35:41</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="一、-为什么用正则表达式"><a href="#一、-为什么用正则表达式" class="headerlink" title="一、 为什么用正则表达式"></a>一、 为什么用正则表达式</h1><p>我们去学习某个新技能，肯定是因为它有某些实用价值，它能解决某些问题，能提高某些方面效率。</p>
+<p>正则表达式也是如此。</p>
+<p>正则表达式是匹配模式，</p>
+<p>正则表达式能做的事情：</p>
+<ol>
+<li>验证<ul>
+<li>表单验证</li>
+</ul>
+</li>
+<li>切分<ul>
+<li>“2019-05-25这一天，我们去密室逃脱.”切分出日期</li>
+<li>切分出url的参数</li>
+</ul>
+</li>
+<li>提取<ul>
+<li>”2019-05-28“提取出年月日</li>
+</ul>
+</li>
+<li>替换<ul>
+<li>替换空格等</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，正则表达式可以用来匹配字符，也可以匹配位置，可以使我们少写很多行代码。</p>
+<p><a href="https://www.jianshu.com/p/e7bb97218946" target="_blank" rel="noopener">知道这20个正则表达式，能让你少写1,000行代码</a></p>
+<blockquote>
+<p>​ “如果罗列计算机软件领域的伟大发明, 我相信绝对不会超过二十项, 在这个名单当中, 当然应该包括分组交换网络, Web, Lisp, 哈希算法, UNIX, 编译技术, 关系模型, 面向对象, XML这些大名鼎鼎的家伙, 而正则表达式也绝对不应该被漏掉.</p>
+</blockquote>
+<p>​ 对很多实际工作而言, 正则表达式简直是灵丹妙药, 能够成百倍的提高开发效率和程序质量, 正则表达式在生物信息学和人类基因图谱的研究中所发挥的关键作用, 更是被传为佳话. CSDN的创始人蒋涛先生在早年开发专业软件产品时, 就曾经体验过这一工具的巨大威力, 并且一直印象深刻.”<br>奔着能少写代码，精简代码，我们开始学习正则表达式</p>
+<h1 id="二、-正则表达式是什么"><a href="#二、-正则表达式是什么" class="headerlink" title="二、 正则表达式是什么"></a>二、 正则表达式是什么</h1><blockquote>
+<p>百度百科： 正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。</p>
+</blockquote>
+<p>正则表达式是由普通字符和特殊字符(也叫元字符或限定符)组成。</p>
+<p>然后由’//‘两个斜杠包裹着</p>
+<p>比如我们要匹配’hello’, 可以写/hello/</p>
+<p>  var regex = ‘/hello/‘;<br>  console.log(regex.test(“hello,world!”)) // true</p>
+<p>这是最简单的精确匹配，但是正则表达式能做的不止这些，主要的还是模糊匹配。</p>
+<p>模糊匹配有两种： 横向模糊匹配和纵向模糊匹配。</p>
+<h2 id="横向模糊匹配"><a href="#横向模糊匹配" class="headerlink" title="横向模糊匹配"></a>横向模糊匹配</h2><p>横向模糊匹配是指一个正则课匹配的字符串的长度不是固定的，可以是多种情况的。</p>
+<p>使用场景：删除字符串首尾空格</p>
+<p>字符串首尾空格的个数我们是不知道的，所以我们要用到量词{n,m}，/ab{2,5}c/表示匹配这样的一个字符串，第一个字符是’a‘，然后是2到5个字符’b‘，最后是’c‘</p>
+<pre><code>var reg = /ab{2,5}c/g
+var str1 = &quot;abc abbc abbbc abbbbc abbbbbc abbbbbbc&quot;
+var str2 = &apos;abcabcabbc&apos;
+console.log(str1.match(reg))
+console.log(str2.match(reg))
+</code></pre><h2 id="纵向模糊匹配"><a href="#纵向模糊匹配" class="headerlink" title="纵向模糊匹配"></a>纵向模糊匹配</h2><h1 id="三、-怎么使用正则表达式"><a href="#三、-怎么使用正则表达式" class="headerlink" title="三、 怎么使用正则表达式"></a>三、 怎么使用正则表达式</h1><h2 id="字符匹配"><a href="#字符匹配" class="headerlink" title="字符匹配"></a>字符匹配</h2><h2 id="位置匹配"><a href="#位置匹配" class="headerlink" title="位置匹配"></a>位置匹配</h2>
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/正则表达式/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>正则表达式</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2019/04/30/js原型和原型链/" rel="next" title="js原型和原型链"><i class="fas fa-angle-left"></i><span class="nav-title">js原型和原型链</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+    </div>
+  </div>
   
   
 </div>
@@ -189,6 +276,20 @@
 
 
   <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#一、-为什么用正则表达式"><span class="toc-text">一、 为什么用正则表达式</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#二、-正则表达式是什么"><span class="toc-text">二、 正则表达式是什么</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#横向模糊匹配"><span class="toc-text">横向模糊匹配</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#纵向模糊匹配"><span class="toc-text">纵向模糊匹配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#三、-怎么使用正则表达式"><span class="toc-text">三、 怎么使用正则表达式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#字符匹配"><span class="toc-text">字符匹配</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#位置匹配"><span class="toc-text">位置匹配</span></a></li></ol></li></ol></div>
+</div>
+
+
+
     
     
     
