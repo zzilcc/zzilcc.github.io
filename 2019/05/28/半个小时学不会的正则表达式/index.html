@@ -358,7 +358,15 @@ console.log(res)// 6
 var res1 = str.search(/hi/i)
 console.log(res1) // -1
 </code></pre><p>注意： search方法会忽略全局标’g’</p>
-<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p><a name="第一次课堂作业答案">第一次课堂作业答案</a></p>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+<pre><code>语法 str.replace(regexp/substr,replacement) 返回值为一个新字符串
+
+var str = &quot;hello,world&quot;
+var reg = /he/
+var res = str.replace(reg,&apos;@&apos;)
+console.log(res) // @llo,world
+</code></pre><p>replacement 可以是字符串，也可以是函数。如果它是字符串，那么每个匹配都将由字符串替换。但是 replacement 中的 $ 字符具有特定的含义。</p>
+<h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p><a name="第一次课堂作业答案">第一次课堂作业答案</a></p>
 <ol>
 <li>/(?=(\d{3})+$)/g</li>
 </ol>
