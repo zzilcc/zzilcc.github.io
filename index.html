@@ -302,7 +302,7 @@ console.log(result) // h@ell@o@,@w@o@rl@d@
 <li>匹配日期（例如2019-06-10）</li>
 </ol>
 <p><a href="#第二次课堂作业答案">第二次课堂作业答案</a></p>
-<h1 id="三、-怎么使用正则表达式"><a href="#三、-怎么使用正则表达式" class="headerlink" title="三、 怎么使用正则表达式"></a>三、 怎么使用正则表达式</h1><h2 id="JavaScript-正则"><a href="#JavaScript-正则" class="headerlink" title="JavaScript 正则"></a>JavaScript 正则</h2><p>js通过RegExp类型支持正则</p>
+<h1 id="三、-怎么使用正则表达式"><a href="#三、-怎么使用正则表达式" class="headerlink" title="三、 怎么使用正则表达式"></a>三、 怎么使用正则表达式</h1><h2 id="JavaScript-正则"><a href="#JavaScript-正则" class="headerlink" title="JavaScript 正则"></a>JavaScript 正则</h2><h3 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h3><p>js通过RegExp类型支持正则</p>
 <p>var reg = new RegExp(“[bc]at”, “i”)</p>
 <p>上面代码等价于 var reg = /[bc]at/i</p>
 <p>‘i’（不区分大小写）是正则表达式的标志，还有’g’（全局模式）,’m’(多行模式)</p>
@@ -311,7 +311,45 @@ console.log(result) // h@ell@o@,@w@o@rl@d@
 </code></pre><p>我们上面所接触到的特殊字符<code>({\^$|?+.})</code>，叫做元字符，我们如果要匹配元字符的话需要进行转义。</p>
 <pre><code>匹配第一个&apos;[bc]at&apos;，不区分大小写
 var reg = /\[bc\]/i
-</code></pre><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><h3 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h3><p><a name="第一次课堂作业答案">第一次课堂作业答案</a></p>
+</code></pre><h4 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h4><pre><code>语法  reg.exec(str) 返回值：包含第一个匹配项信息的数组，或者null
+
+var str = &quot;mom and dad and baby&quot;
+var reg = new RegExp(&quot;mom( and dad( and baby)?)?&quot;, &quot;gi&quot;)
+var res = reg.exec(str)
+console.log(res)
+// [&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, &quot; and baby&quot;, index: 0, input: &quot;mom and dad and baby&quot;, groups: undefined]
+</code></pre><p>exec返回数组的第一项是匹配的整个字符串，然后第二项是第一个捕获组匹配的内容，第三项是第二个捕获组匹配的内容，然后是index属性，为0是因为整个字符串本身和模式匹配。</p>
+<pre><code>var str = &quot;m  mom and dad and baby&quot;
+var reg = new RegExp(&quot;mom( and dad( and baby)?)?&quot;, &quot;gi&quot;)
+var res = reg.exec(str)
+console.log(res)
+// [&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, &quot; and baby&quot;, index: 2, input: &quot;  mom and dad and baby&quot;, groups: undefined]
+</code></pre><p>因为是第三个字符匹配，所以index2</p>
+<h4 id="test"><a href="#test" class="headerlink" title="test"></a>test</h4><pre><code>语法 reg.test(str) 返回值为布尔值 true和false
+</code></pre><p>功能： 判断某个字符串是不是匹配某个正则</p>
+<pre><code>var str = &quot;m  mom and dad and baby&quot;
+var reg = new RegExp(&quot;mom( and dad( and baby)?)?&quot;, &quot;gi&quot;)
+var res = reg.test(str)
+console.log(res) // true
+</code></pre><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><h4 id="match-reg"><a href="#match-reg" class="headerlink" title="match(reg)"></a>match(reg)</h4><pre><code>语法
+str.match(str1)
+str.match(regexp)
+返回值和exec函数类似
+</code></pre><p>match()函数有两种参数，第一种是某个字符串str1，去str匹配有没有str1</p>
+<pre><code>var str = &quot;hello&quot;
+var str1 = &quot;he&quot;
+var res = str.match(str1)
+console.log(res)
+//[&quot;he&quot;, index: 0, input: &quot;hello&quot;, groups: undefined]
+</code></pre><p>第二种参数是正则表达式</p>
+<pre><code>var str = &quot;m  mom and dad and baby&quot;
+var reg = new RegExp(&quot;mom( and dad( and baby)?)?&quot;, &quot;i&quot;)
+var res =str.match(reg)
+console.log(res)
+//[&quot;mom and dad and baby&quot;, &quot; and dad and baby&quot;, &quot; and baby&quot;, index: 3, input: &quot;m  mom and dad and baby&quot;, groups: undefined]
+</code></pre><h4 id="search"><a href="#search" class="headerlink" title="search"></a>search</h4><pre><code>语法
+str.search(regexp) 如果匹配成功，会返回匹配成功的位置 ，如果匹配失败，则返回-1
+</code></pre><h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p><a name="第一次课堂作业答案">第一次课堂作业答案</a></p>
 <ol>
 <li>/(?=(\d{3})+$)/g</li>
 </ol>
