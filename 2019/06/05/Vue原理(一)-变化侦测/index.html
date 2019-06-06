@@ -146,7 +146,10 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="对象变化侦测"><a href="#对象变化侦测" class="headerlink" title="对象变化侦测"></a>对象变化侦测</h2><p>需求： 一个对象name包含了两个属性，分别是firstName和<br>lastName，然后给这个name对象添加一个fullName属性，要求fullname要随着firstName和lastName的的变化而变化。</p>
+      <blockquote>
+<p>变化侦测的作用是侦测数据的变化。当数据变化时，会通知视图进行的更新。 -刘博文 《深入浅出Vue.js》作者</p>
+</blockquote>
+<h2 id="对象变化侦测"><a href="#对象变化侦测" class="headerlink" title="对象变化侦测"></a>对象变化侦测</h2><p>需求： 一个对象name包含了两个属性，分别是firstName和<br>lastName，然后给这个name对象添加一个fullName属性，要求fullname要随着firstName和lastName的的变化而变化。</p>
 <pre><code>let name = {
     firstName: &apos;huang&apos;,
     lastName: &apos;zq&apos;
@@ -373,10 +376,8 @@ Object.defineProperty(name, &apos;fullName&apos;, {
         return this.fullName = this.firstName + &apos; &apos; +this.lastName;
     }
 });
-
-我们发现name原本没有fullName属性，我们给它添加了监听，getter/setter会监听不到他的变化。
-
-let name = {
+</code></pre><p>我们发现name原本没有fullName属性，我们给它添加了监听，getter/setter会监听不到他的变化。</p>
+<pre><code>let name = {
     firstName: &apos;huang&apos;,
     lastName: &apos;zq&apos;
 };
@@ -397,8 +398,14 @@ Object.defineProperty(name, &apos;firstName&apos;, {
         return this.fullName = this.firstName + &apos; &apos; +this.lastName;
     }
 });
- console.log(name)// {lastName: &quot;zq&quot;}
-</code></pre><p>我们看到删除一个数据的属性也不会触发getter/setter.在Vue.js中提供了两个API vm.$set和vm.$delete去解决这个问题</p>
+console.log(name)// {lastName: &quot;zq&quot;}
+</code></pre><p>我们看到删除一个数据的属性也不会触发getter/setter.在Vue.js中提供了两个API <code>vm.$set</code>和<code>vm.$delete</code>去解决这个问题</p>
+<h2 id="Array变化侦测"><a href="#Array变化侦测" class="headerlink" title="Array变化侦测"></a>Array变化侦测</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>《深如浅出Vue.js》</li>
+<li>《JavaScript高级程序设计(第三版)》</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">Object​.define​Property()<br>MDN</a></li>
+<li><a href="https://github.com/dreamapplehappy/hacking-with-javascript/blob/master/vanilla-js/object/define-property.md" target="_blank" rel="noopener">理解JavaScript的Object.defineProperty()函数</a></li>
+</ol>
 
     </main>
     <footer class="post-footer">
@@ -492,7 +499,7 @@ Object.defineProperty(name, &apos;firstName&apos;, {
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#对象变化侦测"><span class="toc-text">对象变化侦测</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#对象属性"><span class="toc-text">对象属性</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#属性类型"><span class="toc-text">属性类型</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#数据属性"><span class="toc-text">数据属性</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#访问器属性"><span class="toc-text">访问器属性</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#Obeject-defineProperty"><span class="toc-text">Obeject.defineProperty()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#vue的对象变化侦测"><span class="toc-text">vue的对象变化侦测</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#对象变化侦测"><span class="toc-text">对象变化侦测</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#对象属性"><span class="toc-text">对象属性</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#属性类型"><span class="toc-text">属性类型</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#数据属性"><span class="toc-text">数据属性</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#访问器属性"><span class="toc-text">访问器属性</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#Obeject-defineProperty"><span class="toc-text">Obeject.defineProperty()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#vue的对象变化侦测"><span class="toc-text">vue的对象变化侦测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Array变化侦测"><span class="toc-text">Array变化侦测</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div>
 </div>
 
 
