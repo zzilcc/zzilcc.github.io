@@ -231,7 +231,7 @@ name.fullName = &apos;q gx&apos;;
 console.log(&apos;firstName:&apos; + name.firstName);
 console.log(&apos;lastName:&apos; + name.lastName);
 </code></pre><h3 id="vue的对象变化侦测"><a href="#vue的对象变化侦测" class="headerlink" title="vue的对象变化侦测"></a>vue的对象变化侦测</h3><p>我们用一个函数封装一下这个方法</p>
-<pre><code>function objReactive (data, key, val) {
+<pre><code>function defineReactive (data, key, val) {
     Object.defineProperty(data, key, {
         Configurable: true,
         Enumerable: true,
@@ -248,7 +248,7 @@ console.log(&apos;lastName:&apos; + name.lastName);
 }
 </code></pre><p>objReactive 函数的data参数是要加属性的对象，key是要加的属性的名字，val是该属性的值。</p>
 <p>一个数据不一定只有一个地方使用了，可能多个地方使用，那么我们数据改变后，要通知多个使用它的地方，这个地方我们先暂时叫做依赖，所以我们先要在getter收集依赖，然后数据改变后，在setter通知所有依赖。依赖我们用dep代替</p>
-<pre><code>function objReactive (data, key, val) {
+<pre><code>function defineReactive (data, key, val) {
     let deps =[] // 依赖
     Object.defineProperty(data, key, {
         Configurable: true,
@@ -291,7 +291,7 @@ console.log(&apos;lastName:&apos; + name.lastName);
         }
     }
 </code></pre><p>然后那个objReactive函数改成</p>
-<pre><code>function objReactive (data, key, val) {
+<pre><code>function defineReactive (data, key, val) {
     let deps = new Dependent() // 依赖
     Object.defineProperty(data, key, {
         Configurable: true,
@@ -323,11 +323,11 @@ console.log(&apos;lastName:&apos; + name.lastName);
         debugger
         const keys = Object.keys(obj);
         for (let i = 0, l = keys.length; i &lt; l; i++)  {
-            objReactive(obj, keys[i], obj[keys[i]])
+            defineReactives(obj, keys[i], obj[keys[i]])
         }
     }
 }
-function objReactive (data, key, val) {
+function defineReactive (data, key, val) {
     debugger
     if(typeof val === &apos;object&apos;) {
         new Observerl(val)
