@@ -245,6 +245,72 @@ console.log(&apos;lastName:&apos; + name.lastName);
 }
 
 objReactive 函数的data参数是要加属性的对象，key是要加的属性的名字，val是该属性的值。
+
+一个数据不一定只有一个地方使用了，可能多个地方使用，那么我们数据改变后，要通知多个使用它的地方，这个地方我们先暂时叫做依赖，所以我们先要在getter收集依赖，然后数据改变后，在setter通知所有依赖。依赖我们用dep代替
+
+function objReactive (data, key, val) {
+    let deps =[] // 依赖
+    Object.defineProperty(data, key, {
+        Configurable: true,
+        Enumerable: true,
+        set: function(newValue) {
+            if (val === newValue) {
+                return 
+            }
+            for (let i = 0; i &lt; deps.length; i++) { // 通知依赖
+                deps[i](newValue, val)
+            }
+            val = newValue;
+        },
+        get: function() {
+            deps.push(dep) // 收集依赖
+            return val;
+        }
+    });
+}
+
+进一步，我们可以把依赖收集的代码封装成一个类，通过这个类，我们可以收集依赖，删除依赖，或者向依赖发送通知等。
+
+export defalut calss Dependent {
+    construct () {
+        this.deps = []
+    }
+    // 添加依赖
+    addDep (dep) { 
+        this.deps.push(dep)
+    }
+    // 收集依赖
+    collectionDep () { 
+        if (dep) {
+            this.addDep(dep)
+        }
+    }
+    //通知依赖
+    notifyDep () {
+        // const deps = this.deps.slice() 
+        for (let i = 0, len = this.deps.length; i &lt; l; i++) {
+            deps[i].update()
+        }
+    }
+</code></pre><p>然后那个objReactive函数改成</p>
+<pre><code>function objReactive (data, key, val) {
+    let deps = new Dependent() // 依赖
+    Object.defineProperty(data, key, {
+        Configurable: true,
+        Enumerable: true,
+        set: function(newValue) {
+            if (val === newValue) {
+                return 
+            }
+            deps.notify() // 通知依赖
+            val = newValue;
+        },
+        get: function() {
+            deps.collectionDep() // 收集依赖
+            return val;
+        }
+    });
+}
 </code></pre>
     </main>
     <footer class="post-footer">
