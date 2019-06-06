@@ -243,12 +243,9 @@ console.log(&apos;lastName:&apos; + name.lastName);
         }
     });
 }
-
-objReactive 函数的data参数是要加属性的对象，key是要加的属性的名字，val是该属性的值。
-
-一个数据不一定只有一个地方使用了，可能多个地方使用，那么我们数据改变后，要通知多个使用它的地方，这个地方我们先暂时叫做依赖，所以我们先要在getter收集依赖，然后数据改变后，在setter通知所有依赖。依赖我们用dep代替
-
-function objReactive (data, key, val) {
+</code></pre><p>objReactive 函数的data参数是要加属性的对象，key是要加的属性的名字，val是该属性的值。</p>
+<p>一个数据不一定只有一个地方使用了，可能多个地方使用，那么我们数据改变后，要通知多个使用它的地方，这个地方我们先暂时叫做依赖，所以我们先要在getter收集依赖，然后数据改变后，在setter通知所有依赖。依赖我们用dep代替</p>
+<pre><code>function objReactive (data, key, val) {
     let deps =[] // 依赖
     Object.defineProperty(data, key, {
         Configurable: true,
@@ -268,10 +265,8 @@ function objReactive (data, key, val) {
         }
     });
 }
-
-进一步，我们可以把依赖收集的代码封装成一个类，通过这个类，我们可以收集依赖，删除依赖，或者向依赖发送通知等。
-
-export defalut calss Dependent {
+</code></pre><p>进一步，我们可以把依赖收集的代码封装成一个类，通过这个类，我们可以收集依赖，删除依赖，或者向依赖发送通知等。</p>
+<pre><code>export defalut calss Dependent {
     construct () {
         this.deps = []
     }
