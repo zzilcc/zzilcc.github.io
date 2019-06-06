@@ -312,6 +312,51 @@ export defalut calss Dependent {
         }
     });
 }
+</code></pre><p>我们上面说，依赖是用到数据的地方，这个地方可能是模板，也可能是用户写的watch，依赖可能很多，那么这时候产生脑海中一句“没有中间商赚差价”的广告词，但是这是不可能，我们需要通过一个类，去集中管理这些依赖，然后我们通知依赖的时候只要通知那个类，那个类去通知其他地方。 这个类我们叫他Watcher。</p>
+<p>上面我们其实已经可以侦测到数据的变化，但是只是数据的一个属性，那么我们怎么侦测多个属性的变化？我们要封装一个类Observer，这个类可以将数据内的所有属性转换成getter/setter的形式，然后去最终他们的变化。</p>
+<pre><code>class Observer {
+    constructor (value) {
+    debugger
+        this.value = value;
+        if (!Array.isArray(value)) {
+            this.walk(value)
+        }
+    }
+    walk (obj) { // 将每个属性转换成getter/setter
+        debugger
+        const keys = Object.keys(obj);
+        for (let i = 0, l = keys.length; i &lt; l; i++)  {
+            objReactive(obj, keys[i], obj[keys[i]])
+        }
+    }
+}
+function objReactive (data, key, val) {
+    debugger
+    if(typeof val === &apos;object&apos;) {
+        new Observerl(val)
+    }
+    let deps = new Dependent() // 依赖
+    Object.defineProperty(data, key, {
+        Configurable: true,
+        Enumerable: true,
+        set: function(newValue) {
+            if (val === newValue) {
+                return 
+            }
+            deps.notify() // 通知依赖
+            val = newValue;
+        },
+        get: function() {
+            deps.collectionDep() // 收集依赖
+            return val;
+        }
+    });
+}
+let name = {
+    firstName : &apos;h&apos;,
+    lastName : &apos;zq&apos;
+};
+new Observer(name);    
 </code></pre>
       
     </main>
