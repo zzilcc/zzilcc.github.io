@@ -147,7 +147,106 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      
+      <h2 id="对象变化侦测"><a href="#对象变化侦测" class="headerlink" title="对象变化侦测"></a>对象变化侦测</h2><p>需求： 一个对象name包含了两个属性，分别是firstName和<br>lastName，然后给这个name对象添加一个fullName属性，要求fullname要随着firstName和lastName的的变化而变化。</p>
+<pre><code>let name = {
+    firstName: &apos;huang&apos;,
+    lastName: &apos;zq&apos;
+};
+</code></pre><p>在vue中可以用计算属性或者watch去实现，那么用原生js怎么实现呢？</p>
+<p>利用es5对象的getter/setter机制</p>
+<h3 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h3><h4 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h4><p>ECMA-262规范定义了一些特性，这些特性描述了属性的各种特征，是为了实现js引擎而用的，我们不能在JavaScript直接访问他们。该规范用两队中括号包裹他们，表示这是内部特性。</p>
+<p>js中有两种属性： 数据属性和访问器属性。</p>
+<h5 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h5><p>数据属性包含一个数据值的位置。</p>
+<p>数据属性包含了4个特性</p>
+<pre><code>1. [[Configurable]] 表示是否能通过delete删除属性而从新定义属性，
+能否修改属性的特性，或者能把属性改为访问器属性，默认值为true
+2. [[Enumerable]] 表示能否通过for-in循环返回属性，默认值为true
+3. [[Writable]] 表示能否修改属性的值，默认值为true
+4. [[Value]] 这个属性的值，默认值undefined
+</code></pre><h5 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h5><p>访问器属性不包含数据值，包含一对getter和setter函数，在读取属性值是会调用getter函数，这个函数返回属性值，在设置属性值时会调用setter函数并传入新值。（ie9+）</p>
+<p>访问器属性包含4个特性</p>
+<pre><code>1. [[Configurable]] 表示是否能通过delete删除属性而从新定义属性，
+能否修改属性的特性，或者能把属性改为访问器属性，默认值为true
+2. [[Enumerable]] 表示能否通过for-in循环返回属性，默认值为true
+3. [[Get]] 表示在读取属性值会调用的方法，默认值为true
+4. [[Set]] 表示在设置属性值时会调用的方法，默认值undefined
+</code></pre><p>所以我们可以利用getter和setter函数来实现fullName跟着firstName和lastName变化而变化。每次读取fullname属性时，执行getter函数，给fullName赋值为当前firstName和lastName的拼接，然后染回fullName。设置fullName的值时，调用setter方法，将fullName切割，然后分别给firstName和lastName赋值。</p>
+<pre><code>let name = {
+    firstName: &apos;huang&apos;,
+    lastName: &apos;zq&apos;,
+    set fullName(fullName) {
+        let names = fullName.trim().split(&apos; &apos;);
+        if (names.length === 2) {
+            this.firstName = names[0];
+            this.lastName = names[1]
+        }
+    },
+    get fullName(){
+        return this.fullName = this.firstName + &apos; &apos; +this.lastName;
+    }
+}
+console.log(&apos;fullName:&apos; + name.fullName);
+name.firstName = &apos;z&apos;;
+name.lastName = &apos;sh&apos;;
+console.log(&apos;fullName:&apos; + name.fullName);
+name.fullName = &apos;q gx&apos;;
+console.log(&apos;firstName:&apos; + name.firstName);
+console.log(&apos;lastName:&apos; + name.lastName);
+</code></pre><h5 id="Obeject-defineProperty"><a href="#Obeject-defineProperty" class="headerlink" title="Obeject.defineProperty()"></a>Obeject.defineProperty()</h5><p>上面是定义对象的时候就定义getter和setter函数，那么我们怎么对一个已有的对象添加属性并且设置该属性的特性？可以通过Object.defineProperty()这个方法实现。</p>
+<pre><code>语法
+Object.defineProperty(obj, prop, descriptor)
+
+参数
+obj：要在其上定义属性的对象。
+prop：要定义或修改的属性的名称。
+descriptor：将被定义或修改的属性描述符也就是上面说的特性。
+
+let name = {
+    firstName: &apos;huang&apos;,
+    lastName: &apos;zq&apos;
+};
+Object.defineProperty(name, &apos;fullName&apos;, {
+    Configurable: true,
+    Enumerable: true,
+    set: function(fullName) {
+        debugger
+        let names = fullName.trim().split(&apos; &apos;);
+        if (names.length === 2) {
+            this.firstName = names[0];
+            this.lastName = names[1]
+        }
+    },
+    get: function() {
+    debugger
+        return this.fullName = this.firstName + &apos; &apos; +this.lastName;
+    }
+});
+console.log(&apos;fullName:&apos; + name.fullName);
+name.firstName = &apos;z&apos;;
+name.lastName = &apos;sh&apos;;
+console.log(&apos;fullName:&apos; + name.fullName);
+name.fullName = &apos;q gx&apos;;
+console.log(&apos;firstName:&apos; + name.firstName);
+console.log(&apos;lastName:&apos; + name.lastName);
+</code></pre><h3 id="vue的对象变化侦测"><a href="#vue的对象变化侦测" class="headerlink" title="vue的对象变化侦测"></a>vue的对象变化侦测</h3><p>我们用一个函数封装一下这个方法</p>
+<pre><code>function objReactive (data, key, val) {
+    Object.defineProperty(data, key, {
+        Configurable: true,
+        Enumerable: true,
+        set: function(newValue) {
+            if (val === newValue) {
+                return 
+            }
+            val = newValue;
+        },
+        get: function() {
+            return val;
+        }
+    });
+}
+
+objReactive 函数的data参数是要加属性的对象，key是要加的属性的名字，val是该属性的值。
+</code></pre>
       
     </main>
     <footer class="post-footer">
