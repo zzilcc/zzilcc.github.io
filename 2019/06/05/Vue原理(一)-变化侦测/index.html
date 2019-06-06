@@ -152,7 +152,7 @@
     lastName: &apos;zq&apos;
 };
 </code></pre><p>在vue中可以用计算属性或者watch去实现，那么用原生js怎么实现呢？</p>
-<p>利用es5对象的getter/setter机制</p>
+<p>利用es5对象的getter/setter机制<br><a id="more"></a></p>
 <h3 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h3><h4 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h4><p>ECMA-262规范定义了一些特性，这些特性描述了属性的各种特征，是为了实现js引擎而用的，我们不能在JavaScript直接访问他们。该规范用两队中括号包裹他们，表示这是内部特性。</p>
 <p>js中有两种属性： 数据属性和访问器属性。</p>
 <h5 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h5><p>数据属性包含一个数据值的位置。</p>
@@ -356,7 +356,55 @@ let name = {
     lastName : &apos;zq&apos;
 };
 new Observer(name);    
-</code></pre>
+</code></pre><p>注意： getter/setter智能监听到一个数据是否被修改，不能追踪到新增属性和删除属性</p>
+<pre><code>let name = {
+    firstName: &apos;huang&apos;,
+    lastName: &apos;zq&apos;
+};
+name.fullName = &apos;2&apos;; // 在这里给name新增了fullName属性，然后监听他。
+Object.defineProperty(name, &apos;fullName&apos;, {
+    Configurable: true,
+    Enumerable: true,
+    set: function(fullName) {
+        debugger
+        let names = fullName.trim().split(&apos; &apos;);
+        if (names.length === 2) {
+            this.firstName = names[0];
+            this.lastName = names[1]
+        }
+    },
+    get: function() {
+    debugger
+        return this.fullName = this.firstName + &apos; &apos; +this.lastName;
+    }
+});
+
+我们发现name原本没有fullName属性，我们给它添加了监听，getter/setter会监听不到他的变化。
+
+let name = {
+    firstName: &apos;huang&apos;,
+    lastName: &apos;zq&apos;
+};
+delete name.firstName; // 在这里给name新增了fullName属性，然后监听他。
+Object.defineProperty(name, &apos;firstName&apos;, {
+    Configurable: true,
+    Enumerable: true,
+    set: function(fullName) {
+        debugger
+        let names = fullName.trim().split(&apos; &apos;);
+        if (names.length === 2) {
+            this.firstName = names[0];
+            this.lastName = names[1]
+        }
+    },
+    get: function() {
+    debugger
+        return this.fullName = this.firstName + &apos; &apos; +this.lastName;
+    }
+});
+ console.log(name)// {lastName: &quot;zq&quot;}
+</code></pre><p>我们看到删除一个数据的属性也不会触发getter/setter.在Vue.js中提供了两个API vm.$set和vm.$delete去解决这个问题</p>
+
     </main>
     <footer class="post-footer">
       
