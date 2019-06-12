@@ -123,7 +123,7 @@
   
   <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/12/基于vue3-0实现自己的组件库且发布到npm（一）环境搭建/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="黄紫茜">
        <meta itemprop="description" content="">
@@ -138,7 +138,7 @@
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-12T09:08:33+08:00">2019-06-12 09:08:33</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-12T15:06:16+08:00">2019-06-12 15:06:16</time></span>
         </span>
         
         
@@ -166,7 +166,7 @@
 <p>运行<code>npm run serve</code>就能把项目起起来。</p>
 <h3 id="调整目录"><a href="#调整目录" class="headerlink" title="调整目录"></a>调整目录</h3><p>我们需要一个目录存放示例，一个目录存放真的组件代码，所以我们将原先的src目录改名成examples，然后新增一个packages目录，用来放组件代码。</p>
 <p>所以调整后的目录是这样的</p>
-<p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/目录结构.png" alt=""></p>
+<p><img src="/2019/06/12/基于vue3-0实现自己的组件库且发布到npm（一）环境搭建/目录结构.png" alt=""></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="重新配置入口为example-main-js"><a href="#重新配置入口为example-main-js" class="headerlink" title="重新配置入口为example/main.js"></a>重新配置入口为example/main.js</h3><p>因为我们刚把src目录改成了example，所以我们要修改一下项目的入口文件的路径，我们创建在根目录下创建一个vue.config.js文件。</p>
 <figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	pages: &#123;</span><br><span class="line">		index: &#123;</span><br><span class="line">			entry: <span class="string">'examples/main.js'</span>, <span class="comment">// 修改src目录为examples</span></span><br><span class="line">			template: <span class="string">'public/index.html'</span>,</span><br><span class="line">			filename: <span class="string">'index.html'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="支持对packages目录的支持"><a href="#支持对packages目录的支持" class="headerlink" title="支持对packages目录的支持"></a>支持对packages目录的支持</h3><p>packages是我们新增的，我们需要手动配置，要不然webpack是不会处理。</p>
@@ -174,9 +174,9 @@
 <h2 id="编写组件"><a href="#编写组件" class="headerlink" title="编写组件"></a>编写组件</h2><h3 id="创建一个新组件"><a href="#创建一个新组件" class="headerlink" title="创建一个新组件"></a>创建一个新组件</h3><pre><code>1. 我们在packages目录下创建一个button文件夹，每个组件都一个文件夹
 2. 在button文件夹下创建src文件夹，用来存放组件源码，并在src文件夹里创建一个z-button.vue
 3. 在button文件里创建一个index.js,用来对外提供组件的引用
-</code></pre><p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/button1.png" alt=""></p>
+</code></pre><p><img src="/2019/06/12/基于vue3-0实现自己的组件库且发布到npm（一）环境搭建/button1.png" alt=""></p>
 <p>为了测试，我们在z-button.vue的template里写一个<code>&lt;button&gt;</code></p>
-<p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/button.png" alt=""></p>
+<p><img src="/2019/06/12/基于vue3-0实现自己的组件库且发布到npm（一）环境搭建/button.png" alt=""></p>
 <p>然后再button/index.js里写组件的install方法，创建相应的组件方法，供外部调用。</p>
 <figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入组件，组件必须声明name</span></span><br><span class="line"><span class="keyword">import</span> zButton <span class="keyword">from</span> <span class="string">'./src/z-button.vue'</span></span><br><span class="line"><span class="comment">// 为组件提供install方法，供按需引入</span></span><br><span class="line">zButton.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">	Vue.component(zButton.name, zButton)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 默认导出组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> zButton</span><br></pre></td></tr></table></figure>
 <h3 id="整合所有组件，对外导出"><a href="#整合所有组件，对外导出" class="headerlink" title="整合所有组件，对外导出"></a>整合所有组件，对外导出</h3><p>修改packages/index.js</p>
@@ -200,7 +200,7 @@
 <p>vue-cli-service build 会在 dist/ 目录产生一个可用于生产环境的包，带有 JS/CSS/HTML 的压缩，和为更好的缓存而做的自动的 vendor chunk splitting。 –vue-cli官网</p>
 <p>第二个命令是执行样式文件的gulp build</p>
 <p>命令执行完后会在zzilcc-ui下生成一个lib文件</p>
-<p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/lib.png" alt=""></p>
+<p><img src="/2019/06/12/基于vue3-0实现自己的组件库且发布到npm（一）环境搭建/lib.png" alt=""></p>
 <p>箭头指向的是生成主题样式文件，然后是html，和压缩后的js</p>
 <h3 id="配置-package-json-文件中发布到-npm-的字段"><a href="#配置-package-json-文件中发布到-npm-的字段" class="headerlink" title="配置 package.json 文件中发布到 npm 的字段"></a>配置 package.json 文件中发布到 npm 的字段</h3><ol>
 <li>name: 包名，该名字是唯一的。可在 npm 官网搜索名字，如果存在则需换个名字。我第一个名的名字叫”zzilccComponent”发布失败了，改成”zzilcc-component”才可以，不知道是不是大写不行</li>
@@ -222,7 +222,7 @@
 <h3 id="发布你的第一个npm包"><a href="#发布你的第一个npm包" class="headerlink" title="发布你的第一个npm包"></a>发布你的第一个npm包</h3><p>最后我们只要执行发布命令</p>
 <pre><code>npm publish
 </code></pre><p>成功后，去npm官网上搜索你写的npm name，搜到你相应的包就算成功了。</p>
-<p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/npm.png" alt=""></p>
+<p><img src="/2019/06/12/基于vue3-0实现自己的组件库且发布到npm（一）环境搭建/npm.png" alt=""></p>
 <h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>下一篇文章我将会细讲怎么写一个组件，今天只是把环境搭好，有什么疑惑可以到<a href="https://github.com/zzilcc/zzilccComponent/issues" target="_blank" rel="noopener">issues</a>给我提问。要是觉得我写的还行，能帮助到你，也可以给我github项目star一下。</p>
 
     </main>
