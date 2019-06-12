@@ -46,6 +46,9 @@
     <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
     
     
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
     <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
@@ -79,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>黄紫茜的博客</title>
+    <title>基于vue3.0实现自己的组件库且发布到npm（一）环境搭建 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -93,7 +96,7 @@
   <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
   <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li role="menuitem"><a href="/" class="current">Home</a></li>
+    <li role="menuitem"><a href="/">Home</a></li>
     
     <li role="menuitem"><a href="/archives/">Archives</a></li>
     
@@ -116,25 +119,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index">
+<div id="post" class="post">
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
+       <meta itemprop="name" content="黄紫茜的博客">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/" itemprop="url">基于vue3.0实现自己的组件库且发布到npm（一）环境搭建</a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">基于vue3.0实现自己的组件库且发布到npm（一）环境搭建</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -146,7 +146,6 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
       <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="安装vue-cli3-0"><a href="#安装vue-cli3-0" class="headerlink" title="安装vue-cli3.0"></a>安装vue-cli3.0</h2><p>因为我电脑之前有装了vue-cli2的，所以要先卸载以前的版本，再安装新的版本。</p>
 <pre><code>npm uninstall vue-cli -g
 </code></pre><p>然后再安装新版本</p>
@@ -312,7 +311,6 @@ babel.config.js
 <p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/npm.png" alt=""></p>
 <h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>下一篇文章我将会细讲怎么写一个组件，今天只是把环境搭好，有什么疑惑可以到<a href="https://github.com/zzilcc/zzilccComponent/issues" target="_blank" rel="noopener">issues</a>给我提问。要是觉得我写的还行，能帮助到你，也可以给我github项目star一下。</p>
 
-      
     </main>
     <footer class="post-footer">
       
@@ -328,496 +326,17 @@ babel.config.js
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/半个小时学不会的正则表达式/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2019/05/28/半个小时学不会的正则表达式/" rel="next" title="半个小时学不会的正则表达式"><i class="fas fa-angle-left"></i><span class="nav-title">半个小时学不会的正则表达式</span></a>
+      
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/28/半个小时学不会的正则表达式/" itemprop="url">半个小时学不会的正则表达式</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-28T22:35:41+08:00">2019-05-28 22:35:41</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
+    <div class="post-nav-prev post-nav-item">
       
-      <h1 id="一、-为什么用正则表达式"><a href="#一、-为什么用正则表达式" class="headerlink" title="一、 为什么用正则表达式"></a>一、 为什么用正则表达式</h1><p>我们去学习某个新技能，肯定是因为它有某些实用价值，它能解决某些问题，能提高某些方面效率。</p>
-<p>正则表达式也是如此。</p>
-<p>正则表达式是匹配模式，</p>
-<p>正则表达式能做的事情：</p>
-<ol>
-<li>验证<ul>
-<li>表单验证</li>
-</ul>
-</li>
-<li>切分<ul>
-<li>“2019-05-25这一天，我们去密室逃脱.”切分出日期</li>
-<li>切分出url的参数</li>
-</ul>
-</li>
-<li>提取<ul>
-<li>”2019-05-28“提取出年月日</li>
-</ul>
-</li>
-<li>替换<ul>
-<li>替换空格等</li>
-</ul>
-</li>
-</ol>
-<p>总的来说，正则表达式可以用来匹配字符，也可以匹配位置，可以使我们少写很多行代码。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/正则表达式/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>正则表达式</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/js原型和原型链/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/30/js原型和原型链/" itemprop="url">js原型和原型链</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-30T16:32:10+08:00">2019-04-30 16:32:10</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="prtotype和proto"><a href="#prtotype和proto" class="headerlink" title="prtotype和proto"></a>prtotype和<strong>proto</strong></h2><p>说到原型，我们必须要了解prototype和<strong>proto</strong>,这两个很多人可能总是会分不清，接下来我会尽可能以通俗易懂的语言去解释这两者的不同。</p>
-<p>我们看到的大多数引用类型值：函数，数组，对象都是Object的实例，所以Object可以说是一个基本。</p>
-<p>我们去创建一个Object的实例，有两种方法，一种是通过new</p>
-<p>例如：</p>
-<pre><code>var obj = new Object()
-</code></pre><p>还有一种通过对象字面量</p>
-<pre><code>var obj = {}  
-</code></pre><p>每个构造函数都有一个原型对象，通过prototype去访问，比如Object.prototype,然后这个原型对象包含一个constructor属性，指向构造函数，也就是Object.prototype.constructor === Object，还包含了一些内置函数，或者自定义的函数。</p>
-<p>然后实例化这个构造函数，得到的实例，有一个<strong>proto</strong>属性指向构造函数的原型对象。</p>
-<p>下面是Object的一个例子。</p>
-<p><img src="/2019/04/30/js原型和原型链/Object的原型.jpg" alt=""></p>
-<p>所以我们可以看到obj.<strong>proto</strong>=== Object.prototype</p>
-<p>总结：</p>
-<ol>
-<li>每个函数都有prototype指向原型对象</li>
-<li>每个对象都有<strong>protot</strong>指向构造函数的原型对象</li>
-</ol>
-<p>在js中，函数是一种特殊的对象，所以函数也有<strong>proto</strong></p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/javaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>javaScript</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/this和常用css/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/26/this和常用css/" itemprop="url">this和常用css</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-26T09:44:50+08:00">2019-04-26 09:44:50</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="第一段代码"><a href="#第一段代码" class="headerlink" title="第一段代码"></a>第一段代码</h3><pre><code>var count = 1;
-function a () {
-    this.count ++
-    console.log(this.count)
-}
-a.count = 0;
-a()
-console.log(a.count)
-</code></pre><p>谣言： this指向自身</p>
-<h3 id="第二段代码"><a href="#第二段代码" class="headerlink" title="第二段代码"></a>第二段代码</h3><p>重要的事情说三遍</p>
-<p>this永远指向最后调用它的对象</p>
-<p>this永远指向最后调用它的对象</p>
-<p>this永远指向最后调用它的对象<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/this-css/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>this | css</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/js作用域和闭包/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/15/js作用域和闭包/" itemprop="url">js作用域和闭包</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-15T19:28:34+08:00">2019-04-15 19:28:34</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="一、js引擎执行过程"><a href="#一、js引擎执行过程" class="headerlink" title="一、js引擎执行过程"></a>一、js引擎执行过程</h2><pre><code>var a;
-console.log(a);
-console.log(b);
-</code></pre><p>输出？</p>
-<pre><code>a = 2;
-var a;
-console.log(a);
-</code></pre><p>输出？</p>
-<pre><code>console.log(a);
-var a = 2;
-</code></pre><p>输出？</p>
-<p>我们之前说过js代码是由上到下去执行的，但是上面代码的输出结果好像显示的不是这样，其实不是的，js代码确实是由上到下去执行的，只是执行的不是我们直接写的代码，而是我们代码通过编译后生成的代码。</p>
-<p>我们可以将js引擎执行过程分为三个阶段，分别是语法分析，预编译和解释执行阶段。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/js作用域-闭包/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>js作用域 闭包</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/JavaScript运行机制/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/12/JavaScript运行机制/" itemprop="url">JavaScript运行机制</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-12T00:13:56+08:00">2019-04-12 00:13:56</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="0-1-前言"><a href="#0-1-前言" class="headerlink" title="0.1. 前言"></a>0.1. 前言</h2><h3 id="0-1-1-ES5，ES6和JavaScript的关系"><a href="#0-1-1-ES5，ES6和JavaScript的关系" class="headerlink" title="0.1.1. ES5，ES6和JavaScript的关系"></a>0.1.1. ES5，ES6和JavaScript的关系</h3><p>众所周知，JavaScript是一位网景公司的奇人布兰登艾奇花了十天就开发出来的。一开始JavaScript叫LiveScript，当时Java特别火，为了蹭个热度，网景公司将其改名成了JavaScript。</p>
-<p>微软在IE3的时候加入了JavaScript的实现，为了避免纠纷，命名为JScript。还有其他公司自己研发了JavaScript，所以这样兼容性就称为一个很头疼的事情，所以业内人士强烈呼吁定制一个标准。</p>
-<p>1996年，网景公司将JavaScript提交给国际标准化组织ECMA，次年，该组织发布了浏览器脚本语言的标准，并将这种语言称为ECMAScript，也就是我们常说的ES。所以ES是一种标准，JavaScript是ES的实现。</p>
-<p>ES5是指ECMAScript5.0，ECMAScript5.1版本，ES6是泛指，指5.1版本以后的JavaScript的下一代标准。</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/JavaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/D3.js画3D方柱/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/03/28/D3.js画3D方柱/" itemprop="url">D3.js画3D方柱</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-28T16:24:45+08:00">2019-03-28 16:24:45</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="D3-js入门实例-3D方柱"><a href="#D3-js入门实例-3D方柱" class="headerlink" title="D3.js入门实例-3D方柱"></a>D3.js入门实例-3D方柱</h2><p>最近由于项目需要去实现3D可视化，所以学了一下D3.js。使用版本是v4.x。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/D3-js/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>D3.js</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/Git浅解/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/09/05/Git浅解/" itemprop="url">Git浅解</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-05T20:16:00+08:00">2018-09-05 20:16:00</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h1 id="Git浅解"><a href="#Git浅解" class="headerlink" title="Git浅解"></a><center>Git浅解</center></h1><h2 id="一、为什么选择Git"><a href="#一、为什么选择Git" class="headerlink" title="一、为什么选择Git"></a>一、为什么选择Git</h2><p>比如我们写东西的时候刚开始写了一部分，先保存为了文章1，然后后续写的时候，改了一些东西，删除了之前的一部分，但是你又可能需要之前的部分，所以你会另存为文章2，所以这样下去，等你的文章写完，可能会有文章1,2,3,4。。。很多个副本，然后你想去找其中的一段，但是又可能不记得在哪了，所以要一个个文件查看，这样就没有效率，重复做了很多事情，而且很乱。</p>
-<p>然后Git可以帮你解决这些问题，它能帮我们记录每次文件的改动，而且可以多人协同完成，这样我们可以快速，高效的进行版本管理。</p>
-<p>GIt是分布式版本控制系统。</p>
-<p>Git不需要联网，每个人都可以拷贝一份完整的版本库到本地，然后在本地进行一系列操作。</p>
-<h2 id="二、学习Git前须知"><a href="#二、学习Git前须知" class="headerlink" title="二、学习Git前须知"></a>二、学习Git前须知</h2><h3 id="（1）git文件的四种状态"><a href="#（1）git文件的四种状态" class="headerlink" title="（1）git文件的四种状态"></a>（1）git文件的四种状态</h3><ol>
-<li>modified 修改了，但没有被保存在本地版本库</li>
-<li>staged（已暂存）</li>
-<li>untracked（）</li>
-<li>commit（已提交）</li>
-</ol>
-<h3 id="（2）git的五个区域"><a href="#（2）git的五个区域" class="headerlink" title="（2）git的五个区域"></a>（2）git的五个区域</h3><h2 id="三、一般使用Git的流程"><a href="#三、一般使用Git的流程" class="headerlink" title="三、一般使用Git的流程"></a>三、一般使用Git的流程</h2>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/Git/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Git</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/《JavaScript高级程序设计》DOM扩展/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/09/04/《JavaScript高级程序设计》DOM扩展/" itemprop="url">《JavaScript高级程序设计》DOM扩展</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-04T15:46:57+08:00">2018-09-04 15:46:57</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a><center>DOM扩展</center></h1><h2 id="一、选择符API（重要）"><a href="#一、选择符API（重要）" class="headerlink" title="一、选择符API（重要）"></a>一、选择符API（重要）</h2><p>平时我们写代码的时候最常用的一个操作就是根据css选择符选择与某个模式匹配的DOM元素，比如$(“css选择符”)。但是用jquery的话我们必须引用jquery库。现在我们可以不需要引js库就可以实现这个功能。</p>
-<p>选择符API的核心是两个方法：querySelector()和querySelectorAll()。还有一个matchesSelector()方法。</p>
-<p>Document、Element，DocumentFragment三种类型的元素都有这两个方法。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/JavaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/变基git-rebase中的基是什么/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/08/28/变基git-rebase中的基是什么/" itemprop="url">变基git rebase中的基是什么</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-08-28T00:01:26+08:00">2018-08-28 00:01:26</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h1 id="变基-git-rebase-中的基是什么？"><a href="#变基-git-rebase-中的基是什么？" class="headerlink" title="变基(git rebase)中的基是什么？"></a>变基(git rebase)中的基是什么？</h1><p>git rebase 在官网中的定义是：重新应用commits到要合并到的分支的顶端。（一个英语渣的直译，见笑了）。其实也可以这么说是重新应用commits到要合并到的分支的最新提交。如果现在还没有理解，没有关系，现在我开始仔细说明git rebase都干了什么。</p>
-<p>假设我们现在是A研发人员，此时本地分支是master,然后远程有两个分支：origin/master,origin/develop。此时我们接到一个任务，我们要在develop分支上开发一个功能，所以此时我们要切换分支。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/Git/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Git</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="Next Page"></i></a>
-  </nav>
+  </div>
   
   
 </div>
@@ -875,6 +394,20 @@ var a = 2;
 
 
   <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#安装vue-cli3-0"><span class="toc-text">安装vue-cli3.0</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#创建github项目"><span class="toc-text">创建github项目</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#项目结构"><span class="toc-text">项目结构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#创建项目"><span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#调整目录"><span class="toc-text">调整目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#配置"><span class="toc-text">配置</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#重新配置入口为example-main-js"><span class="toc-text">重新配置入口为example/main.js</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#支持对packages目录的支持"><span class="toc-text">支持对packages目录的支持</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#编写组件"><span class="toc-text">编写组件</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#创建一个新组件"><span class="toc-text">创建一个新组件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#整合所有组件，对外导出"><span class="toc-text">整合所有组件，对外导出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#创建主题样式"><span class="toc-text">创建主题样式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#创建一个github新项目"><span class="toc-text">创建一个github新项目</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#创建样式文件目录"><span class="toc-text">创建样式文件目录</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#初始化样式文件"><span class="toc-text">初始化样式文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#安装gulp"><span class="toc-text">安装gulp</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#发布到npm"><span class="toc-text">发布到npm</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#配置命令"><span class="toc-text">配置命令</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#配置-package-json-文件中发布到-npm-的字段"><span class="toc-text">配置 package.json 文件中发布到 npm 的字段</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#添加npm发布忽略文件"><span class="toc-text">添加npm发布忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注册npm账号"><span class="toc-text">注册npm账号</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#发布你的第一个npm包"><span class="toc-text">发布你的第一个npm包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#结束语"><span class="toc-text">结束语</span></a></li></ol></div>
+</div>
+
+
+
     
     
     
