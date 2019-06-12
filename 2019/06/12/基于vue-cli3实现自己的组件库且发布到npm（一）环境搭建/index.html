@@ -166,7 +166,7 @@
 <p>运行<code>npm run serve</code>就能把项目起起来。</p>
 <h3 id="调整目录"><a href="#调整目录" class="headerlink" title="调整目录"></a>调整目录</h3><p>我们需要一个目录存放示例，一个目录存放真的组件代码，所以我们将原先的src目录改名成examples，然后新增一个packages目录，用来放组件代码。</p>
 <p>所以调整后的目录是这样的</p>
-<p><img src="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/目录结构.png" alt=""></p>
+<p><img src="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建.png" alt=""></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="重新配置入口为example-main-js"><a href="#重新配置入口为example-main-js" class="headerlink" title="重新配置入口为example/main.js"></a>重新配置入口为example/main.js</h3><p>因为我们刚把src目录改成了example，所以我们要修改一下项目的入口文件的路径，我们创建在根目录下创建一个vue.config.js文件。</p>
 <figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	pages: &#123;</span><br><span class="line">		index: &#123;</span><br><span class="line">			entry: <span class="string">'examples/main.js'</span>, <span class="comment">// 修改src目录为examples</span></span><br><span class="line">			template: <span class="string">'public/index.html'</span>,</span><br><span class="line">			filename: <span class="string">'index.html'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="支持对packages目录的支持"><a href="#支持对packages目录的支持" class="headerlink" title="支持对packages目录的支持"></a>支持对packages目录的支持</h3><p>packages是我们新增的，我们需要手动配置，要不然webpack是不会处理。</p>
@@ -228,8 +228,8 @@
 <p>网络一线牵，</p>
 <p>珍惜这段缘。</p>
 <p>感觉要开始存钱植发了。</p>
-<p><img src="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/zf.jpeg" alt="支付宝"></p>
-<p><img src="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/wxZf.jpeg" alt="微信"></p>
+<p><img src="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/zf.png" alt=""></p>
+<p><img src="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/wxZf.png" alt=""></p>
 
     </main>
     <footer class="post-footer">
