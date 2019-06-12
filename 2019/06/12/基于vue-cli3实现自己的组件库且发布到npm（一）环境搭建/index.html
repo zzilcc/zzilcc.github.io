@@ -185,6 +185,13 @@
 <h3 id="创建一个github新项目"><a href="#创建一个github新项目" class="headerlink" title="创建一个github新项目"></a>创建一个github新项目</h3><p>我创建了一个名为theme-default的github项目用来存放主题样式。然后得到了一个项目地址。</p>
 <h3 id="创建样式文件目录"><a href="#创建样式文件目录" class="headerlink" title="创建样式文件目录"></a>创建样式文件目录</h3><p>我们在packages/下新建一个样式目录，叫做‘theme-default’，这个名字你可以随意。</p>
 <h3 id="初始化样式文件"><a href="#初始化样式文件" class="headerlink" title="初始化样式文件"></a>初始化样式文件</h3><p>我们通过<code>npm init</code>初始化，然后命令行会出现一些内容让你填写，比如name,main,author等，关于git项目的选项，我们要填上第一步创建的github项目地址，然后结束后在theme-default目录下会出现package.json,里面的内容就是你刚刚填写的。</p>
+<p>我们在样式目录下新建一个src目录用来放置样式文件，然后在src目录下创建button.scss,和index.scss.</p>
+<p>然后安装一下scss/sass</p>
+<pre><code>npm install -D sass-loader node-sass
+</code></pre><p>在button.scss里先写</p>
+<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.z-button</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: inline-block;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">cursor</span>: pointer;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在index.scss</p>
+<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"./button.scss"</span></span><br></pre></td></tr></table></figure>
 <h2 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h2><p>下面的命令都是在theme-default目录下执行</p>
 <p>全局安装：</p>
 <pre><code>npm install --global gulp
