@@ -168,77 +168,20 @@
 <p>所以调整后的目录是这样的</p>
 <p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/目录结构.png" alt=""></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="重新配置入口为example-main-js"><a href="#重新配置入口为example-main-js" class="headerlink" title="重新配置入口为example/main.js"></a>重新配置入口为example/main.js</h3><p>因为我们刚把src目录改成了example，所以我们要修改一下项目的入口文件的路径，我们创建在根目录下创建一个vue.config.js文件。</p>
-<pre><code>module.exports = {
-    pages: {
-        index: {
-            entry: &apos;examples/main.js&apos;, // 修改src目录为examples
-            template: &apos;public/index.html&apos;,
-            filename: &apos;index.html&apos;
-        }
-}
-}
-</code></pre><h3 id="支持对packages目录的支持"><a href="#支持对packages目录的支持" class="headerlink" title="支持对packages目录的支持"></a>支持对packages目录的支持</h3><p>packages是我们新增的，我们需要手动配置，要不然webpack是不会处理。</p>
-<pre><code>module.exports = {
-    pages: {
-        index: {
-            entry: &apos;examples/main.js&apos;, // 修改src目录为examples
-            template: &apos;public/index.html&apos;,
-            filename: &apos;index.html&apos;
-        }
-},
-    // 扩展webpack位置，让packages加入编译
-    config.module
-        .rule(&apos;js&apos;)
-        .incluede
-            .add(&apos;packages&apos;)
-            .end()
-        .use(&apos;babel&apos;)
-            .loader(&apos;babel-loader&apos;)
-            .tap(options =&gt; {
-                // 修改它的选项
-                return options
-            })
-}
-</code></pre><h2 id="编写组件"><a href="#编写组件" class="headerlink" title="编写组件"></a>编写组件</h2><h3 id="创建一个新组件"><a href="#创建一个新组件" class="headerlink" title="创建一个新组件"></a>创建一个新组件</h3><pre><code>1. 我们在packages目录下创建一个button文件夹，每个组件都一个文件夹
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	pages: &#123;</span><br><span class="line">		index: &#123;</span><br><span class="line">			entry: <span class="string">'examples/main.js'</span>, <span class="comment">// 修改src目录为examples</span></span><br><span class="line">			template: <span class="string">'public/index.html'</span>,</span><br><span class="line">			filename: <span class="string">'index.html'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="支持对packages目录的支持"><a href="#支持对packages目录的支持" class="headerlink" title="支持对packages目录的支持"></a>支持对packages目录的支持</h3><p>packages是我们新增的，我们需要手动配置，要不然webpack是不会处理。</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	pages: &#123;</span><br><span class="line">		index: &#123;</span><br><span class="line">			entry: <span class="string">'examples/main.js'</span>, <span class="comment">// 修改src目录为examples</span></span><br><span class="line">			template: <span class="string">'public/index.html'</span>,</span><br><span class="line">			filename: <span class="string">'index.html'</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	<span class="comment">// 扩展webpack位置，让packages加入编译</span></span><br><span class="line">	config.module</span><br><span class="line">		.rule(<span class="string">'js'</span>)</span><br><span class="line">		.incluede</span><br><span class="line">			.add(<span class="string">'packages'</span>)</span><br><span class="line">			.end()</span><br><span class="line">		.use(<span class="string">'babel'</span>)</span><br><span class="line">			.loader(<span class="string">'babel-loader'</span>)</span><br><span class="line">			.tap(<span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">				<span class="comment">// 修改它的选项</span></span><br><span class="line">				<span class="keyword">return</span> options</span><br><span class="line">			&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="编写组件"><a href="#编写组件" class="headerlink" title="编写组件"></a>编写组件</h2><h3 id="创建一个新组件"><a href="#创建一个新组件" class="headerlink" title="创建一个新组件"></a>创建一个新组件</h3><pre><code>1. 我们在packages目录下创建一个button文件夹，每个组件都一个文件夹
 2. 在button文件夹下创建src文件夹，用来存放组件源码，并在src文件夹里创建一个z-button.vue
 3. 在button文件里创建一个index.js,用来对外提供组件的引用
 </code></pre><p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/button1.png" alt=""></p>
 <p>为了测试，我们在z-button.vue的template里写一个<code>&lt;button&gt;</code></p>
 <p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/button.png" alt=""></p>
 <p>然后再button/index.js里写组件的install方法，创建相应的组件方法，供外部调用。</p>
-<pre><code>// 导入组件，组件必须声明name
-import zButton from &apos;./src/z-button.vue&apos;
-// 为组件提供install方法，供按需引入
-zButton.install = function (Vue) {
-    Vue.component(zButton.name, zButton)
-}
-// 默认导出组件
-export default zButton
-</code></pre><h3 id="整合所有组件，对外导出"><a href="#整合所有组件，对外导出" class="headerlink" title="整合所有组件，对外导出"></a>整合所有组件，对外导出</h3><p>修改packages/index.js</p>
-<pre><code>// 导入z-button组件
-import zButton from &apos;./button&apos;
-// 存储组件列表
-const components = [
-    zButton
-]
-// 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
-const install = function (Vue) {
-    // 判断是否安装
-    if (install.installed) return
-    // 遍历注册全局组件
-    components.map(component =&gt; Vue.component(component.name, component))
-}
-// 判断是否是直接引入文件
-if (typeof window !== &apos;undefined&apos; &amp;&amp; window.Vue) {
-    install(window.Vue)
-}
-export default {
-    // 导出的对象必须具有 install，才能被 Vue.use() 方法安装
-    install,
-    // 以下是具体的组件列表
-    zButton
-}
-</code></pre><h2 id="创建主题样式"><a href="#创建主题样式" class="headerlink" title="创建主题样式"></a>创建主题样式</h2><p>因为第一次建组件库，没什么经验，然后借鉴了好多ui组件库，比如element ui,iView,VV-UI等，我看到他们都没有在组件vue文件中去写相应的样式，也没有显示调用样式文件，然后研究了一下element ui的，发现它是将样式所有抽离出来，用gulp打包编译。然后我们在项目中需要引用样式文件。</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入组件，组件必须声明name</span></span><br><span class="line"><span class="keyword">import</span> zButton <span class="keyword">from</span> <span class="string">'./src/z-button.vue'</span></span><br><span class="line"><span class="comment">// 为组件提供install方法，供按需引入</span></span><br><span class="line">zButton.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">	Vue.component(zButton.name, zButton)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 默认导出组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> zButton</span><br></pre></td></tr></table></figure>
+<h3 id="整合所有组件，对外导出"><a href="#整合所有组件，对外导出" class="headerlink" title="整合所有组件，对外导出"></a>整合所有组件，对外导出</h3><p>修改packages/index.js</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入z-button组件</span></span><br><span class="line"><span class="keyword">import</span> zButton <span class="keyword">from</span> <span class="string">'./button'</span></span><br><span class="line"><span class="comment">// 存储组件列表</span></span><br><span class="line"><span class="keyword">const</span> components = [</span><br><span class="line">	zButton</span><br><span class="line">]</span><br><span class="line"><span class="comment">// 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册</span></span><br><span class="line"><span class="keyword">const</span> install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 判断是否安装</span></span><br><span class="line">	<span class="keyword">if</span> (install.installed) <span class="keyword">return</span></span><br><span class="line">	<span class="comment">// 遍历注册全局组件</span></span><br><span class="line">	components.map(<span class="function"><span class="params">component</span> =&gt;</span> Vue.component(component.name, component))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 判断是否是直接引入文件</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span> &amp;&amp; <span class="built_in">window</span>.Vue) &#123;</span><br><span class="line">	install(<span class="built_in">window</span>.Vue)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	<span class="comment">// 导出的对象必须具有 install，才能被 Vue.use() 方法安装</span></span><br><span class="line">	install,</span><br><span class="line">	<span class="comment">// 以下是具体的组件列表</span></span><br><span class="line">	zButton</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建主题样式"><a href="#创建主题样式" class="headerlink" title="创建主题样式"></a>创建主题样式</h2><p>因为第一次建组件库，没什么经验，然后借鉴了好多ui组件库，比如element ui,iView,VV-UI等，我看到他们都没有在组件vue文件中去写相应的样式，也没有显示调用样式文件，然后研究了一下element ui的，发现它是将样式所有抽离出来，用gulp打包编译。然后我们在项目中需要引用样式文件。</p>
 <h3 id="创建一个github新项目"><a href="#创建一个github新项目" class="headerlink" title="创建一个github新项目"></a>创建一个github新项目</h3><p>我创建了一个名为theme-default的github项目用来存放主题样式。然后得到了一个项目地址。</p>
 <h3 id="创建样式文件目录"><a href="#创建样式文件目录" class="headerlink" title="创建样式文件目录"></a>创建样式文件目录</h3><p>我们在packages/下新建一个样式目录，叫做‘theme-default’，这个名字你可以随意。</p>
 <h3 id="初始化样式文件"><a href="#初始化样式文件" class="headerlink" title="初始化样式文件"></a>初始化样式文件</h3><p>我们通过<code>npm init</code>初始化，然后命令行会出现一些内容让你填写，比如name,main,author等，关于git项目的选项，我们要填上第一步创建的github项目地址，然后结束后在theme-default目录下会出现package.json,里面的内容就是你刚刚填写的。</p>
@@ -250,27 +193,11 @@ export default {
 </code></pre><p>在theme-default目录下创建一个gulpfile.js，在改文件中编写</p>
 <figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; series, src, dest &#125; = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>)</span><br><span class="line"><span class="keyword">const</span> autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>)</span><br><span class="line"><span class="keyword">const</span> cssmin = <span class="built_in">require</span>(<span class="string">'gulp-cssmin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compile</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> src(<span class="string">'./src/*.scss'</span>)</span><br><span class="line">		.pipe(sass.sync())</span><br><span class="line">		.pipe(autoprefixer(&#123;</span><br><span class="line">			browsers: [<span class="string">'ie &gt; 9'</span>, <span class="string">'last 2 versions'</span>],</span><br><span class="line">			cascade: <span class="literal">false</span></span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(cssmin())</span><br><span class="line">		.pipe(dest(<span class="string">'../../lib/theme-default'</span>)) <span class="comment">// 这是输出地址，我写到了和组件编译后的地址</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyfont</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> src(<span class="string">'./src/fonts/**'</span>)</span><br><span class="line">		.pipe(cssmin())</span><br><span class="line">		.pipe(dest(<span class="string">'../../lib/fonts/theme-default'</span>))<span class="comment">// 同上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.build = series(compile, copyfont)</span><br></pre></td></tr></table></figure>
 <h2 id="发布到npm"><a href="#发布到npm" class="headerlink" title="发布到npm"></a>发布到npm</h2><h3 id="配置命令"><a href="#配置命令" class="headerlink" title="配置命令"></a>配置命令</h3><p>我们在zzilcc-ui目录下的package.json的scripts里加一个lib命令</p>
-<pre><code>&quot;scripts&quot;: {
-    &quot;serve&quot;: &quot;vue-cli-service serve&quot;,
-    &quot;build&quot;: &quot;vue-cli-service build&quot;,
-    &quot;lint&quot;: &quot;vue-cli-service lint&quot;,
-    &quot;lib&quot;: &quot;vue-cli-service build --target lib --name zzilcc-ui --dest lib packages/index.js &amp;&amp; gulp build --gulpfile packages/theme-default/gulpfile.js&quot;
-},
-</code></pre><p>然后运行lib命令  <code>npm run lib</code></p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">	"serve": "vue-cli-service serve",</span><br><span class="line">	"build": "vue-cli-service build",</span><br><span class="line">	"lint": "vue-cli-service lint",</span><br><span class="line">	"lib": "vue-cli-service build --target lib --name zzilcc-ui --dest lib packages/index.js &amp;&amp; gulp build --gulpfile packages/theme-default/gulpfile.js"</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>然后运行lib命令  <code>npm run lib</code></p>
 <p>该命令其实执行了两个命令，第一个是vue-cli3.0的vue-cli-service build</p>
-<pre><code>用法：vue-cli-service build [options] [entry|pattern]
-选项：
-
---mode        指定环境模式 (默认值：production)
---dest        指定输出目录 (默认值：dist)
---modern      面向现代浏览器带自动回退地构建应用
---target      app | lib | wc | wc-async (默认值：app)
---name        库或 Web Components 模式下的名字 (默认值：package.json 中的 &quot;name&quot; 字段或入口文件名)
---no-clean    在构建项目之前不清除目标目录
---report      生成 report.html 以帮助分析包内容
---report-json 生成 report.json 以帮助分析包内容
---watch       监听文件变化
-</code></pre><p>vue-cli-service build 会在 dist/ 目录产生一个可用于生产环境的包，带有 JS/CSS/HTML 的压缩，和为更好的缓存而做的自动的 vendor chunk splitting。 –vue-cli官网</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">用法：vue-cli-service build [options] [entry|pattern]</span><br><span class="line">选项：</span><br><span class="line"></span><br><span class="line">--mode        指定环境模式 (默认值：production)</span><br><span class="line">--dest        指定输出目录 (默认值：dist)</span><br><span class="line">--modern      面向现代浏览器带自动回退地构建应用</span><br><span class="line">--target      app | lib | wc | wc-async (默认值：app)</span><br><span class="line">--name        库或 Web Components 模式下的名字 (默认值：package.json 中的 &quot;name&quot; 字段或入口文件名)</span><br><span class="line">--no-clean    在构建项目之前不清除目标目录</span><br><span class="line">--report      生成 report.html 以帮助分析包内容</span><br><span class="line">--report-json 生成 report.json 以帮助分析包内容</span><br><span class="line">--watch       监听文件变化</span><br></pre></td></tr></table></figure>
+<p>vue-cli-service build 会在 dist/ 目录产生一个可用于生产环境的包，带有 JS/CSS/HTML 的压缩，和为更好的缓存而做的自动的 vendor chunk splitting。 –vue-cli官网</p>
 <p>第二个命令是执行样式文件的gulp build</p>
 <p>命令执行完后会在zzilcc-ui下生成一个lib文件</p>
 <p><img src="/2019/06/12/基于vue-cli3.0实现自己的组件库（一）环境搭建/lib.png" alt=""></p>
@@ -286,23 +213,9 @@ export default {
 <li>license： 开源协议</li>
 </ol>
 <p>贴上我的配置</p>
-<pre><code>&quot;name&quot;: &quot;zzilcc-ui&quot;,
-  &quot;version&quot;: &quot;0.1.4&quot;,
-  &quot;description&quot;: &quot;基于 Vue 的简易组件库&quot;,
-  &quot;main&quot;: &quot;lib/zzilcc-ui.umd.min.js&quot;,
-  &quot;keyword&quot;: &quot;zzilcc-ui vue&quot;,
-  &quot;private&quot;: false,
-</code></pre><h3 id="添加npm发布忽略文件"><a href="#添加npm发布忽略文件" class="headerlink" title="添加npm发布忽略文件"></a>添加npm发布忽略文件</h3><p>我们在zzilcc-ui目录下新建一个.npmignore文件，语法和git的忽略文件是一样的，内容如下</p>
-<pre><code># 忽略目录
-examples/
-packages/
-public/
-
-# 忽略指定文件
-vue.config.js
-babel.config.js
-*.map
-</code></pre><h3 id="注册npm账号"><a href="#注册npm账号" class="headerlink" title="注册npm账号"></a>注册npm账号</h3><p>去<a href="https://www.npmjs.com/package/npm" target="_blank" rel="noopener">npm官网</a>注册一个账号，然后网站会发一封邮件到你注册的邮箱，点击邮件中的链接，就表示邮箱验证成功。</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"name": "zzilcc-ui",</span><br><span class="line">"version": "0.1.4",</span><br><span class="line">"description": "基于 Vue 的简易组件库",</span><br><span class="line">"main": "lib/zzilcc-ui.umd.min.js",</span><br><span class="line">"keyword": "zzilcc-ui vue",</span><br><span class="line">"private": false,</span><br></pre></td></tr></table></figure>
+<h3 id="添加npm发布忽略文件"><a href="#添加npm发布忽略文件" class="headerlink" title="添加npm发布忽略文件"></a>添加npm发布忽略文件</h3><p>我们在zzilcc-ui目录下新建一个.npmignore文件，语法和git的忽略文件是一样的，内容如下<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 忽略目录</span><br><span class="line">examples/</span><br><span class="line">packages/</span><br><span class="line">public/</span><br><span class="line"></span><br><span class="line"># 忽略指定文件</span><br><span class="line">vue.config.js</span><br><span class="line">babel.config.js</span><br><span class="line">*.map</span><br></pre></td></tr></table></figure></p>
+<h3 id="注册npm账号"><a href="#注册npm账号" class="headerlink" title="注册npm账号"></a>注册npm账号</h3><p>去<a href="https://www.npmjs.com/package/npm" target="_blank" rel="noopener">npm官网</a>注册一个账号，然后网站会发一封邮件到你注册的邮箱，点击邮件中的链接，就表示邮箱验证成功。</p>
 <p>然后在zzilcc-ui目录打开命令行输入</p>
 <pre><code>npm login
 </code></pre><p>该命令会让你输如npm 账号，密码，邮箱，相应的输入你注册的账号，密码输入不会显示，输入完回车就行</p>
