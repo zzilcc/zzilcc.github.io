@@ -82,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>变基git rebase中的基是什么 | 黄紫茜的博客</title>
+    <title>javaScript 数组方法总结 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -123,7 +123,7 @@
   
   <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/变基git-rebase中的基是什么/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/javaScript-数组方法总结/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="黄紫茜">
        <meta itemprop="description" content="">
@@ -134,11 +134,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">变基git rebase中的基是什么</h1>
+      <h1 class="post-title" itemprop="name headline">javaScript 数组方法总结</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-08-28T00:01:26+08:00">2018-08-28 00:01:26</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-15T11:14:08+08:00">2019-06-15 11:14:08</time></span>
         </span>
         
         
@@ -146,31 +146,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h1 id="变基-git-rebase-中的基是什么？"><a href="#变基-git-rebase-中的基是什么？" class="headerlink" title="变基(git rebase)中的基是什么？"></a>变基(git rebase)中的基是什么？</h1><p>git rebase 在官网中的定义是：重新应用commits到要合并到的分支的顶端。（一个英语渣的直译，见笑了）。其实也可以这么说是重新应用commits到要合并到的分支的最新提交。如果现在还没有理解，没有关系，现在我开始仔细说明git rebase都干了什么。</p>
-<p>假设我们现在是A研发人员，此时本地分支是master,然后远程有两个分支：origin/master,origin/develop。此时我们接到一个任务，我们要在develop分支上开发一个功能，所以此时我们要切换分支。<br><a id="more"></a></p>
-<p><img src="/2018/08/28/变基git-rebase中的基是什么/changj.png" alt=""></p>
-<p>切换分支我们需要用到的命令是：</p>
-<pre><code>git checkout -b local_develop origin/develop
-</code></pre><p>该命令其实做了两个操作，第一个是拷贝了远程的origin/develop到本地，致使本地多了一个分支，第二个是把该分支命名为local_develop。</p>
-<p>假设此时远程的origin/develop分支上已经有两个提交。，所以我们查看远程分支的日志（git log origin/develop）可以看到提交的树状图如下：</p>
-<p><img src="/2018/08/28/变基git-rebase中的基是什么/001.png" alt=""></p>
-<p>此时你本地的提交日志（git log）的树状图如下：</p>
-<p><img src="/2018/08/28/变基git-rebase中的基是什么/002.png" alt=""></p>
-<p>经过一段时间，你把功能开发完成了，此时提交代码(git commit -m “[+]添加功能”)，把你本地的代码提交到远程分支上。这时候你发现在你提交之前，有其他的同事在develop分支（这里指的是origin/develop）上提交了两次代码。所以此时的树状图是这样的：远程分支的提交已经有四次了，此时你的提交编号应该为5.</p>
-<p><img src="/2018/08/28/变基git-rebase中的基是什么/003.png" alt=""></p>
-<p>commit后，如果有修改过但是未commit的文件，我们应该执行驻藏命令 git stash 将这些文件保留到驻藏区，然后进行代码的拉取git fetch ，然后执行合并分支，git rebase. </p>
-<p>该命令会执行两个步骤，第一个是把你本地分支的新添加的全部的commit的补丁（patch）,我理解为是备份，也就是把他们的备份临时放到.git/rebase目录下，然后把commit撤销掉。<br>也就是这样：</p>
-<p><img src="/2018/08/28/变基git-rebase中的基是什么/004.png" alt=""></p>
-<p>第二个步骤是在要合并到的分支（origin/develop）的最新的commit的基础上应用这些补丁。也就是把4和5’进行合并，然后推送代码 git push.</p>
-<p><img src="/2018/08/28/变基git-rebase中的基是什么/005.png" alt=""></p>
-<p>到这里，我们可以知道变基的基是什么了吧。就是要要合并到的分支（origin/develop）的最新的提交（在上面例子里，这个基就是4）。</p>
-<p>明白了git rebase的操作后，我们可以发现，如果使用git rebase命令来合并分支的话，分支的树状图都是“单线”，都是一条直线。这样的树状图是非常优美的。</p>
-<p>现在我们也可以来了解一下另一个合并分支的命令(git merge).</p>
-<p>merge命令非常简单粗暴，就是把你本地最新的提交和远程最新的提交合并一下，得到一份最新的提交。</p>
-<p><img src="/2018/08/28/变基git-rebase中的基是什么/006.png" alt=""></p>
-<p>用merge命令的话树状图就会看着很乱，有各种线交叉，看着非常不友好。</p>
-<p>所以拉代码推荐git fetch + git rebase.</p>
-
+      <h2 id="数组方法总结"><a href="#数组方法总结" class="headerlink" title="数组方法总结"></a>数组方法总结</h2><h3 id="1-concat"><a href="#1-concat" class="headerlink" title="1. concat()"></a>1. concat()</h3><h3 id="2-Array"><a href="#2-Array" class="headerlink" title="2. Array()"></a>2. Array()</h3><h3 id="3-copyWithin"><a href="#3-copyWithin" class="headerlink" title="3. copyWithin()"></a>3. copyWithin()</h3><h3 id="4-entries"><a href="#4-entries" class="headerlink" title="4. entries()"></a>4. entries()</h3><h3 id="5-every"><a href="#5-every" class="headerlink" title="5. every()"></a>5. every()</h3><h3 id="6-fill"><a href="#6-fill" class="headerlink" title="6. fill()"></a>6. fill()</h3><h3 id="7-filter"><a href="#7-filter" class="headerlink" title="7. filter()"></a>7. filter()</h3><h3 id="8-find"><a href="#8-find" class="headerlink" title="8. find()"></a>8. find()</h3><h3 id="9-findIndex"><a href="#9-findIndex" class="headerlink" title="9. findIndex()"></a>9. findIndex()</h3><h3 id="10-flat"><a href="#10-flat" class="headerlink" title="10. flat()"></a>10. flat()</h3><h3 id="11-flatMap"><a href="#11-flatMap" class="headerlink" title="11. flatMap()"></a>11. flatMap()</h3><h3 id="12-forEach"><a href="#12-forEach" class="headerlink" title="12. forEach()"></a>12. forEach()</h3><h3 id="13-includes"><a href="#13-includes" class="headerlink" title="13. includes()"></a>13. includes()</h3><h3 id="14-indexOf"><a href="#14-indexOf" class="headerlink" title="14. indexOf()"></a>14. indexOf()</h3><h3 id="15-join"><a href="#15-join" class="headerlink" title="15. join()"></a>15. join()</h3><h3 id="16-keys"><a href="#16-keys" class="headerlink" title="16. keys()"></a>16. keys()</h3><h3 id="17-lastIndexOf"><a href="#17-lastIndexOf" class="headerlink" title="17. lastIndexOf()"></a>17. lastIndexOf()</h3><h3 id="18-map"><a href="#18-map" class="headerlink" title="18. map()"></a>18. map()</h3><h3 id="19-pop"><a href="#19-pop" class="headerlink" title="19. pop()"></a>19. pop()</h3><h3 id="20-push"><a href="#20-push" class="headerlink" title="20. push()"></a>20. push()</h3><h3 id="21-reduce"><a href="#21-reduce" class="headerlink" title="21. reduce()"></a>21. reduce()</h3><h3 id="22-reduceRight"><a href="#22-reduceRight" class="headerlink" title="22. reduceRight()"></a>22. reduceRight()</h3><h3 id="23-reverse"><a href="#23-reverse" class="headerlink" title="23. reverse()"></a>23. reverse()</h3><h3 id="24-shift"><a href="#24-shift" class="headerlink" title="24. shift()"></a>24. shift()</h3><h3 id="25-slice"><a href="#25-slice" class="headerlink" title="25. slice()"></a>25. slice()</h3><h3 id="26-some"><a href="#26-some" class="headerlink" title="26. some()"></a>26. some()</h3><h3 id="27-sort"><a href="#27-sort" class="headerlink" title="27. sort()"></a>27. sort()</h3><h3 id="28-splice"><a href="#28-splice" class="headerlink" title="28. splice()"></a>28. splice()</h3><h3 id="29-toLocaleString"><a href="#29-toLocaleString" class="headerlink" title="29. toLocaleString()"></a>29. toLocaleString()</h3><h3 id="30-toString"><a href="#30-toString" class="headerlink" title="30. toString()"></a>30. toString()</h3><h3 id="31-unshift"><a href="#31-unshift" class="headerlink" title="31. unshift()"></a>31. unshift()</h3><h3 id="32-values"><a href="#32-values" class="headerlink" title="32. values()"></a>32. values()</h3>
     </main>
     <footer class="post-footer">
       
@@ -179,7 +155,7 @@
         
         
         
-        <a class="post-tag button" href="/tags/Git/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Git</a>
+        <a class="post-tag button" href="/tags/JavaScript-Array/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript Array</a>
         
       </div>
       
@@ -190,12 +166,10 @@
   <div class="post-nav">
     <div class="post-nav-next post-nav-item">
       
-      <a href="/2018/08/23/JavaScript的创建对象方法/" rel="next" title="JavaScript的創建方法"><i class="fas fa-angle-left"></i><span class="nav-title">JavaScript的創建方法</span></a>
+      <a href="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/" rel="next" title="基于vue cli3实现自己的组件库且发布到npm（一）环境搭建"><i class="fas fa-angle-left"></i><span class="nav-title">基于vue cli3实现自己的组件库且发布到npm（一）环境搭建</span></a>
       
     </div>
     <div class="post-nav-prev post-nav-item">
-      
-      <a href="/2018/09/04/《JavaScript高级程序设计》DOM扩展/" rel="prev" title="《JavaScript高级程序设计》DOM扩展"><span class="nav-title">《JavaScript高级程序设计》DOM扩展</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </div>
@@ -265,7 +239,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#变基-git-rebase-中的基是什么？"><span class="toc-text">变基(git rebase)中的基是什么？</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#数组方法总结"><span class="toc-text">数组方法总结</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-concat"><span class="toc-text">1. concat()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-Array"><span class="toc-text">2. Array()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-copyWithin"><span class="toc-text">3. copyWithin()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-entries"><span class="toc-text">4. entries()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#5-every"><span class="toc-text">5. every()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#6-fill"><span class="toc-text">6. fill()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#7-filter"><span class="toc-text">7. filter()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#8-find"><span class="toc-text">8. find()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#9-findIndex"><span class="toc-text">9. findIndex()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#10-flat"><span class="toc-text">10. flat()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#11-flatMap"><span class="toc-text">11. flatMap()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#12-forEach"><span class="toc-text">12. forEach()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#13-includes"><span class="toc-text">13. includes()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#14-indexOf"><span class="toc-text">14. indexOf()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#15-join"><span class="toc-text">15. join()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#16-keys"><span class="toc-text">16. keys()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#17-lastIndexOf"><span class="toc-text">17. lastIndexOf()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#18-map"><span class="toc-text">18. map()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#19-pop"><span class="toc-text">19. pop()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#20-push"><span class="toc-text">20. push()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#21-reduce"><span class="toc-text">21. reduce()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#22-reduceRight"><span class="toc-text">22. reduceRight()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#23-reverse"><span class="toc-text">23. reverse()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#24-shift"><span class="toc-text">24. shift()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#25-slice"><span class="toc-text">25. slice()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#26-some"><span class="toc-text">26. some()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#27-sort"><span class="toc-text">27. sort()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#28-splice"><span class="toc-text">28. splice()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#29-toLocaleString"><span class="toc-text">29. toLocaleString()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#30-toString"><span class="toc-text">30. toString()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#31-unshift"><span class="toc-text">31. unshift()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#32-values"><span class="toc-text">32. values()</span></a></li></ol></li></ol></div>
 </div>
 
 
