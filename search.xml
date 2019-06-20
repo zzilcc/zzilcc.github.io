@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>浏览器缓存详解</title>
+      <link href="/2019/06/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2019/06/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="什么是缓存"><a href="#什么是缓存" class="headerlink" title="什么是缓存"></a>什么是缓存</h2><h2 id="为什么用缓存"><a href="#为什么用缓存" class="headerlink" title="为什么用缓存"></a>为什么用缓存</h2><h2 id="怎么用缓存"><a href="#怎么用缓存" class="headerlink" title="怎么用缓存"></a>怎么用缓存</h2>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 缓存 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>javaScript 数组方法总结</title>
       <link href="/2019/06/15/javaScript-%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
       <url>/2019/06/15/javaScript-%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</url>

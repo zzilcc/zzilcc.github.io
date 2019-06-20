@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-15T13:31:54.351Z</updated>
+  <updated>2019-06-20T07:54:02.238Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器缓存详解</title>
+    <link href="http://yoursite.com/2019/06/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2019/06/16/浏览器缓存详解/</id>
+    <published>2019-06-16T14:00:23.000Z</published>
+    <updated>2019-06-20T07:54:02.238Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="什么是缓存"><a href="#什么是缓存" class="headerlink" title="什么是缓存"></a>什么是缓存</h2><h2 id="为什么用缓存"><a href="#为什么用缓存" class="headerlink" title="为什么用缓存"></a>为什么用缓存</h2><h2 id="怎么用缓存"><a href="#怎么用缓存" class="headerlink" title="怎么用缓存"></a>怎么用缓存</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;h2 id=&quot;什么是缓存&quot;&gt;&lt;a href=&quot;#什么是缓存&quot; class=&quot;headerlink&quot; title=&quot;什么是缓存&quot;&gt;&lt;/a&gt;什么是缓
+      
+    
+    </summary>
+    
+    
+      <category term="浏览器 缓存" scheme="http://yoursite.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8-%E7%BC%93%E5%AD%98/"/>
+    
+  </entry>
   
   <entry>
     <title>javaScript 数组方法总结</title>
