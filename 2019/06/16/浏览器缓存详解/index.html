@@ -146,7 +146,21 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="什么是缓存"><a href="#什么是缓存" class="headerlink" title="什么是缓存"></a>什么是缓存</h2><h2 id="为什么用缓存"><a href="#为什么用缓存" class="headerlink" title="为什么用缓存"></a>为什么用缓存</h2><h2 id="怎么用缓存"><a href="#怎么用缓存" class="headerlink" title="怎么用缓存"></a>怎么用缓存</h2>
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可能有人会和以前的我一样，觉得缓存不是后台设置的吗，感觉和前端人员没有太大联系，平时关于缓存最常做的就是在浏览器<code>Ctrl+Shit+Delete</code>清空缓存。</p>
+<p>web缓存可以大致分为三类：</p>
+<pre><code>1. 浏览器缓存
+2. 代理缓存
+3. 网关缓存
+</code></pre><p>我们这篇文章主要讲的是浏览器缓存，浏览器主要是通过http/https和服务器进行通信，所以浏览器缓存我们也可以说是HTTP缓存。<br><a id="more"></a></p>
+<h2 id="什么是浏览器缓存"><a href="#什么是浏览器缓存" class="headerlink" title="什么是浏览器缓存"></a>什么是浏览器缓存</h2><blockquote>
+<p>浏览器缓存（Browser Caching）是为了节约网络的资源加速浏览，浏览器在用户磁盘上对最近请求过的文档进行存储，当访问者再次请求这个页面时，浏览器就可以从本地磁盘显示文档，这样就可以加速页面的阅览。-百度百科</p>
+</blockquote>
+<p>缓存了的文档应该怎么命中，应该什么时候删除，所有有一套缓存机制去进行处理这些问题，下面会详细说明。</p>
+<h2 id="为什么用浏览器缓存"><a href="#为什么用浏览器缓存" class="headerlink" title="为什么用浏览器缓存"></a>为什么用浏览器缓存</h2><ol>
+<li>减少了等待时间</li>
+<li>减少了网络通信量</li>
+</ol>
+<h2 id="怎么用浏览器缓存"><a href="#怎么用浏览器缓存" class="headerlink" title="怎么用浏览器缓存"></a>怎么用浏览器缓存</h2><h2 id="浏览器存储"><a href="#浏览器存储" class="headerlink" title="浏览器存储"></a>浏览器存储</h2><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3>
     </main>
     <footer class="post-footer">
       
@@ -239,7 +253,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#什么是缓存"><span class="toc-text">什么是缓存</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#为什么用缓存"><span class="toc-text">为什么用缓存</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#怎么用缓存"><span class="toc-text">怎么用缓存</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#什么是浏览器缓存"><span class="toc-text">什么是浏览器缓存</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#为什么用浏览器缓存"><span class="toc-text">为什么用浏览器缓存</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#怎么用浏览器缓存"><span class="toc-text">怎么用浏览器缓存</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#浏览器存储"><span class="toc-text">浏览器存储</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#后记"><span class="toc-text">后记</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#参考文档"><span class="toc-text">参考文档</span></a></li></ol></li></ol></div>
 </div>
 
 
