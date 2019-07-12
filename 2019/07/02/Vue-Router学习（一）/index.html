@@ -46,6 +46,9 @@
     <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
     
     
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
     <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
@@ -79,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>黄紫茜的博客</title>
+    <title>Vue Router学习（一） | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -93,7 +96,7 @@
   <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
   <ul id="menu" role="menubar" aria-hidden="false">
     
-    <li role="menuitem"><a href="/" class="current">Home</a></li>
+    <li role="menuitem"><a href="/">Home</a></li>
     
     <li role="menuitem"><a href="/archives/">Archives</a></li>
     
@@ -116,25 +119,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index">
+<div id="post" class="post">
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/Vue-Router学习（一）/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
+       <meta itemprop="name" content="黄紫茜的博客">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/07/02/Vue-Router学习（一）/" itemprop="url">Vue Router学习（一）</a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">Vue Router学习（一）</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -146,7 +146,6 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
       <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="单页应用-vs-多页应用"><a href="#单页应用-vs-多页应用" class="headerlink" title="单页应用 vs 多页应用"></a>单页应用 vs 多页应用</h3><p><img src="/2019/07/02/Vue-Router学习（一）/blog.png" alt=""></p>
 <p>以我的博客为例，很多网站会有这样的布局，头部会有一个导航栏，每次点击页面会切换。</p>
 <p>如果是多页应用MPA（Mutiple Page Application）的话，就是每一个导航是一个html，比如我的博客，导航里有5项，那么就有5个html，每次点击，都进行了html切换，每次都要加载新的html。</p>
@@ -216,7 +215,6 @@
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &#123;&#123;msg&#125;&#125;</span><br><span class="line">   &lt;router-view/&gt; // 新增的</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;achives&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;I am Achives&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <p>最后我们只要在App.vue添加相应的点击事件和router-link</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>
-      
     </main>
     <footer class="post-footer">
       
@@ -232,501 +230,17 @@
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/浏览器缓存详解/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2019/06/16/浏览器缓存详解/" rel="next" title="浏览器缓存详解"><i class="fas fa-angle-left"></i><span class="nav-title">浏览器缓存详解</span></a>
+      
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/浏览器缓存详解/" itemprop="url">浏览器缓存详解</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T22:00:23+08:00">2019-06-16 22:00:23</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
+    <div class="post-nav-prev post-nav-item">
       
-      <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>[toc]</p>
-<p>可能有人会和以前的我一样，觉得缓存不是后台设置的吗，感觉和前端人员没有太大联系，平时关于缓存最常做的就是在浏览器<code>Ctrl+Shit+Delete</code>清空缓存。</p>
-<p>web缓存可以大致分为三类：</p>
-<pre><code>1. 浏览器缓存
-2. 代理缓存
-3. 网关缓存
-</code></pre><p>我们这篇文章主要讲的是浏览器缓存，浏览器主要是通过http/https和服务器进行通信，所以浏览器缓存我们也可以说是HTTP缓存。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/浏览器-缓存/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>浏览器 缓存</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/javaScript-数组方法总结/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
     </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/15/javaScript-数组方法总结/" itemprop="url">javaScript 数组方法总结</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-15T11:14:08+08:00">2019-06-15 11:14:08</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="数组方法总结"><a href="#数组方法总结" class="headerlink" title="数组方法总结"></a>数组方法总结</h2><h3 id="1-concat"><a href="#1-concat" class="headerlink" title="1. concat()"></a>1. concat()</h3><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">语法： arr1.concat(arrayX,arrayX,......,arrayX)</span><br><span class="line">返回值：一个连接新数组，包含了arr1和所有arrayX</span><br><span class="line">参数：arrayX：可以是具体元素值，也可以是数组，数量是任意</span><br><span class="line">作用：连接两个或多个数组</span><br><span class="line">缺点：效率低</span><br></pre></td></tr></table></figure>
-<p>示例1：</p>
-<figure class="hljs highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> resArr = arr1.concat(<span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">console</span>.log(resArr);<span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/JavaScript-Array/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript Array</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/12/基于vue-cli3实现自己的组件库且发布到npm（一）环境搭建/" itemprop="url">基于vue cli3实现自己的组件库且发布到npm（一）环境搭建</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-12T15:13:13+08:00">2019-06-12 15:13:13</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="安装vue-cli3-0"><a href="#安装vue-cli3-0" class="headerlink" title="安装vue-cli3.0"></a>安装vue-cli3.0</h2><p>因为我电脑之前有装了vue-cli2的，所以要先卸载以前的版本，再安装新的版本。</p>
-<pre><code>npm uninstall vue-cli -g
-</code></pre><p>然后再安装新版本</p>
-<pre><code>npm install -g @vue/cli 
-</code></pre><p>安装成功后用<code>vue -V</code>查看，发现还是2.9.x版本，我看了一下node版本是符合要求的，然后我真是的一脸懵逼。然后网上搜了下，最后找到了一个解决办法（window系统有遇到这个问题，mac没有）。</p>
-<ol>
-<li>把node完全卸载了，文件也删除干净。</li>
-<li>然后下载nvm，<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">下载传送门</a>，选择相应的版本，然后选择下载nvm-setup.zip这个包，然后安装成功后，命令行输入nvm，会出现nvm版本号和一系列指令。</li>
-<li>命令行输入 <code>nvm install node版本号</code>,就可以安装相应版本的node,最后<code>nvm use node版本号</code>使用指定版本的node</li>
-<li>最后在命令行输入<code>npm install -g @vue/cli</code>，发现输出终于是3.x了，欢呼！！</li>
-</ol>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/vue-vue-cli-webpack/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>vue vue-cli webpack</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/半个小时学不会的正则表达式/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/28/半个小时学不会的正则表达式/" itemprop="url">半个小时学不会的正则表达式</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-28T22:35:41+08:00">2019-05-28 22:35:41</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h1 id="一、-为什么用正则表达式"><a href="#一、-为什么用正则表达式" class="headerlink" title="一、 为什么用正则表达式"></a>一、 为什么用正则表达式</h1><p>我们去学习某个新技能，肯定是因为它有某些实用价值，它能解决某些问题，能提高某些方面效率。</p>
-<p>正则表达式也是如此。</p>
-<p>正则表达式是匹配模式，</p>
-<p>正则表达式能做的事情：</p>
-<ol>
-<li>验证<ul>
-<li>表单验证</li>
-</ul>
-</li>
-<li>切分<ul>
-<li>“2019-05-25这一天，我们去密室逃脱.”切分出日期</li>
-<li>切分出url的参数</li>
-</ul>
-</li>
-<li>提取<ul>
-<li>”2019-05-28“提取出年月日</li>
-</ul>
-</li>
-<li>替换<ul>
-<li>替换空格等</li>
-</ul>
-</li>
-</ol>
-<p>总的来说，正则表达式可以用来匹配字符，也可以匹配位置，可以使我们少写很多行代码。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/正则表达式/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>正则表达式</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/js原型和原型链/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/30/js原型和原型链/" itemprop="url">js原型和原型链</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-30T16:32:10+08:00">2019-04-30 16:32:10</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="prtotype和proto"><a href="#prtotype和proto" class="headerlink" title="prtotype和proto"></a>prtotype和<strong>proto</strong></h2><p>说到原型，我们必须要了解prototype和<strong>proto</strong>,这两个很多人可能总是会分不清，接下来我会尽可能以通俗易懂的语言去解释这两者的不同。</p>
-<p>我们看到的大多数引用类型值：函数，数组，对象都是Object的实例，所以Object可以说是一个基本。</p>
-<p>我们去创建一个Object的实例，有两种方法，一种是通过new</p>
-<p>例如：</p>
-<pre><code>var obj = new Object()
-</code></pre><p>还有一种通过对象字面量</p>
-<pre><code>var obj = {}  
-</code></pre><p>每个构造函数都有一个原型对象，通过prototype去访问，比如Object.prototype,然后这个原型对象包含一个constructor属性，指向构造函数，也就是Object.prototype.constructor === Object，还包含了一些内置函数，或者自定义的函数。</p>
-<p>然后实例化这个构造函数，得到的实例，有一个<strong>proto</strong>属性指向构造函数的原型对象。</p>
-<p>下面是Object的一个例子。</p>
-<p><img src="/2019/04/30/js原型和原型链/Object的原型.jpg" alt=""></p>
-<p>所以我们可以看到obj.<strong>proto</strong>=== Object.prototype</p>
-<p>总结：</p>
-<ol>
-<li>每个函数都有prototype指向原型对象</li>
-<li>每个对象都有<strong>protot</strong>指向构造函数的原型对象</li>
-</ol>
-<p>在js中，函数是一种特殊的对象，所以函数也有<strong>proto</strong></p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/javaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>javaScript</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/this和常用css/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/26/this和常用css/" itemprop="url">this和常用css</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-26T09:44:50+08:00">2019-04-26 09:44:50</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="第一段代码"><a href="#第一段代码" class="headerlink" title="第一段代码"></a>第一段代码</h3><pre><code>var count = 1;
-function a () {
-    this.count ++
-    console.log(this.count)
-}
-a.count = 0;
-a()
-console.log(a.count)
-</code></pre><p>谣言： this指向自身</p>
-<h3 id="第二段代码"><a href="#第二段代码" class="headerlink" title="第二段代码"></a>第二段代码</h3><p>重要的事情说三遍</p>
-<p>this永远指向最后调用它的对象</p>
-<p>this永远指向最后调用它的对象</p>
-<p>this永远指向最后调用它的对象<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/this-css/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>this | css</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/js作用域和闭包/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/15/js作用域和闭包/" itemprop="url">js作用域和闭包</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-15T19:28:34+08:00">2019-04-15 19:28:34</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="一、js引擎执行过程"><a href="#一、js引擎执行过程" class="headerlink" title="一、js引擎执行过程"></a>一、js引擎执行过程</h2><pre><code>var a;
-console.log(a);
-console.log(b);
-</code></pre><p>输出？</p>
-<pre><code>a = 2;
-var a;
-console.log(a);
-</code></pre><p>输出？</p>
-<pre><code>console.log(a);
-var a = 2;
-</code></pre><p>输出？</p>
-<p>我们之前说过js代码是由上到下去执行的，但是上面代码的输出结果好像显示的不是这样，其实不是的，js代码确实是由上到下去执行的，只是执行的不是我们直接写的代码，而是我们代码通过编译后生成的代码。</p>
-<p>我们可以将js引擎执行过程分为三个阶段，分别是语法分析，预编译和解释执行阶段。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/js作用域-闭包/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>js作用域 闭包</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/JavaScript运行机制/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/12/JavaScript运行机制/" itemprop="url">JavaScript运行机制</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-12T00:13:56+08:00">2019-04-12 00:13:56</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="0-1-前言"><a href="#0-1-前言" class="headerlink" title="0.1. 前言"></a>0.1. 前言</h2><h3 id="0-1-1-ES5，ES6和JavaScript的关系"><a href="#0-1-1-ES5，ES6和JavaScript的关系" class="headerlink" title="0.1.1. ES5，ES6和JavaScript的关系"></a>0.1.1. ES5，ES6和JavaScript的关系</h3><p>众所周知，JavaScript是一位网景公司的奇人布兰登艾奇花了十天就开发出来的。一开始JavaScript叫LiveScript，当时Java特别火，为了蹭个热度，网景公司将其改名成了JavaScript。</p>
-<p>微软在IE3的时候加入了JavaScript的实现，为了避免纠纷，命名为JScript。还有其他公司自己研发了JavaScript，所以这样兼容性就称为一个很头疼的事情，所以业内人士强烈呼吁定制一个标准。</p>
-<p>1996年，网景公司将JavaScript提交给国际标准化组织ECMA，次年，该组织发布了浏览器脚本语言的标准，并将这种语言称为ECMAScript，也就是我们常说的ES。所以ES是一种标准，JavaScript是ES的实现。</p>
-<p>ES5是指ECMAScript5.0，ECMAScript5.1版本，ES6是泛指，指5.1版本以后的JavaScript的下一代标准。</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/JavaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/D3.js画3D方柱/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/03/28/D3.js画3D方柱/" itemprop="url">D3.js画3D方柱</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-28T16:24:45+08:00">2019-03-28 16:24:45</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="D3-js入门实例-3D方柱"><a href="#D3-js入门实例-3D方柱" class="headerlink" title="D3.js入门实例-3D方柱"></a>D3.js入门实例-3D方柱</h2><p>最近由于项目需要去实现3D可视化，所以学了一下D3.js。使用版本是v4.x。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/D3-js/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>D3.js</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="Next Page"></i></a>
-  </nav>
+  </div>
   
   
 </div>
@@ -784,6 +298,20 @@ var a = 2;
 
 
   <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#单页应用-vs-多页应用"><span class="toc-text">单页应用 vs 多页应用</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#多页应用"><span class="toc-text">多页应用</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#单页应用"><span class="toc-text">单页应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#理解路由"><span class="toc-text">理解路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Vue-Router是什么？"><span class="toc-text">Vue Router是什么？</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#为什么要用Vue-Router？"><span class="toc-text">为什么要用Vue Router？</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#怎么用Vue-Router？"><span class="toc-text">怎么用Vue Router？</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#一个简单的单页面应用"><span class="toc-text">一个简单的单页面应用</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#多级导航（嵌套路由）"><span class="toc-text">多级导航（嵌套路由）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#需求描述"><span class="toc-text">需求描述</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#实现思路"><span class="toc-text">实现思路</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#实现过程"><span class="toc-text">实现过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div>
+</div>
+
+
+
     
     
     
