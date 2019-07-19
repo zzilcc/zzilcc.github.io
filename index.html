@@ -161,7 +161,7 @@
 </blockquote>
 <p>单页应用相对于多页应用，比较明显的优点就是切换页面时间比较快，因为单页应用切换不需要重新请求html，它只是重新渲染dom树的其中一部分。但是因为单页应用把所有的内容都放到一个html里，所以他的首次加载页面时间会相对来说比较慢，要加载的内容比较多，而且一般单页应用的内容主要通过js去切换渲染，所以内容都是动态生成，不是直接写在html里，所以seo效果比较差。</p>
 <p>搭建一个项目的时候到底是用多页面还是单页，这需要根据具体情况去分析。</p>
-<h3 id="理解路由"><a href="#理解路由" class="headerlink" title="理解路由"></a>理解路由</h3><h2 id="Vue-Router是什么？"><a href="#Vue-Router是什么？" class="headerlink" title="Vue Router是什么？"></a>Vue Router是什么？</h2><p>官方解释什么是Vue Router</p>
+<h2 id="Vue-Router是什么？"><a href="#Vue-Router是什么？" class="headerlink" title="Vue Router是什么？"></a>Vue Router是什么？</h2><p>官方解释什么是Vue Router</p>
 <p>Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：</p>
 <ol>
 <li>嵌套的路由/视图表</li>
@@ -215,7 +215,10 @@
 <p>在父页面achives.vue</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &#123;&#123;msg&#125;&#125;</span><br><span class="line">   &lt;router-view/&gt; // 新增的</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;achives&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;I am Achives&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <p>最后我们只要在App.vue添加相应的点击事件和router-link</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>《单页Web应用：JavaScript从前端到后端》</li>
+</ol>
+
       
     </main>
     <footer class="post-footer">
