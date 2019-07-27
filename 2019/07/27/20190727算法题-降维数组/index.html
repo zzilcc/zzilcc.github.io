@@ -82,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>JavaScript的三种编程范式比较 | 黄紫茜的博客</title>
+    <title>20190727算法题-降维数组 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -123,7 +123,7 @@
   
   <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/JavaScript的三种编程范式比较/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/20190727算法题-降维数组/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="黄紫茜">
        <meta itemprop="description" content="">
@@ -134,11 +134,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">JavaScript的三种编程范式比较</h1>
+      <h1 class="post-title" itemprop="name headline">20190727算法题-降维数组</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-23T21:17:58+08:00">2019-07-23 21:17:58</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-27T22:34:40+08:00">2019-07-27 22:34:40</time></span>
         </span>
         
         
@@ -154,8 +154,16 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="过程式编程"><a href="#过程式编程" class="headerlink" title="过程式编程"></a>过程式编程</h2><p>也就是从上至下，流水般的实现功能。</p>
-<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2>
+      <h2 id="算法题目："><a href="#算法题目：" class="headerlink" title="算法题目："></a>算法题目：</h2><p>已知如下数组：</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, [<span class="number">11</span>, <span class="number">12</span>, [<span class="number">12</span>, <span class="number">13</span>, [<span class="number">14</span>] ] ] ], <span class="number">10</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="要求1：-将多维数组降成一维数组"><a href="#要求1：-将多维数组降成一维数组" class="headerlink" title="要求1： 将多维数组降成一维数组"></a>要求1： 将多维数组降成一维数组</h3><h4 id="方法一：-es6的flat"><a href="#方法一：-es6的flat" class="headerlink" title="方法一： es6的flat()"></a>方法一： es6的flat()</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.flat(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：-投机取巧"><a href="#方法二：-投机取巧" class="headerlink" title="方法二： 投机取巧"></a>方法二： 投机取巧</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.toString().split(<span class="string">','</span>);</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.join().split(<span class="string">','</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="方法三：-递归"><a href="#方法三：-递归" class="headerlink" title="方法三： 递归"></a>方法三： 递归</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> result = [];</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">_flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">		arr.map(<span class="function"><span class="keyword">function</span> (<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">				_flat(value)</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				result.push(value)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	_flat(arr)</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line">flat(arr)</span><br></pre></td></tr></table></figure>
+<p>简写：</p>
+<p>let flat = arr =&gt; [].concat(…arr.map(v =&gt; Array.isArray(v) ? flat(v) : v))</p>
+
     </main>
     <footer class="post-footer">
       
@@ -164,7 +172,7 @@
         
         
         
-        <a class="post-tag button" href="/tags/编程范式/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>编程范式</a>
+        <a class="post-tag button" href="/tags/算法/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法</a>
         
       </div>
       
@@ -175,12 +183,10 @@
   <div class="post-nav">
     <div class="post-nav-next post-nav-item">
       
-      <a href="/2019/07/19/js实现树的深度优先遍历和广度优先遍历/" rel="next" title="js实现树的深度优先遍历和广度优先遍历"><i class="fas fa-angle-left"></i><span class="nav-title">js实现树的深度优先遍历和广度优先遍历</span></a>
+      <a href="/2019/07/27/JavaScript数据结构/" rel="next" title="JavaScript数据结构"><i class="fas fa-angle-left"></i><span class="nav-title">JavaScript数据结构</span></a>
       
     </div>
     <div class="post-nav-prev post-nav-item">
-      
-      <a href="/2019/07/27/JavaScript数据结构/" rel="prev" title="JavaScript数据结构"><span class="nav-title">JavaScript数据结构</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </div>
@@ -250,7 +256,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#过程式编程"><span class="toc-text">过程式编程</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#函数式编程"><span class="toc-text">函数式编程</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#面向对象编程"><span class="toc-text">面向对象编程</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#算法题目："><span class="toc-text">算法题目：</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#要求1：-将多维数组降成一维数组"><span class="toc-text">要求1： 将多维数组降成一维数组</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#方法一：-es6的flat"><span class="toc-text">方法一： es6的flat()</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#方法二：-投机取巧"><span class="toc-text">方法二： 投机取巧</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#方法三：-递归"><span class="toc-text">方法三： 递归</span></a></li></ol></li></ol></li></ol></div>
 </div>
 
 

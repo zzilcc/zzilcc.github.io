@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>20190727算法题-降维数组</title>
+      <link href="/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E9%99%8D%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
+      <url>/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E9%99%8D%E7%BB%B4%E6%95%B0%E7%BB%84/</url>
+      <content type="html"><![CDATA[<h2 id="算法题目："><a href="#算法题目：" class="headerlink" title="算法题目："></a>算法题目：</h2><p>已知如下数组：</p><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, [<span class="number">11</span>, <span class="number">12</span>, [<span class="number">12</span>, <span class="number">13</span>, [<span class="number">14</span>] ] ] ], <span class="number">10</span>];</span><br></pre></td></tr></table></figure><h3 id="要求1：-将多维数组降成一维数组"><a href="#要求1：-将多维数组降成一维数组" class="headerlink" title="要求1： 将多维数组降成一维数组"></a>要求1： 将多维数组降成一维数组</h3><h4 id="方法一：-es6的flat"><a href="#方法一：-es6的flat" class="headerlink" title="方法一： es6的flat()"></a>方法一： es6的flat()</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.flat(<span class="number">3</span>);</span><br></pre></td></tr></table></figure><h4 id="方法二：-投机取巧"><a href="#方法二：-投机取巧" class="headerlink" title="方法二： 投机取巧"></a>方法二： 投机取巧</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.toString().split(<span class="string">','</span>);</span><br></pre></td></tr></table></figure><p>或者</p><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.join().split(<span class="string">','</span>);</span><br></pre></td></tr></table></figure><h4 id="方法三：-递归"><a href="#方法三：-递归" class="headerlink" title="方法三： 递归"></a>方法三： 递归</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line"><span class="keyword">let</span> result = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">arr.map(<span class="function"><span class="keyword">function</span> (<span class="params">value, index</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">_flat(value)</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">result.push(value)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">_flat(arr)</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line">flat(arr)</span><br></pre></td></tr></table></figure><p>简写：</p><p>let flat = arr =&gt; [].concat(…arr.map(v =&gt; Array.isArray(v) ? flat(v) : v))</p>]]></content>
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>JavaScript数据结构</title>
       <link href="/2019/07/27/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
       <url>/2019/07/27/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>

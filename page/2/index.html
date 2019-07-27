@@ -121,6 +121,63 @@
   
   <article class="index-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/this和常用css/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黄紫茜">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/04/26/this和常用css/" itemprop="url">this和常用css</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-26T09:44:50+08:00">2019-04-26 09:44:50</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="第一段代码"><a href="#第一段代码" class="headerlink" title="第一段代码"></a>第一段代码</h3><pre><code>var count = 1;
+function a () {
+    this.count ++
+    console.log(this.count)
+}
+a.count = 0;
+a()
+console.log(a.count)
+</code></pre><p>谣言： this指向自身</p>
+<h3 id="第二段代码"><a href="#第二段代码" class="headerlink" title="第二段代码"></a>第二段代码</h3><p>重要的事情说三遍</p>
+<p>this永远指向最后调用它的对象</p>
+<p>this永远指向最后调用它的对象</p>
+<p>this永远指向最后调用它的对象<br></p>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/this-css/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>this | css</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/js作用域和闭包/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="黄紫茜">
@@ -608,7 +665,7 @@ var a = 2;
     
     <div class="archives-count">
       <div class="site-count-title">Archives</div>
-      <div><a href="/archives/">19</a></div>
+      <div><a href="/archives/">20</a></div>
     </div>
     
     
@@ -626,7 +683,7 @@ var a = 2;
     
     <div class="tags-count">
       <div class="site-count-title">Tags</div>
-      <div><a href="/tags/">15</a></div>
+      <div><a href="/tags/">16</a></div>
     </div>
     
   </div>
