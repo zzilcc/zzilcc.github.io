@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-28T07:48:05.504Z</updated>
+  <updated>2019-07-28T08:02:32.333Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法题-找出所有父节点</title>
+    <link href="http://yoursite.com/2019/07/28/%E7%AE%97%E6%B3%95%E9%A2%98-%E6%89%BE%E5%87%BA%E6%89%80%E6%9C%89%E7%88%B6%E8%8A%82%E7%82%B9/"/>
+    <id>http://yoursite.com/2019/07/28/算法题-找出所有父节点/</id>
+    <published>2019-07-28T07:54:18.000Z</published>
+    <updated>2019-07-28T08:02:32.333Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>已知数据格式，实现一个函数 fn 找出链条中所有的父级 id</p><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">&#123;</span><br><span class="line">id: '1',</span><br><span class="line">name: '广东省',</span><br><span class="line">children: [</span><br><span class="line">&#123;</span><br><span class="line">id: '11',</span><br><span class="line">name: '深圳市',</span><br><span class="line">children: [</span><br><span class="line">&#123;</span><br><span class="line">id: '111',</span><br><span class="line">name: '福田区',</span><br><span class="line">children: []</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">id: '112',</span><br><span class="line">name: '龙华区',</span><br><span class="line">children: []</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = <span class="string">'112'</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">fn(value) <span class="comment">// 输出 [1， 11， 112]</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;算法题&quot;&gt;&lt;a href=&quot;#算法题&quot; class=&quot;headerlink&quot; title=&quot;算法题&quot;&gt;&lt;/a&gt;算法题&lt;/h2&gt;&lt;p&gt;已知数据格式，实现一个函数 fn 找出链条中所有的父级 id&lt;/p&gt;
+&lt;figure class=&quot;hljs highlight&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法 树" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95-%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>20190727算法题-两数之和</title>
@@ -503,28 +529,6 @@ var a = 2;
     
     
       <category term="JavaScript对象" scheme="http://yoursite.com/tags/JavaScript%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue指令</title>
-    <link href="http://yoursite.com/2018/07/16/vue%E6%8C%87%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/07/16/vue指令/</id>
-    <published>2018-07-16T06:09:37.000Z</published>
-    <updated>2018-08-29T06:40:14.726Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="vue指令"><a href="#vue指令" class="headerlink" title="vue指令"></a>vue指令</h1><p>这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个<br>JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，<br>将产生的影响，响应的作用在DOM上。<a id="more"></a></p><h2 id="v-if、v-else和v-else-if"><a href="#v-if、v-else和v-else-if" class="headerlink" title="v-if、v-else和v-else-if"></a>v-if、v-else和v-else-if</h2><p>使用场景：我们需要进行条件判断来决定这个元素是否显示的时候，就需要用到这些指令。</p><p>有v-else指令的元素必须跟在带有v-if或者v-else-if的元素后面，否则将不会被识别</p><p>使用方法：</p><pre><code>&lt;div id=&quot;app&quot;&gt;    &lt;div v-if=&quot;param&quot;&gt;        登陆成功       &lt;!--param的值为true的时候--&gt;    &lt;/div&gt;    &lt;div v-else&gt;        请登录    &lt;!--param的值为false的时候--&gt;    &lt;/div&gt;&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        param: true    }});</code></pre><p>v-else-if 是在2.1.0版本新增的一个指令。学过c,c++,java语言的都应该可以理解，也就是否则如果，可以连续使用，该指令也是只能跟在v-if后面。</p><p>使用方法：</p><pre><code>&lt;div id=&quot;app&quot;&gt;    &lt;div v-if=&quot;param===0&quot;&gt;         &lt;!--param的值为0的时候--&gt;    &lt;/div&gt;    &lt;div v-else-if=&quot;param===1&quot;&gt;         &lt;!--param的值为1的时候--&gt;    &lt;/div&gt;    &lt;div v-else-if=&quot;param===2&quot;&gt;         &lt;!--param的值为2的时候--&gt;    &lt;/div&gt;    &lt;div v-else&gt;         &lt;!--param的值是非1，非2，非0的时候--&gt;    &lt;/div&gt;&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        param: 0    }});</code></pre><h2 id="v-show和v-once"><a href="#v-show和v-once" class="headerlink" title="v-show和v-once"></a>v-show和v-once</h2><p>v-show指令也是用于条件展示的，用法和v-if一样，只不过没有v-else指令在后面。</p><p>不同的是带有v-show的元素是一开始就会被渲染并保留在DOM中，它是决定的是css属性display来显示或者不显示元素。而v-if是条件渲染，为真才渲染，若为假是不会渲染出相应的元素的，也就是为假的时候DOM上是找不到该元素的。</p><p>v-once顾名思义，一次性的插值。</p><p>此时渲染结果为 Hello!,若是后期我们把message的值改为Hello,world！,元素p里的内容还是Hello!，不会随着data里的message的改变而改变</p><h2 id="v-text和v-html"><a href="#v-text和v-html" class="headerlink" title="v-text和v-html"></a>v-text和v-html</h2><p>v-text的作用等价于两个双括号,用两个双括号不好的地方是当网速很慢或者js报错的时候，会直接显示两个双括号，但是使用v-text就不会，所以在实际开发的时候，建议使用v-text。</p><pre><code>&lt;div id=&quot;app&quot;&gt;    &lt;p&gt;{{message}}&lt;/p&gt; == &lt;p v-text=&quot;message&quot;&gt;&lt;/p&gt;&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        message: &quot;Hello!&quot;    }});</code></pre><p>v-html: 会将元素当成html标签解析然后输出。</p><pre><code>&lt;div id=&quot;app&quot;&gt;    &lt;p v-text=&quot;message&quot;&gt;&lt;/p&gt;    &lt;p v-html=&quot;message&quot;&gt;&lt;/p&gt;&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        message: &quot;&lt;h1&gt;hello&lt;/h1&gt;&quot;    }});</code></pre><p>输出结果为：</p><p><img src="/2018/07/16/vue指令/v-html.png" alt=""></p><p>注意： 在站点上动态的渲染任意的HTML可能会很危险，因为它很容易导致XSS攻击，所以最好慎用。</p><h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>v-bind一般用来绑定元素属性，属性值可以是字符串，对象或数组。可以用来绑定class、style或者是图片，链接的地址属性src、href等。v-bind可以简写成“:”。</p><pre><code>&lt;style&gt;.fd-head {    color: red;}.fd-nav {    background-color: yellow;}.active {    font-size: 20px;}.text-danger {    color: red;    border: 1px solid &apos;#000&apos;;}&lt;/style&gt;&lt;div id=&quot;app&quot;&gt;    &lt;h1&gt;1. 绑定到src和href属性上&lt;/h1&gt;        &lt;img v-bind:src=&quot;imgSrc&quot;&gt;        &lt;a :href=&quot;url&quot;&gt;github传送门&lt;/a&gt;    &lt;h1&gt;2. 绑定到样式&lt;/h1&gt;        &lt;div :class=&quot;{&apos;fd-head&apos;:isOk, &apos;active&apos;:isActive}&quot;&gt;            &lt;p&gt;(1)一般绑定方法&lt;/p&gt;            字体为红色        &lt;/div&gt;        &lt;div class=&quot;fd-nav&quot; :class=&quot;{&apos;fd-head&apos;:isOk, &apos;active&apos;:isActive}&quot;&gt;            &lt;p&gt;(2)v-bind:class也可以与普通的class属性共存&lt;/p&gt;            字体为红色且背景颜色为黄色        &lt;/div&gt;        &lt;div :class=&quot;isTrue?fd-head:active&quot;&gt;            &lt;p&gt;用三元运算符来选择样式,字体大小为20px&lt;/p&gt;        &lt;/div&gt;        &lt;div :class=&quot;[activeClass,errorClass]&quot;&gt;            绑定到数组        &lt;/div&gt;    &lt;h1&gt;3. 绑定内联样式style&lt;/h1&gt;        &lt;h2&gt;对象语法&lt;/h2&gt;        &lt;div :style=&quot;{color:activeColor,fontSize:fontSize + &apos;px&apos;,&apos;background-color&apos;:bgcolor}&quot;&gt;            (1)我们给:style赋值的是一个对象，该对象语法看上去有点像css，但其实是一个JavaScript对象，css的属性名可以用驼峰式，这样就需要用括号括起来，或者用短横线分隔，这样就需要用括号括起来。        &lt;/div&gt;        &lt;div :style=&quot;styleObj1&quot;&gt;            &lt;p&gt;(2)或者我们直接绑定到一个样式对象，这样比较简单明了。        &lt;/div&gt;        &lt;h2&gt;数组语法&lt;/h2&gt;        &lt;div :style=&quot;[styleObj1,styleObj2,styleObj3]&quot;&gt;            &lt;p&gt;数组语法可以将多个样式对象应用到同一个元素上。        &lt;/div&gt;&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        imgSrc: &quot;http://2b.zol-img.com.cn/product/131/741/ceUvYp3mRk5w.jpg&quot;,        url: &quot;https://github.com/zzilcc&quot;,        isOk: true,        isActive: false,        isTrue: false,        activeClass: &apos;active&apos;,        errorClass: &apos;text-danger&apos;,        activeColor: &apos;red&apos;,        &apos;fd-head&apos;: &apos;fd-head&apos;,        active: &apos;active&apos;,        fontSize: 30,        bgcolor: &apos;blue&apos;,        styleObj1: {            color: &apos;red&apos;,            fontSize: &apos;13px&apos;        },        styleObj2: {            position: &apos;relative&apos;        },        styleObj3: {            backgroundColor: &apos;blue&apos;        }    }})</code></pre><p>结果为：<br><img src="/2018/07/16/vue指令/v-bind1.png" alt=""></p><p><img src="/2018/07/16/vue指令/v-bind2.png" alt=""></p><h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p>v-model指令主要用来在表单<code>&lt;input&gt;</code>及<code>&lt;textarea&gt;</code>元素上进行双向数据绑定。v-model会忽略所有表单元素的value,checked,selected特性的初始值，而总是将Vue实例的数据当做数据来源。</p><h3 id="文本绑定"><a href="#文本绑定" class="headerlink" title="文本绑定"></a>文本绑定</h3><pre><code>&lt;div id=&quot;app&quot;&gt;    &lt;input v-model=&quot;message&quot; placeholder=&quot;请输入&quot;&gt;    &lt;p&gt; Message is : &lt;span v-text=&quot;message&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        message: &quot;&quot;    }})</code></pre><p><img src="/2018/07/16/vue指令/v-model1.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;vue指令&quot;&gt;&lt;a href=&quot;#vue指令&quot; class=&quot;headerlink&quot; title=&quot;vue指令&quot;&gt;&lt;/a&gt;vue指令&lt;/h1&gt;&lt;p&gt;这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个&lt;br&gt;JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，&lt;br&gt;将产生的影响，响应的作用在DOM上。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
-    
-      <category term="Vue.js" scheme="http://yoursite.com/tags/Vue-js/"/>
     
   </entry>
   

@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>算法题-找出所有父节点</title>
+      <link href="/2019/07/28/%E7%AE%97%E6%B3%95%E9%A2%98-%E6%89%BE%E5%87%BA%E6%89%80%E6%9C%89%E7%88%B6%E8%8A%82%E7%82%B9/"/>
+      <url>/2019/07/28/%E7%AE%97%E6%B3%95%E9%A2%98-%E6%89%BE%E5%87%BA%E6%89%80%E6%9C%89%E7%88%B6%E8%8A%82%E7%82%B9/</url>
+      <content type="html"><![CDATA[<h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>已知数据格式，实现一个函数 fn 找出链条中所有的父级 id</p><figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">&#123;</span><br><span class="line">id: '1',</span><br><span class="line">name: '广东省',</span><br><span class="line">children: [</span><br><span class="line">&#123;</span><br><span class="line">id: '11',</span><br><span class="line">name: '深圳市',</span><br><span class="line">children: [</span><br><span class="line">&#123;</span><br><span class="line">id: '111',</span><br><span class="line">name: '福田区',</span><br><span class="line">children: []</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">id: '112',</span><br><span class="line">name: '龙华区',</span><br><span class="line">children: []</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = <span class="string">'112'</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">fn(value) <span class="comment">// 输出 [1， 11， 112]</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>20190727算法题-两数之和</title>
       <link href="/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
       <url>/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>

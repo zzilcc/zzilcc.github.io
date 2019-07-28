@@ -47,7 +47,7 @@
     
     
 <link rel="stylesheet" type="text/css" href="/css/page.css">
-<link rel="stylesheet" type="text/css" href="/css/tag.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
 
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
@@ -82,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Tag: 浏览器 缓存 | 黄紫茜的博客</title>
+    <title>算法题-找出所有父节点 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -119,19 +119,70 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag">
-  <h1 class="tag-title">浏览器 缓存</h1>
+<div id="post" class="post">
   
-  <article class="tag-article card" itemscope itemtype="http://schema.org/Article">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-title-link post-title-link-external" href="/2019/06/16/浏览器缓存详解/" itemprop="url">浏览器缓存详解</a>
-    </h1>
-    
-    <span class="post-date">
-      <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T22:00:23+08:00">06-16</time>
-    </span>
-    
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/算法题-找出所有父节点/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">算法题-找出所有父节点</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-28T15:54:18+08:00">2019-07-28 15:54:18</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>已知数据格式，实现一个函数 fn 找出链条中所有的父级 id</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	&#123;</span><br><span class="line">		id: '1',</span><br><span class="line">		name: '广东省',</span><br><span class="line">		children: [</span><br><span class="line">			&#123;</span><br><span class="line">				id: '11',</span><br><span class="line">				name: '深圳市',</span><br><span class="line">				children: [</span><br><span class="line">					&#123;</span><br><span class="line">						id: '111',</span><br><span class="line">						name: '福田区',</span><br><span class="line">						children: []</span><br><span class="line">					&#125;,</span><br><span class="line">					&#123;</span><br><span class="line">						id: '112',</span><br><span class="line">						name: '龙华区',</span><br><span class="line">						children: []</span><br><span class="line">					&#125;</span><br><span class="line">				]</span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = <span class="string">'112'</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">fn(value) <span class="comment">// 输出 [1， 11， 112]</span></span><br></pre></td></tr></table></figure>
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/算法-树/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法 树</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2019/07/27/20190727算法题-两数之和/" rel="next" title="20190727算法题-两数之和"><i class="fas fa-angle-left"></i><span class="nav-title">20190727算法题-两数之和</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+    </div>
+  </div>
   
   
 </div>
@@ -189,6 +240,20 @@
 
 
   <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#算法题"><span class="toc-text">算法题</span></a></li></ol></div>
+</div>
+
+
+
     
     
     
