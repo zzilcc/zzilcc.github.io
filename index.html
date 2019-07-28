@@ -147,7 +147,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a></span>
         </span>
         
         
@@ -155,9 +155,10 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>已知数据格式，实现一个函数 fn 找出链条中所有的父级 id</p>
-<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	&#123;</span><br><span class="line">		id: '1',</span><br><span class="line">		name: '广东省',</span><br><span class="line">		children: [</span><br><span class="line">			&#123;</span><br><span class="line">				id: '11',</span><br><span class="line">				name: '深圳市',</span><br><span class="line">				children: [</span><br><span class="line">					&#123;</span><br><span class="line">						id: '111',</span><br><span class="line">						name: '福田区',</span><br><span class="line">						children: []</span><br><span class="line">					&#125;,</span><br><span class="line">					&#123;</span><br><span class="line">						id: '112',</span><br><span class="line">						name: '龙华区',</span><br><span class="line">						children: []</span><br><span class="line">					&#125;</span><br><span class="line">				]</span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = <span class="string">'112'</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">fn(value) <span class="comment">// 输出 [1， 11， 112]</span></span><br></pre></td></tr></table></figure>
+      <h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>已知数据格式，实现一个函数 fn 找出链条中所有的父级id</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> json = [</span><br><span class="line">	&#123;</span><br><span class="line">		id: <span class="string">'1'</span>,</span><br><span class="line">		name: <span class="string">'广东省'</span>,</span><br><span class="line">		children: [</span><br><span class="line">			&#123;</span><br><span class="line">				id: <span class="string">'11'</span>,</span><br><span class="line">				name: <span class="string">'深圳市'</span>,</span><br><span class="line">				children: [</span><br><span class="line">					&#123;</span><br><span class="line">						id: <span class="string">'111'</span>,</span><br><span class="line">						name: <span class="string">'福田区'</span>,</span><br><span class="line">						children: []</span><br><span class="line">					&#125;,</span><br><span class="line">					&#123;</span><br><span class="line">						id: <span class="string">'112'</span>,</span><br><span class="line">						name: <span class="string">'龙华区'</span>,</span><br><span class="line">						children: []</span><br><span class="line">					&#125;</span><br><span class="line">				]</span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = <span class="string">'112'</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">fn(value) <span class="comment">// 输出 ['1'， '11'， '112']</span></span><br></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="方法一-递归实现深度遍历，并添加path数组，记录父路径"><a href="#方法一-递归实现深度遍历，并添加path数组，记录父路径" class="headerlink" title="方法一 递归实现深度遍历，并添加path数组，记录父路径"></a>方法一 递归实现深度遍历，并添加path数组，记录父路径</h3><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="string">'112'</span>;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">var</span> stack = json;</span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		<span class="keyword">var</span> node = stack.pop();<span class="keyword">debugger</span></span><br><span class="line">		<span class="keyword">if</span>(node.children.length) &#123;</span><br><span class="line">			stack.push(...node.children.map(<span class="function"><span class="params">x</span>=&gt;</span>(&#123;...x, <span class="attr">path</span>: (node.path || node.id) + <span class="string">'-'</span> + x.id&#125;)))</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(node.id === value) &#123;</span><br><span class="line">			<span class="keyword">return</span> node.path.split(<span class="string">'-'</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">while</span>(stack.length) </span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line">fn(value) <span class="comment">// 输出 [1， 11， 112]</span></span><br></pre></td></tr></table></figure>
       
     </main>
     <footer class="post-footer">
@@ -167,7 +168,7 @@
         
         
         
-        <a class="post-tag button" href="/tags/算法-树/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法 树</a>
+        <a class="post-tag button" href="/tags/算法/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法</a>
         
       </div>
       
@@ -284,7 +285,7 @@
 <figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.join().split(<span class="string">','</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="方法三：-递归"><a href="#方法三：-递归" class="headerlink" title="方法三： 递归"></a>方法三： 递归</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> result = [];</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">_flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">		arr.map(<span class="function"><span class="keyword">function</span> (<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">				_flat(value)</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				result.push(value)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	_flat(arr)</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line">flat(arr)</span><br></pre></td></tr></table></figure>
 <p>简写：</p>
-<p>let flat = arr =&gt; [].concat(…arr.map(v =&gt; Array.isArray(v) ? flat(v) : v))</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> flat = <span class="function"><span class="params">arr</span> =&gt;</span> [].concat(...arr.map(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">Array</span>.isArray(v) ? flat(v) : v))</span><br></pre></td></tr></table></figure>
 
       
     </main>
@@ -548,8 +549,7 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>[toc]</p>
-<p>可能有人会和以前的我一样，觉得缓存不是后台设置的吗，感觉和前端人员没有太大联系，平时关于缓存最常做的就是在浏览器<code>Ctrl+Shit+Delete</code>清空缓存。</p>
+      <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>可能有人会和以前的我一样，觉得缓存不是后台设置的吗，感觉和前端人员没有太大联系，平时关于缓存最常做的就是在浏览器<code>Ctrl+Shit+Delete</code>清空缓存。</p>
 <p>web缓存可以大致分为三类：</p>
 <pre><code>1. 浏览器缓存
 2. 代理缓存
@@ -564,7 +564,7 @@
         
         
         
-        <a class="post-tag button" href="/tags/浏览器-缓存/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>浏览器 缓存</a>
+        <a class="post-tag button" href="/tags/浏览器/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>浏览器</a>
         
       </div>
       
@@ -714,7 +714,7 @@
     
     <div class="categories-count">
       <div class="site-count-title">Categories</div>
-      <div><a href="/categories/">4</a></div>
+      <div><a href="/categories/">5</a></div>
     </div>
     
     
@@ -723,7 +723,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">Tags</div>
-      <div><a href="/tags/">17</a></div>
+      <div><a href="/tags/">16</a></div>
     </div>
     
   </div>

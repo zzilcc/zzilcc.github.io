@@ -162,7 +162,7 @@
 <figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.join().split(<span class="string">','</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="方法三：-递归"><a href="#方法三：-递归" class="headerlink" title="方法三： 递归"></a>方法三： 递归</h4><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> result = [];</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">_flat</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">		arr.map(<span class="function"><span class="keyword">function</span> (<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">				_flat(value)</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				result.push(value)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	_flat(arr)</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line">flat(arr)</span><br></pre></td></tr></table></figure>
 <p>简写：</p>
-<p>let flat = arr =&gt; [].concat(…arr.map(v =&gt; Array.isArray(v) ? flat(v) : v))</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> flat = <span class="function"><span class="params">arr</span> =&gt;</span> [].concat(...arr.map(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">Array</span>.isArray(v) ? flat(v) : v))</span><br></pre></td></tr></table></figure>
 
     </main>
     <footer class="post-footer">
@@ -229,7 +229,7 @@
     
     <div class="categories-count">
       <div class="site-count-title">Categories</div>
-      <div><a href="/categories/">4</a></div>
+      <div><a href="/categories/">5</a></div>
     </div>
     
     
@@ -238,7 +238,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">Tags</div>
-      <div><a href="/tags/">17</a></div>
+      <div><a href="/tags/">16</a></div>
     </div>
     
   </div>
