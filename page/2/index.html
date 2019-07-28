@@ -121,6 +121,69 @@
   
   <article class="index-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/js原型和原型链/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黄紫茜">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/04/30/js原型和原型链/" itemprop="url">js原型和原型链</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-30T16:32:10+08:00">2019-04-30 16:32:10</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="prtotype和proto"><a href="#prtotype和proto" class="headerlink" title="prtotype和proto"></a>prtotype和<strong>proto</strong></h2><p>说到原型，我们必须要了解prototype和<strong>proto</strong>,这两个很多人可能总是会分不清，接下来我会尽可能以通俗易懂的语言去解释这两者的不同。</p>
+<p>我们看到的大多数引用类型值：函数，数组，对象都是Object的实例，所以Object可以说是一个基本。</p>
+<p>我们去创建一个Object的实例，有两种方法，一种是通过new</p>
+<p>例如：</p>
+<pre><code>var obj = new Object()
+</code></pre><p>还有一种通过对象字面量</p>
+<pre><code>var obj = {}  
+</code></pre><p>每个构造函数都有一个原型对象，通过prototype去访问，比如Object.prototype,然后这个原型对象包含一个constructor属性，指向构造函数，也就是Object.prototype.constructor === Object，还包含了一些内置函数，或者自定义的函数。</p>
+<p>然后实例化这个构造函数，得到的实例，有一个<strong>proto</strong>属性指向构造函数的原型对象。</p>
+<p>下面是Object的一个例子。</p>
+<p><img src="/2019/04/30/js原型和原型链/Object的原型.jpg" alt=""></p>
+<p>所以我们可以看到obj.<strong>proto</strong>=== Object.prototype</p>
+<p>总结：</p>
+<ol>
+<li>每个函数都有prototype指向原型对象</li>
+<li>每个对象都有<strong>protot</strong>指向构造函数的原型对象</li>
+</ol>
+<p>在js中，函数是一种特殊的对象，所以函数也有<strong>proto</strong></p>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/javaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>javaScript</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/this和常用css/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="黄紫茜">
@@ -580,62 +643,9 @@ var a = 2;
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/vue基础/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/07/16/vue基础/" itemprop="url">vue基础</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-07-16T11:28:25+08:00">2018-07-16 11:28:25</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h2><p>Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/Vue-js/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Vue.js</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="Previous Page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="Previous Page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="Next Page"></i></a>
   </nav>
   
   
@@ -665,7 +675,7 @@ var a = 2;
     
     <div class="archives-count">
       <div class="site-count-title">Archives</div>
-      <div><a href="/archives/">20</a></div>
+      <div><a href="/archives/">21</a></div>
     </div>
     
     

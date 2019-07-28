@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>20190727算法题-两数之和</title>
+      <link href="/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+      <url>/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+      <content type="html"><![CDATA[<h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。</p><p>你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。</p><p>示例：</p><p>给定 nums = [2, 7, 11, 15], target = 9</p><p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p><h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>先利用nums的生成对象obj。然后遍历nums，找出在obj里找出target-nums[i]的值，没有找到返回Not Found</p><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">arr, target</span>) </span>&#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">obj[arr[i]] = i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"><span class="keyword">if</span>(obj[target - arr[i]]) &#123;</span><br><span class="line"><span class="keyword">return</span> [i, obj[target - arr[i]]]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="string">'Not Found'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>20190727算法题-降维数组</title>
       <link href="/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E9%99%8D%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
       <url>/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E9%99%8D%E7%BB%B4%E6%95%B0%E7%BB%84/</url>

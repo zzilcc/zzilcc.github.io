@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-27T14:59:21.337Z</updated>
+  <updated>2019-07-28T03:03:04.006Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20190727算法题-两数之和</title>
+    <link href="http://yoursite.com/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <id>http://yoursite.com/2019/07/27/20190727算法题-两数之和/</id>
+    <published>2019-07-27T15:02:13.000Z</published>
+    <updated>2019-07-28T03:03:04.006Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。</p><p>你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。</p><p>示例：</p><p>给定 nums = [2, 7, 11, 15], target = 9</p><p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p><h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>先利用nums的生成对象obj。然后遍历nums，找出在obj里找出target-nums[i]的值，没有找到返回Not Found</p><figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">arr, target</span>) </span>&#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">obj[arr[i]] = i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"><span class="keyword">if</span>(obj[target - arr[i]]) &#123;</span><br><span class="line"><span class="keyword">return</span> [i, obj[target - arr[i]]]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="string">'Not Found'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;算法题&quot;&gt;&lt;a href=&quot;#算法题&quot; class=&quot;headerlink&quot; title=&quot;算法题&quot;&gt;&lt;/a&gt;算法题&lt;/h2&gt;&lt;p&gt;给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。&lt;/p&gt;
+&lt;p&gt;你可以假设每个输入只对应一种答案，且同样的元素不能被重复
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>20190727算法题-降维数组</title>
@@ -492,28 +518,6 @@ var a = 2;
     <summary type="html">
     
       &lt;h1 id=&quot;vue指令&quot;&gt;&lt;a href=&quot;#vue指令&quot; class=&quot;headerlink&quot; title=&quot;vue指令&quot;&gt;&lt;/a&gt;vue指令&lt;/h1&gt;&lt;p&gt;这章介绍的是vue的一些指令，是以“v-”开头的指令，它的值预估是单个&lt;br&gt;JavaScript表达式(v-for例外)。指令的作用是在表达式的值改变的时候，&lt;br&gt;将产生的影响，响应的作用在DOM上。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
-    
-      <category term="Vue.js" scheme="http://yoursite.com/tags/Vue-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue基础</title>
-    <link href="http://yoursite.com/2018/07/16/vue%E5%9F%BA%E7%A1%80/"/>
-    <id>http://yoursite.com/2018/07/16/vue基础/</id>
-    <published>2018-07-16T03:28:25.000Z</published>
-    <updated>2018-08-23T03:28:40.822Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h2><p>Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。<br><a id="more"></a></p><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Vue有两个版本，一个开发版本，包含完整的警告和调试模式；一个是生产版本，删除了警告，进行了压缩。</p><p>GitHub地址传送门：<a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">github</a></p><h2 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h2><p>我们一般通过Vue函数创建一个新的Vue实例。</p><pre><code>var vue = new Vue({    //选项});</code></pre><h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><p>Vue是声明式渲染，这是Vue的核心，我看过比较好的解释就是“我们只需要告诉程序我们想要什么效果，其他交给程序去做”。</p><p>官网的例子就很好理解：</p><pre><code>&lt;div id=&quot;app&quot;&gt;    {{message}} //Hi&lt;/div&gt;var vue = new Vue ({    el: &quot;#app&quot;,    data: {        message: &apos;Hi!&apos;    }}) </code></pre><p>  通过这样我们已经把数据渲染进DOM，而且是响应式的。主要data里的message值发生变化，在页面上也会跟着变化。</p><h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p>当创建一个实例后，我们可以传入一个选项对象，下面列出一些常用选项：</p><ul><li>el</li><li>data</li><li>methods</li><li>computed</li></ul><h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><p> 选择挂载目标，可以是css选择器，也可以是html元素，在实例挂载后，元素可以通过vue.$el访问。</p><p> 如果是在实例化时存在这个选项，实例将立即进入编译过程，否则需要显式调用vue.$mount()手动开始编译。</p><h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p> Vue实例的数据对象。Vue是响应式的数据变化的，因为Vue会递归的将data的属性转换为getter/setter。data对象必须是纯粹的对象，也就是含有零个或多个的键值对。</p><p> 实例创建后，可以通过vue.$data访问，并且Vue实例，也就是vue实际上也代理了data对象上的不是以“_”或者“$”开头的属性。也就是vue.$data.a等价于 vue.a.</p><pre><code>&lt;div id=&quot;app&quot;&gt;    {{message}}  //Hello,world&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        message: &quot;Hello world!&quot;    }});vue.$data.message === vue.message //true</code></pre><h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><p> 用来定义一些方法，用这些方法是实现你想要的一些功能，比如点击事件，或者发送ajax请求等等。这些方法可以通过实例来访问，或者在指令表达式中使用，方法中的this会自动绑定为Vue实例。</p><pre><code>&lt;div id=&quot;app&quot;&gt;     {{message}}  //Hello     &lt;button v-on:click=&quot;show&quot;&gt;展示完整信息&lt;/button&gt;//点击按钮后会出现Hello,world!&lt;/div&gt;var vue = new Vue({    el: &quot;#app&quot;,    data: {        message: &quot;Hello&quot;    },    methods: {        show: function() {            return message = + &quot;,world!&quot;        }    }})</code></pre><p> 在这个例子我们使用v-on命令，用来监听事件，这个命令下节会解释。我们在button标签里绑定了点击事件，所以一点击的时候，就会触发了show函数，该函数就会执行，所以message的值为“Hello,world！”。</p><h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p> 计算属性，它是基于依赖进行缓存的，只有相关的依赖的值发生了改变，才会重新执行函数，否则只会返回之前的结果。</p><p> 类型：{[key: string]: Function|{get: Function,set: Function}}</p><pre><code>var vue = new Vue({    el: &quot;#app&quot;,    data: {        a: 1    },    computed: {        add: function() {             return this.a + 1        }    }})</code></pre><p> or</p><pre><code>var vue = new Vue({    el: &quot;#app&quot;,    data: {        a: 1    },    computed: {        add: {            get: function() {                return this.a + 1            },            set: function(data) {                this.a = data -1            }        }    }})</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Vue-js是什么&quot;&gt;&lt;a href=&quot;#Vue-js是什么&quot; class=&quot;headerlink&quot; title=&quot;Vue.js是什么&quot;&gt;&lt;/a&gt;Vue.js是什么&lt;/h2&gt;&lt;p&gt;Vue是一个前端框架，官方的解释是一套用于构建用户界面的渐进式框架。相对于React,AngularJS框架来说是比较轻量级的，然后比较容易上手，所以一开始选择学哪个框架的时候就选择了Vue,正好入职的第一家公司也是使用这个框架。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     

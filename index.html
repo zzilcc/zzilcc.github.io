@@ -121,6 +121,65 @@
   
   <article class="index-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/20190727算法题-两数之和/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黄紫茜">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/07/27/20190727算法题-两数之和/" itemprop="url">20190727算法题-两数之和</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-27T23:02:13+08:00">2019-07-27 23:02:13</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。</p>
+<p>你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。</p>
+<p>示例：</p>
+<p>给定 nums = [2, 7, 11, 15], target = 9</p>
+<p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>先利用nums的生成对象obj。然后遍历nums，找出在obj里找出target-nums[i]的值，没有找到返回Not Found</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">arr, target</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">		obj[arr[i]] = i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(obj[target - arr[i]]) &#123;</span><br><span class="line">			<span class="keyword">return</span> [i, obj[target - arr[i]]]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">'Not Found'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/算法/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/20190727算法题-降维数组/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="黄紫茜">
@@ -620,72 +679,9 @@
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/js原型和原型链/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/04/30/js原型和原型链/" itemprop="url">js原型和原型链</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-30T16:32:10+08:00">2019-04-30 16:32:10</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="prtotype和proto"><a href="#prtotype和proto" class="headerlink" title="prtotype和proto"></a>prtotype和<strong>proto</strong></h2><p>说到原型，我们必须要了解prototype和<strong>proto</strong>,这两个很多人可能总是会分不清，接下来我会尽可能以通俗易懂的语言去解释这两者的不同。</p>
-<p>我们看到的大多数引用类型值：函数，数组，对象都是Object的实例，所以Object可以说是一个基本。</p>
-<p>我们去创建一个Object的实例，有两种方法，一种是通过new</p>
-<p>例如：</p>
-<pre><code>var obj = new Object()
-</code></pre><p>还有一种通过对象字面量</p>
-<pre><code>var obj = {}  
-</code></pre><p>每个构造函数都有一个原型对象，通过prototype去访问，比如Object.prototype,然后这个原型对象包含一个constructor属性，指向构造函数，也就是Object.prototype.constructor === Object，还包含了一些内置函数，或者自定义的函数。</p>
-<p>然后实例化这个构造函数，得到的实例，有一个<strong>proto</strong>属性指向构造函数的原型对象。</p>
-<p>下面是Object的一个例子。</p>
-<p><img src="/2019/04/30/js原型和原型链/Object的原型.jpg" alt=""></p>
-<p>所以我们可以看到obj.<strong>proto</strong>=== Object.prototype</p>
-<p>总结：</p>
-<ol>
-<li>每个函数都有prototype指向原型对象</li>
-<li>每个对象都有<strong>protot</strong>指向构造函数的原型对象</li>
-</ol>
-<p>在js中，函数是一种特殊的对象，所以函数也有<strong>proto</strong></p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/javaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>javaScript</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="Next Page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="Next Page"></i></a>
   </nav>
   
   
@@ -715,7 +711,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">Archives</div>
-      <div><a href="/archives/">20</a></div>
+      <div><a href="/archives/">21</a></div>
     </div>
     
     
