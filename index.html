@@ -121,6 +121,74 @@
   
   <article class="index-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/算法题-有效的括号/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黄紫茜">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/08/06/算法题-有效的括号/" itemprop="url">算法题-有效的括号</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-06T20:49:28+08:00">2019-08-06 20:49:28</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<ol>
+<li>左括号必须用相同类型的右括号闭合。</li>
+<li>左括号必须以正确的顺序闭合。</li>
+<li>注意空字符串可被认为是有效字符串。</li>
+</ol>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line">输入: &quot;()&quot;</span><br><span class="line">输出: true</span><br><span class="line"></span><br><span class="line">示例 2:</span><br><span class="line">输入: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">输出: true</span><br><span class="line"></span><br><span class="line">示例 3:</span><br><span class="line">输入: &quot;(]&quot;</span><br><span class="line">输出: false</span><br><span class="line"></span><br><span class="line">示例 4:</span><br><span class="line">输入: &quot;([)]&quot;</span><br><span class="line">输出: false</span><br><span class="line"></span><br><span class="line">示例 5:</span><br><span class="line">输入: &quot;&#123;[]&#125;&quot;</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>第一种错误思路，开括号(‘{‘,’(‘,’[‘)和闭括号(‘}’,’)’,’]’)分别用两个堆栈去存储，然后再每个弹出来对比是不是一对。但是这样只是对((([[{}])))，()[]{},左右括号刚好分离的，如果是[{}()]这样的就识别不了,所以我们不能先把开括号和闭括号分别分离后再对比，而且两个堆栈空间消耗大，那么能不能用一个堆栈就解决。</p>
+<p>然后就想到遍历字符串的时候，如果是开括号的话就推入栈，然后如果是闭括号的话，就把开括号栈的栈顶的字符推出来，看和闭括号是不是一对，怎么判断是不是一对，我们可以定一个map对象:</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = &#123;</span><br><span class="line">	<span class="string">'&#123;'</span>: <span class="string">'&#125;'</span>,</span><br><span class="line">	<span class="string">'['</span>: <span class="string">']'</span>,</span><br><span class="line">	<span class="string">'('</span>: <span class="string">')'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后如果不是一对的话就返回false，如果是的话就继续遍历，直到遍历完了，如果开括号栈的长大于0，那么就返回false（因为开括号的数量大于闭括号的数量），否则返回true.</p>
+<p>那么我们还要考虑到一个问题就是一开始就是闭括号，那么我们肯定返回false</p>
+<p>还有如果是空串的话，我是直接返回的true。</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = &#123;</span><br><span class="line">        <span class="string">'&#123;'</span>: <span class="string">'&#125;'</span>,</span><br><span class="line">        <span class="string">'['</span>: <span class="string">']'</span>,</span><br><span class="line">        <span class="string">'('</span>: <span class="string">')'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (s === <span class="string">''</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> stack1 = [];</span><br><span class="line">        <span class="keyword">if</span> (s[<span class="number">0</span>] === <span class="string">'&#125;'</span> || s[<span class="number">0</span>] === <span class="string">']'</span> || s[<span class="number">0</span>] === <span class="string">')'</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        <span class="keyword">if</span> (s.length % <span class="number">2</span> !== <span class="number">0</span> ) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] !== <span class="string">'&#125;'</span> &amp;&amp; s[i] !== <span class="string">']'</span> &amp;&amp; s[i] !== <span class="string">')'</span> ) &#123;</span><br><span class="line">                stack1.push(s[i]);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(map[stack1.pop()] !== s[i] ) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> !stack1.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/JavaScript-算法/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript 算法</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/04/JS实现常用排序算法/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="黄紫茜">
@@ -208,7 +276,7 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
         </span>
         
         
@@ -229,7 +297,7 @@
         
         
         
-        <a class="post-tag button" href="/tags/算法/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法</a>
+        <a class="post-tag button" href="/tags/JavaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript</a>
         
       </div>
       
@@ -632,53 +700,6 @@
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/javaScript-数组方法总结/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/15/javaScript-数组方法总结/" itemprop="url">javaScript 数组方法总结</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-15T11:14:08+08:00">2019-06-15 11:14:08</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="数组方法总结"><a href="#数组方法总结" class="headerlink" title="数组方法总结"></a>数组方法总结</h2><h3 id="1-concat"><a href="#1-concat" class="headerlink" title="1. concat()"></a>1. concat()</h3><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">语法： arr1.concat(arrayX,arrayX,......,arrayX)</span><br><span class="line">返回值：一个连接新数组，包含了arr1和所有arrayX</span><br><span class="line">参数：arrayX：可以是具体元素值，也可以是数组，数量是任意</span><br><span class="line">作用：连接两个或多个数组</span><br><span class="line">缺点：效率低</span><br></pre></td></tr></table></figure>
-<p>示例1：</p>
-<figure class="hljs highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> resArr = arr1.concat(<span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">console</span>.log(resArr);<span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/JavaScript-Array/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript Array</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="Next Page"></i></a>
@@ -711,7 +732,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">Archives</div>
-      <div><a href="/archives/">23</a></div>
+      <div><a href="/archives/">24</a></div>
     </div>
     
     
@@ -720,7 +741,7 @@
     
     <div class="categories-count">
       <div class="site-count-title">Categories</div>
-      <div><a href="/categories/">5</a></div>
+      <div><a href="/categories/">4</a></div>
     </div>
     
     
@@ -729,7 +750,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">Tags</div>
-      <div><a href="/tags/">17</a></div>
+      <div><a href="/tags/">18</a></div>
     </div>
     
   </div>
