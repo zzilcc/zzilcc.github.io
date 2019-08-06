@@ -82,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>js原型和原型链 | 黄紫茜的博客</title>
+    <title>JS实现常用排序算法 | 黄紫茜的博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -123,7 +123,7 @@
   
   <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/js原型和原型链/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/04/JS实现常用排序算法/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="黄紫茜">
        <meta itemprop="description" content="">
@@ -134,37 +134,35 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">js原型和原型链</h1>
+      <h1 class="post-title" itemprop="name headline">JS实现常用排序算法</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-30T16:32:10+08:00">2019-04-30 16:32:10</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-04T14:34:15+08:00">2019-08-04 14:34:15</time></span>
         </span>
         
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+        </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="prtotype和proto"><a href="#prtotype和proto" class="headerlink" title="prtotype和proto"></a>prtotype和<strong>proto</strong></h2><p>说到原型，我们必须要了解prototype和<strong>proto</strong>,这两个很多人可能总是会分不清，接下来我会尽可能以通俗易懂的语言去解释这两者的不同。</p>
-<p>我们看到的大多数引用类型值：函数，数组，对象都是Object的实例，所以Object可以说是一个基本。</p>
-<p>我们去创建一个Object的实例，有两种方法，一种是通过new</p>
-<p>例如：</p>
-<pre><code>var obj = new Object()
-</code></pre><p>还有一种通过对象字面量</p>
-<pre><code>var obj = {}  
-</code></pre><p>每个构造函数都有一个原型对象，通过prototype去访问，比如Object.prototype,然后这个原型对象包含一个constructor属性，指向构造函数，也就是Object.prototype.constructor === Object，还包含了一些内置函数，或者自定义的函数。</p>
-<p>然后实例化这个构造函数，得到的实例，有一个<strong>proto</strong>属性指向构造函数的原型对象。</p>
-<p>下面是Object的一个例子。</p>
-<p><img src="/2019/04/30/js原型和原型链/Object的原型.jpg" alt=""></p>
-<p>所以我们可以看到obj.<strong>proto</strong>=== Object.prototype</p>
-<p>总结：</p>
-<ol>
-<li>每个函数都有prototype指向原型对象</li>
-<li>每个对象都有<strong>protot</strong>指向构造函数的原型对象</li>
-</ol>
-<p>在js中，函数是一种特殊的对象，所以函数也有<strong>proto</strong></p>
-
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们生活中排序无处不在，比如考试结束后，老师需要对学生成绩由高到低进行排序，还有我们排名单时有时候也按照字典序排序等等，下面就介绍几种常用的排序算法及js实现。</p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序，顾名思义，就是一个个向上冒泡。具体思想是比较两个相邻的项，如果第一个比第二个大，那么就交换它们。用两层for循环去实现，所以第一次循环后，最大的那个数到达了最右边，下一次循环第二大的数就紧挨着最大的数，以此类推。</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span> (<span class="params">arr, index1, index2</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> temp = arr[index1];</span><br><span class="line">	arr[index1] = arr[index2];</span><br><span class="line">	arr[index2] =temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> len = arr.length;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;</span><br><span class="line">				change(arr, j, j+<span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到冒泡排序的时间复杂度是O(n^2)。所以冒泡排序运行时间相对来说是比较久的。</p>
+<p>比如数组是[2,4,1,6,9,7,5],第一轮循环后数组为[2,1,4,6,7,5,9],第二轮循环后数组为[1,2,4,6,5,7,9],我们知道第一轮循环后，最后一个数肯定是最大的。所以第二轮最后不应该去比较7和9。第三轮也是如此，不应该比较6，7，9。</p>
+<p>所以我们可以改进一下冒泡排序，我们内循环的次数减去外循环中已跑过的轮数。</p>
+<figure class="hljs highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> len = arr.length;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len<span class="number">-1</span>-i; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;</span><br><span class="line">				change(arr, j, j+<span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2>
     </main>
     <footer class="post-footer">
       
@@ -173,7 +171,7 @@
         
         
         
-        <a class="post-tag button" href="/tags/javaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>javaScript</a>
+        <a class="post-tag button" href="/tags/排序算法/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>排序算法</a>
         
       </div>
       
@@ -184,12 +182,10 @@
   <div class="post-nav">
     <div class="post-nav-next post-nav-item">
       
-      <a href="/2019/04/26/this和常用css/" rel="next" title="this和常用css"><i class="fas fa-angle-left"></i><span class="nav-title">this和常用css</span></a>
+      <a href="/2019/07/28/算法题-找出所有父节点/" rel="next" title="算法题-找出所有父节点"><i class="fas fa-angle-left"></i><span class="nav-title">算法题-找出所有父节点</span></a>
       
     </div>
     <div class="post-nav-prev post-nav-item">
-      
-      <a href="/2019/05/28/半个小时学不会的正则表达式/" rel="prev" title="半个小时学不会的正则表达式"><span class="nav-title">半个小时学不会的正则表达式</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </div>
@@ -259,7 +255,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#prtotype和proto"><span class="toc-text">prtotype和proto</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#冒泡排序"><span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#选择排序"><span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#插入排序"><span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#归并排序"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#快速排序"><span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#堆排序"><span class="toc-text">堆排序</span></a></li></ol></div>
 </div>
 
 
