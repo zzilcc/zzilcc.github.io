@@ -121,6 +121,59 @@
   
   <article class="index-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/再也不怕别人问我从-URL-输入到页面展现到底发生什么？/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黄紫茜">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/08/12/再也不怕别人问我从-URL-输入到页面展现到底发生什么？/" itemprop="url">再也不怕别人问我从 URL 输入到页面展现到底发生什么？</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-08-12T14:48:43+08:00">2019-08-12 14:48:43</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端工程化/" itemprop="url" rel="index"><span itemprop="name">前端工程化</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="DNS域名解析"><a href="#DNS域名解析" class="headerlink" title="DNS域名解析"></a>DNS域名解析</h2><h2 id="TCP三次连接：TCP三次握手"><a href="#TCP三次连接：TCP三次握手" class="headerlink" title="TCP三次连接：TCP三次握手"></a>TCP三次连接：TCP三次握手</h2><h2 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h2><h2 id="服务器处理请求并返回"><a href="#服务器处理请求并返回" class="headerlink" title="服务器处理请求并返回"></a>服务器处理请求并返回</h2><h2 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h2><h2 id="断开连接：TCP四次挥手"><a href="#断开连接：TCP四次挥手" class="headerlink" title="断开连接：TCP四次挥手"></a>断开连接：TCP四次挥手</h2>
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/http-浏览器/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>http 浏览器</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/算法题-有效的括号/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="黄紫茜">
@@ -655,56 +708,6 @@
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/浏览器缓存详解/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/浏览器缓存详解/" itemprop="url">浏览器缓存详解</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T22:00:23+08:00">2019-06-16 22:00:23</time></span>
-        </span>
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>可能有人会和以前的我一样，觉得缓存不是后台设置的吗，感觉和前端人员没有太大联系，平时关于缓存最常做的就是在浏览器<code>Ctrl+Shit+Delete</code>清空缓存。</p>
-<p>web缓存可以大致分为三类：</p>
-<pre><code>1. 浏览器缓存
-2. 代理缓存
-3. 网关缓存
-</code></pre><p>我们这篇文章主要讲的是浏览器缓存，浏览器主要是通过http/https和服务器进行通信，所以浏览器缓存我们也可以说是HTTP缓存。<br></p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/浏览器/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>浏览器</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="Next Page"></i></a>
@@ -737,7 +740,7 @@
     
     <div class="archives-count">
       <div class="site-count-title">Archives</div>
-      <div><a href="/archives/">24</a></div>
+      <div><a href="/archives/">25</a></div>
     </div>
     
     
@@ -746,7 +749,7 @@
     
     <div class="categories-count">
       <div class="site-count-title">Categories</div>
-      <div><a href="/categories/">4</a></div>
+      <div><a href="/categories/">5</a></div>
     </div>
     
     
@@ -755,7 +758,7 @@
     
     <div class="tags-count">
       <div class="site-count-title">Tags</div>
-      <div><a href="/tags/">18</a></div>
+      <div><a href="/tags/">19</a></div>
     </div>
     
   </div>
