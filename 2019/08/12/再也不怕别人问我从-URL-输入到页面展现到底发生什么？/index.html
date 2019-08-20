@@ -154,7 +154,8 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作了一年多，发现自己其实学习路线是存在问题的，刚开始学习前端就是直接学习着三个基础HTML，CSS,JavaScript，然后就学习框架vue，然后vue脚手架，vuex，路由，webpack这些。</p>
+      <p>[toc]</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作了一年多，发现自己其实学习路线是存在问题的，刚开始学习前端就是直接学习着三个基础HTML，CSS,JavaScript，然后就学习框架vue，然后vue脚手架，vuex，路由，webpack这些。</p>
 <p>从来没有考虑过本质，比如浏览器的运行，渲染机制，浏览器怎么和服务器通行等等。所有的认知都只是停留在表面。</p>
 <p>所以意识到自己的短板后，开始深入学习。</p>
 <h2 id="浏览器组成"><a href="#浏览器组成" class="headerlink" title="浏览器组成"></a>浏览器组成</h2><p>首先我们要知道浏览器的组成。我们知道不同浏览器具体实现是有不同的，但是它们设计思想是一样的，所以可以将浏览器抽象成下面的图。</p>
@@ -178,6 +179,13 @@
 <h3 id="多进程浏览器"><a href="#多进程浏览器" class="headerlink" title="多进程浏览器"></a>多进程浏览器</h3><p>现在市面上大多数的浏览器都是多进程的。以谷歌为例，我们开始打开一个页签，这里我打开了谷歌搜索。我们可以看到一开始就有5个进程。</p>
 <p><img src="/2019/08/12/再也不怕别人问我从-URL-输入到页面展现到底发生什么？/进程.png" alt=""></p>
 <p>进程我们可以分为：浏览器主进程，GPU进程，网络进程，渲染进程，插件进程。</p>
+<p>图中第一个显示‘浏览器’指的就是浏览器主进程。主要负责掌控全场，包括浏览器的界面的显示，用户交互（前进，后退等等）、负责各个页面的管理，子进程的创建与销毁等、存储功能等。</p>
+<p>GPU进程一开始是为了3D绘制，但是后面谷歌浏览的ui界面都用GPU渲染，所以GPU单独成为了一个进程。</p>
+<p>网络进程（Network Service）是最近才单独成为一个进程，之前是运行在主进程，主要负责网络资源的加载。</p>
+<p>渲染进程：主要任务是将html，css，js转换成用户可以交互的页面，默认情况下一个页签会生成一个进程。</p>
+<p>插件进程：之前说过，插件是不稳定的，所以要把插件单独作为一个进程。</p>
+<h3 id="面向服务架构"><a href="#面向服务架构" class="headerlink" title="面向服务架构"></a>面向服务架构</h3><p>多进程模型虽然解决了单进程的许多问题，但是也带来了一些问题，比如内存占用变高了，因为每一个进程都有公共基础模块的副本，还有体系结构变复杂了，模块之间耦合性高，扩展性差。现在谷歌团队根据‘面向服务的架构（SOA）’思想设计了一个新的架构。原来的模块都独立成一个个服务，服务可以在进程中运行。但是这个架构过渡是需要一定的时间。</p>
+<p>## </p>
 
     </main>
     <footer class="post-footer">
@@ -271,7 +279,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#浏览器组成"><span class="toc-text">浏览器组成</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#用户界面"><span class="toc-text">用户界面</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#浏览器引擎"><span class="toc-text">浏览器引擎</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#渲染引擎"><span class="toc-text">渲染引擎</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#网络"><span class="toc-text">网络</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#JS解释器"><span class="toc-text">JS解释器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XML解析器"><span class="toc-text">XML解析器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#UI后端"><span class="toc-text">UI后端</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#数据持久化存储"><span class="toc-text">数据持久化存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#浏览器历史"><span class="toc-text">浏览器历史</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#单进程浏览器"><span class="toc-text">单进程浏览器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#多进程浏览器"><span class="toc-text">多进程浏览器</span></a></li></ol></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#浏览器组成"><span class="toc-text">浏览器组成</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#用户界面"><span class="toc-text">用户界面</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#浏览器引擎"><span class="toc-text">浏览器引擎</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#渲染引擎"><span class="toc-text">渲染引擎</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#网络"><span class="toc-text">网络</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#JS解释器"><span class="toc-text">JS解释器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#XML解析器"><span class="toc-text">XML解析器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#UI后端"><span class="toc-text">UI后端</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#数据持久化存储"><span class="toc-text">数据持久化存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#浏览器历史"><span class="toc-text">浏览器历史</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#单进程浏览器"><span class="toc-text">单进程浏览器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#多进程浏览器"><span class="toc-text">多进程浏览器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#面向服务架构"><span class="toc-text">面向服务架构</span></a></li></ol></li></ol></div>
 </div>
 
 
