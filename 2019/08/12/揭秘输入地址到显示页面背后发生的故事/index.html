@@ -230,7 +230,10 @@
 <li>负责渲染浏览器界面，包括解析HTML、CSS、构建DOM树、Render树、布局与绘制等</li>
 <li>当界面需要重绘（Repaint）或由于某种操作引发回流(reflow)时，该线程就会执行</li>
 </ol>
-<h4 id="JavaScript引擎线程"><a href="#JavaScript引擎线程" class="headerlink" title="JavaScript引擎线程"></a>JavaScript引擎线程</h4><p>主要负责处理Javascript脚本程序，例如V8引擎。Javascript引擎线程理所当然是负责解析Javascript脚本，运行代码。<br>等待任务队列的任务的到来，然后加以处理，浏览器无论什么时候都只有一个JS引擎在运行JS程序</p>
+<h4 id="JavaScript引擎线程"><a href="#JavaScript引擎线程" class="headerlink" title="JavaScript引擎线程"></a>JavaScript引擎线程</h4><ol>
+<li>主要负责处理Javascript脚本程序</li>
+<li>等待任务队列的任务的到来，然后加以处理，</li>
+</ol>
 <h4 id="定时触发线程"><a href="#定时触发线程" class="headerlink" title="定时触发线程"></a>定时触发线程</h4><p>setTimeout和setInteval，主要负责浏览器定时和计数。</p>
 <h4 id="事件触发线程"><a href="#事件触发线程" class="headerlink" title="事件触发线程"></a>事件触发线程</h4><p>当一个事件被触发时该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理</p>
 <h4 id="异步请求线程"><a href="#异步请求线程" class="headerlink" title="异步请求线程"></a>异步请求线程</h4><p>使用XMLHttpRequest (XHR)对象可以与服务器交互，XHR发起连接后，浏览器主线程会新开一个异步请求线程，检测到状态变更时，如果设置有回调函数，那么将产生状态变更事件放到任务队列里等待js引擎去处理</p>
@@ -251,13 +254,15 @@
 <li>遍历节点，构建DOM树</li>
 </ol>
 <p>解析HTML的时候读到引入外部css或js文件，渲染进程会将请求发送到网络进程，由网络进程去下载对应的css文件或js文件。不同的是，如果是js文件，这会阻断HTML的解析，js下载完成后会在js引擎线程立即执行，此时GUI渲染线程会被挂起。如果是css文件的话，不会阻断HTML的解析。</p>
+<p>一个简单的例子</p>
+<p><img src="/2019/08/12/揭秘输入地址到显示页面背后发生的故事/DOM树.jpg" alt=""></p>
 <h5 id="构建CSSOM树"><a href="#构建CSSOM树" class="headerlink" title="构建CSSOM树"></a>构建CSSOM树</h5><p>构建CSSOM树其实和构建DOM很类似。css文件被下载后会开始进行CSSOM构建。</p>
 <p>Bytes–&gt;Characters–&gt;Tokens–&gt;Nodes–&gt;CSSOM</p>
 <p>上面说过构建CSSOM不会阻塞HTML解析，但是如果在js中操作了CSSOM，那么需要等到响应css文件下载并构建CSSOM后，js才会继续执行，在这期间HTML解析会一直被挂起，所以我们在HTML文件引入css，js文件的顺序很重要，css优先，放在头部引入，js滞后，放在页面底部。</p>
 <p>解析HTML的时候，遍历节点时将节点插入到DOM树上，同时去查找css，然后把对应的样式规则应用到元素及节点上，查找样式表是按照从右到左的顺序去匹配的。</p>
 <p>比如： div p {color: #333;}，会先寻找所有p标签并判断它的父标签是否为div之后才会决定要不要采用这个样式进行渲染。</p>
 <p>所以，我们平时写CSS时，尽量用id和class，千万不要过渡层叠。</p>
-<h5 id="将DOM树和CSSOM树合成渲染树"><a href="#将DOM树和CSSOM树合成渲染树" class="headerlink" title="将DOM树和CSSOM树合成渲染树"></a>将DOM树和CSSOM树合成渲染树</h5><p>通过DOM树和CSS规则树我们便可以构建渲染树。浏览器会先从DOM树的根节点开始遍历每个可见节点。对每个可见节点，找到其适配的CSS样式规则并应用。</p>
+<h5 id="将DOM树和CSSOM树合成渲染树"><a href="#将DOM树和CSSOM树合成渲染树" class="headerlink" title="将DOM树和CSSOM树合成渲染树"></a>将DOM树和CSSOM树合成渲染树</h5><p>浏览器会先从DOM树的根节点开始遍历每个可见节点。可见节点就是display不为none的元素，对每个可见节点，找到其CSS样式规则并应用。</p>
 <p>渲染树构建完成后，每个节点都是可见节点并且都含有其内容和对应规则的样式。这也是渲染树与DOM树的最大区别所在。渲染树是用于显示，那些不可见的元素当然就不会在这棵树中出现了，譬如。除此之外，display等于none的也不会被显示在这棵树里头，但是visibility等于hidden的元素是会显示在这棵树里头的。</p>
 
     </main>
