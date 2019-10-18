@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="黄紫茜的博客" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>JavaScript的創建方法 | 黄紫茜的博客</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
+    
+    <li role="menuitem"><a href="/">Home</a></li>
+    
+    <li role="menuitem"><a href="/archives/">Archives</a></li>
+    
+    <li role="menuitem"><a href="/categories/">Categories</a></li>
+    
+    <li role="menuitem"><a href="/tags/">Tags</a></li>
+    
+    <li role="menuitem"><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/JavaScript的创建对象方法/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">JavaScript的創建方法</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-08-23T11:36:01+08:00">2018-08-23 11:36:01</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="JavaScript创建对象的几种方法"><a href="#JavaScript创建对象的几种方法" class="headerlink" title="JavaScript创建对象的几种方法"></a>JavaScript创建对象的几种方法</h1><h2 id="一、理解对象"><a href="#一、理解对象" class="headerlink" title="一、理解对象"></a>一、理解对象</h2><p>ECMA-262把对象定义为： 无序属性的集合，其属性可以包含基本值，对象或者函数。每个对象都是基于一个引用<br>类型创建的，这个引用类型可以是原生类型，比如Object，Array等，也可以是自己定义的类型。<a id="more"></a></p>
+<h2 id="二、常用方法"><a href="#二、常用方法" class="headerlink" title="二、常用方法"></a>二、常用方法</h2><h3 id="（1）创建单个对象"><a href="#（1）创建单个对象" class="headerlink" title="（1）创建单个对象"></a>（1）创建单个对象</h3><p>情景模式： 现在我们要创建一家公司的人员。<br>创建单个对象，也就是我们要创建一个人员。</p>
+<h4 id="a-创建Object实例"><a href="#a-创建Object实例" class="headerlink" title="a. 创建Object实例"></a>a. 创建Object实例</h4><pre><code>传说女娲造人，Object其实可以想象成女娲，所有的对象都是Object的实例。
+   var person = new Object();
+   person.name = &quot;zzilcc&quot;;
+   person.age = 23;
+</code></pre><p>new 其实做了四件事情。</p>
+<pre><code>1. 创建了一个对象
+2. 把当前作用域赋值给这个对象
+3. 执行构造函数里的代码
+4. 返回这个对象
+
+但是我们更常用的方法是对象字面量方法。简单好理解。
+</code></pre><h4 id="b-对象字面量方法"><a href="#b-对象字面量方法" class="headerlink" title="b .对象字面量方法"></a>b .对象字面量方法</h4><pre><code>var person = {
+    name: &quot;bbb&quot;,
+    age: 23,
+    sayName: function(){
+        console.log(this.name);
+    }
+}
+</code></pre><h3 id="2-创建多个对象"><a href="#2-创建多个对象" class="headerlink" title="(2) 创建多个对象"></a>(2) 创建多个对象</h3><h4 id="a-工厂模式"><a href="#a-工厂模式" class="headerlink" title="a. 工厂模式"></a>a. 工厂模式</h4><p>此时，如果我们要创建多个人员，我们可能会这样写</p>
+<pre><code>var person1 = new Object();
+person1.name = &quot;aaa&quot;;
+person1.age = 23;
+person1.sayName = function(){
+    console.log(this.name);
+};
+
+var person2 = new Object();
+person2.name = &quot;bbb&quot;;
+person2.age = 23;
+person2.sayName = function(){
+    console.log(this.name);
+};
+
+var person3 = new Object();
+person3.name = &quot;ccc&quot;;
+person3.age = 23;
+person3.sayName = function(){
+    console.log(this.name);
+};
+
+var person4 = new Object();
+person4.name = &quot;ddd&quot;;
+person4.age = 23;
+person4.sayName = function(){
+    console.log(this.name);
+};
+</code></pre><p>这是我们会发现，我们写了大量重复的代码，能不能把相同代码放到一起，每次调用一下就好了，所以就有了工厂模式。</p>
+<pre><code>function  createPerson (name,age) {
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.sayName = function(){
+        console.log(this.name);
+    }
+}
+var person1 = createPerson(&quot;aaa&quot;,23);
+var person2 = createPerson(&quot;bbb&quot;,21);
+var person3 = createPerson(&quot;ccc&quot;,24);
+var person4 = createPerson(&quot;ddd&quot;,22);
+</code></pre><p>这样我们创建相似对象就可以减少重复代码量。但是这个方法有的缺点就是无法解决对象识别的问题。也就是通过工厂模式产生的对象只能知道是“女娲”（object）造出来的实例，他们之间不能细分到是这是男人还是女人。</p>
+<h4 id="b-构造函数模式"><a href="#b-构造函数模式" class="headerlink" title="b. 构造函数模式"></a>b. 构造函数模式</h4><p>这时候构造函数模式就可以解决对象识别的问题了。因为构造函数可以用来创建特定类型的对象。构造函数可以想象成女娲的各种法术，一种法术产生一种类型的人员，比如这种法术是生成“女性”，那种法术是生成“男性”。构造函数有原生构造函数和自定义的构造函数，非常人性化。</p>
+<pre><code>function Male(name,age){
+    this.sex = &quot;male&quot;;
+    this.name = name;
+    this.age = age;
+    this.sayName = function(){
+        console.log(this.name)
+    }
+}
+var male1 = Male(&quot;aa&quot;,23);
+var male2 = Male(&quot;xx&quot;,22);
+</code></pre><p>按照惯例，构造函数的函数名首字母要大写。<br>我们可以通过instanceof操作符检测对象类型。使用构造函数意味着把它实例标识为一种特定的类型，比如男人，女人，老人，小孩等等。这也是工厂函数无法解决的问题。</p>
+<pre><code>console.log(male1 instanceof Object); //true
+console.log(male2 instanceof Object); //true
+console.log(male1 instanceof Male); //true
+console.log(male1 instanceof Male); //true
+</code></pre><p>male1,,male2是Object的实例，也是Male的实例。</p>
+<p>但是这个方法也是有自己的缺点的，也就是每个方法都要在每个实例上重新创建一遍。</p>
+<pre><code>function Male(name,age){
+    this.sex = &quot;male&quot;;
+    this.name = name;
+    this.age = age;
+    this.sayName = function(){
+        console.log(this.name)
+    }
+}
+</code></pre><p>也就是我们每次new Male()的时候，我们都要去重新创建一次sayName方法。<br>        因为函数也是一个对象，所以上面的函数我们可以改写成</p>
+<pre><code>function Male(name,age){
+        this.sex = &quot;male&quot;;
+        this.name = name;
+        this.age = age;
+        this.sayName = new Function(&quot;console.log(this.name)&quot;);
+    }
+</code></pre><p>也就是我们每次new Male()的时候我们都创建了一个Function的实例，那为什么我们不能在全局环境中创建一个，然后再Male函数里调用。</p>
+<p>所以我们可以改写成下面这样：</p>
+<pre><code>function Male(name,age){
+        this.sex = &quot;male&quot;;
+        this.name = name;
+        this.age = age;
+        this.sayName = sayName;
+    }
+    function sayName(){
+        console.log(this.name);
+    }
+</code></pre><p>但是这么干的话，其实也不合适，因为sayName函数明明是为你Male所用的，但是你却把它放到全局里，这不符合全局的概念。<br>而且要是构造很熟有很多函数的话，那么全局作用域就有很多“全局”函数，那样我们自定义的引用类型就没有封装性可言了。</p>
+<h4 id="c-原型模式"><a href="#c-原型模式" class="headerlink" title="c. 原型模式"></a>c. 原型模式</h4><p>我们创建的每个函数都有一个原型（prototype）属性,这个属性是一个指针，指向一个对象。这个对象包含了一些属性和方法，这些属性和方法是被特定类型的所有实例共享的。也就是说prototype是我们通过构造函数创建的对象实例的原型对象。也就是我们把想要所有对象实例都共享的方法和实行都添加到原型中，而不是构造函数中。</p>
+<pre><code>funtiton Person(){};
+Person.prototype.name = &quot;aa&quot;;
+Person.prototype.age = 23;
+Person.sayName.sayName = function() {
+    console.log(this.name)
+}
+
+var person1 = new Person();
+person1.sayName();//&quot;aa&quot;
+</code></pre><p>我们把公用属性和方法放到了Person的原型中， 所以每个实例访问的都是同一组属性和同一个方法。这样就不用把方法放到全局环境去写了，就解决了构造函数把私有方法放到全局的问题</p>
+<h4 id="d-组合使用构造函数-原型模式"><a href="#d-组合使用构造函数-原型模式" class="headerlink" title="d. 组合使用构造函数+原型模式"></a>d. 组合使用构造函数+原型模式</h4><p>俗话说，我们要去其糟粕，取其精华，我们将两种方式的精华合并到一起，集两家之长，形成了组合模式。使用构造函数模式定义实例属性，用原型模式定义方法和共享的属性。</p>
+<pre><code>function Peroson (name, age) {
+    this.name = name;
+    this.age = age;
+    this.friends = [&apos;zz&apos;, &apos;aa&apos;];
+}
+
+Person.prototype = {
+    constructor: Person,
+    sayName: function () {
+        console.log(this.name)
+    }
+}
+
+var person1 = new Person(&apos;zzilcc&apos;, 23);
+var person2 = new Person(&apos;aaa&apos;, 22);
+</code></pre>
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/JavaScript对象/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript对象</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav card">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/07/16/vue指令/" rel="next" title="vue指令"><i class="fas fa-angle-left"></i><span class="nav-title">vue指令</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/08/28/变基git-rebase中的基是什么/" rel="prev" title="变基git rebase中的基是什么"><span class="nav-title">变基git rebase中的基是什么</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  <!-- 来必力City版安装代码 -->
+<div class="card" id="lv-container" data-id="city" data-uid="MTAyMC80NjI2MC8yMjc3MQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" >
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/logo.jpg" alt="黄紫茜">
+  
+  <h1 class="author-name">黄紫茜</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">Archives</div>
+      <div><a href="/archives/">26</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">Categories</div>
+      <div><a href="/categories/">5</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">Tags</div>
+      <div><a href="/tags/">19</a></div>
+    </div>
+    
+  </div>
+  
+  
+  
+</div>
+
+
+  <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#JavaScript创建对象的几种方法"><span class="toc-text">JavaScript创建对象的几种方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、理解对象"><span class="toc-text">一、理解对象</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、常用方法"><span class="toc-text">二、常用方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#（1）创建单个对象"><span class="toc-text">（1）创建单个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-创建Object实例"><span class="toc-text">a. 创建Object实例</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-对象字面量方法"><span class="toc-text">b .对象字面量方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-创建多个对象"><span class="toc-text">(2) 创建多个对象</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-工厂模式"><span class="toc-text">a. 工厂模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-构造函数模式"><span class="toc-text">b. 构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#c-原型模式"><span class="toc-text">c. 原型模式</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#d-组合使用构造函数-原型模式"><span class="toc-text">d. 组合使用构造函数+原型模式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>Social Links</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="hzq_56@163.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>Blogroll</div>
+  <ul>
+    
+    <li><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+  <div class="sidebar-sticky">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2317836514&auto=1&height=430"></iframe>
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">黄紫茜</span><span class="year"><i class="far fa-copyright"></i>2019</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+        <script type="text/javascript">
+          var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?48c373efcbce81f0eeeece327ced2945";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          })();
+    </script>
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  </body>
+</html>

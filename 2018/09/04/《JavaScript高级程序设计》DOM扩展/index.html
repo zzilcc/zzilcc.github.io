@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="黄紫茜的博客" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>《JavaScript高级程序设计》DOM扩展 | 黄紫茜的博客</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
+    
+    <li role="menuitem"><a href="/">Home</a></li>
+    
+    <li role="menuitem"><a href="/archives/">Archives</a></li>
+    
+    <li role="menuitem"><a href="/categories/">Categories</a></li>
+    
+    <li role="menuitem"><a href="/tags/">Tags</a></li>
+    
+    <li role="menuitem"><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/《JavaScript高级程序设计》DOM扩展/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">《JavaScript高级程序设计》DOM扩展</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-04T15:46:57+08:00">2018-09-04 15:46:57</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a><center>DOM扩展</center></h1><h2 id="一、选择符API（重要）"><a href="#一、选择符API（重要）" class="headerlink" title="一、选择符API（重要）"></a>一、选择符API（重要）</h2><p>平时我们写代码的时候最常用的一个操作就是根据css选择符选择与某个模式匹配的DOM元素，比如$(“css选择符”)。但是用jquery的话我们必须引用jquery库。现在我们可以不需要引js库就可以实现这个功能。</p>
+<p>选择符API的核心是两个方法：querySelector()和querySelectorAll()。还有一个matchesSelector()方法。</p>
+<p>Document、Element，DocumentFragment三种类型的元素都有这两个方法。<br><a id="more"></a><br>兼容性(2018.09.04查询)<br><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/jrx.png" alt=""></p>
+<h3 id="1-querySelector"><a href="#1-querySelector" class="headerlink" title="1. querySelector()"></a>1. querySelector()</h3><p>该方法接收一个css选择器，返回与该模式匹配的第一个元素，如果没有找到匹配的元素，则会返回null。如果传入了不被支持的选择符，会报错。</p>
+<p>通过Document类型调用该方法，会在文档元素的范围内查找匹配的元素。而通过Element类型调用，只会在该元素后代元素范围内查找匹配的元素。</p>
+<p><code>html</code></p>
+<pre><code>&lt;span class=&quot;outside&quot;&gt;outside&lt;/span&gt;
+&lt;div id=&quot;my-id&quot;&gt;
+        &lt;span class=&quot;outside&quot;&gt;my-id outside&lt;/span&gt;
+     &lt;span id=&quot;inside&quot;&gt;inside&lt;/span&gt;
+     &lt;div class=&quot;lonely&quot;&gt;lonely&lt;/div&gt;
+     &lt;div class=&quot;outer&quot;&gt;
+          &lt;div class=&quot;inner&quot;&gt;inner&lt;/div&gt;
+     &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>Document</p>
+<p><code>js</code></p>
+<pre><code>var lonely = document.querySelector(&quot;#my-id .lonely&quot;);
+var outside1 = document.querySelector(&quot;#outside1&quot;); //null
+var inside = document.querySelector(&quot;#.inside&quot;);//报错
+</code></pre><p>结果：</p>
+<p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelector.png" alt=""></p>
+<p>Element</p>
+<pre><code>var myId = document.querySelector(&quot;#my-id&quot;);
+var outer = myId.querySelector(&quot;.outer&quot;);
+var outside = myId.querySelector(&quot;.outside&quot;);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelector-element.png" alt=""></p>
+<h3 id="2-querySelectorAll"><a href="#2-querySelectorAll" class="headerlink" title="2.querySelectorAll()"></a>2.querySelectorAll()</h3><p>该方法接收的参数也是一个css选择符，返回的是一个NodeList的实例，返回的是所有匹配的元素而不仅仅是返回的一个元素。</p>
+<p>NodeList 对象是一个节点的集合，是由 Node.childNodes 和 document.querySelectorAll 返回的.</p>
+<p>大多数情况下，我们使用Node.childNodes返回的NodeList是一个实时的集合，也就是页面节点又变化是，NodeList会跟着改变。</p>
+<pre><code>var myId = document.querySelector(&quot;#my-id&quot;);
+var childNodes = myId.childNodes; //9
+myId.appendChild(document.createElement(&apos;div&apos;));
+var childNodes2 = myId.childNodes;//10
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/childnodes.png" alt=""> </p>
+<p>querySelectorAll()返回的是一个静态的nodeList，是一个快照。这样可以避免使用NodeList对象通常会引起的大多数性能问题。</p>
+<pre><code>var myId = document.querySelector(&quot;#my-id&quot;);
+var nodes = document.querySelectorAll(&quot;div&quot;);
+console.log(&quot;nodes:&quot;);
+console.log(nodes);
+myId.appendChild(document.createElement(&apos;div&apos;));
+var nodes2 = document.querySelectorAll(&quot;div&quot;);
+console.log(&quot;nodes2:&quot;);
+console.log(nodes2);
+console.log(&quot;nodes:&quot;);
+console.log(nodes);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelectorAll.png" alt=""></p>
+<p> 只要传给querySelectorAll()方法的css选择符有效，该方法都会返回一个NodeList对象，如果没有找到匹配的元素，NodeList就是空的。  </p>
+<pre><code>var aNodes = document.querySelectorAll(&quot;a&quot;);   
+console.log(&quot;aNodes&quot;);
+console.log(aNodes);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/nodelist-null.png" alt=""><br>思考：下面两个获取方法得到的内容是一样的么？</p>
+<pre><code>var div = document.querySelectorAll(&quot;#my-id div div&quot;);
+console.log(&quot;div:&quot;);
+console.log(div);
+var div2 = document.querySelector(&quot;#my-id&quot;).querySelectorAll(&quot;div div&quot;);
+console.log(&quot;div2:&quot;);
+console.log(div2);
+</code></pre><p><img src="/2018/09/04/《JavaScript高级程序设计》DOM扩展/querySelectorAll2.png" alt=""></p>
+<p>原因：CSS选择器是独立于整个页面的！</p>
+<p>这里的querySelectorAll里面的选择器也同样是这也全局特性。document.querySelector(“#my-id”).querySelectorAll(“div div”)翻译成白话文就是：查询#my-id的子元素，同时满足整个页面下div div选择器条件的DOM元素们。</p>
+<p>使用场景？</p>
+<h3 id="3-matchesSelector（）方法"><a href="#3-matchesSelector（）方法" class="headerlink" title="3.matchesSelector（）方法"></a>3.matchesSelector（）方法</h3><p>这个方法接收一个参数，css选择符，如果调用元素与该选择符匹配，返回true，否则为false。</p>
+<p>if(document.body.webkitMatchesSelector(“body”)){<br>        console.log(“webkitMatchesSelector”);<br>    }</p>
+<h2 id="二、元素遍历"><a href="#二、元素遍历" class="headerlink" title="二、元素遍历"></a>二、元素遍历</h2><p> 对于元素间的空格，IE9及之前的版本不会返回文本节点，这样就导致了在使用childNodes和firstChild等属性时行为不一致。</p>
+<p> 所以Element Traversal API 为DOM元素添加了以下5个属性。</p>
+<p> childElementCount： 返回子元素（不包括文本节点和注释）的个数</p>
+<p> firstElementChild：只想第一个子元素</p>
+<p> lastElementChild： 指向最后一个元素</p>
+<p> previousElmentSlibling：指向前一个同辈元素</p>
+<p> nextElementSibling：指向后一个同辈元素</p>
+<h2 id="三、HTML5（重要）"><a href="#三、HTML5（重要）" class="headerlink" title="三、HTML5（重要）"></a>三、HTML5（重要）</h2><h3 id="1-与类相关的扩充"><a href="#1-与类相关的扩充" class="headerlink" title="1.与类相关的扩充"></a>1.与类相关的扩充</h3><ol>
+<li><p>getElementsByClassName()<br> 该方法接收一个参数，即包含一或多个类名的字符串，返回带有指定类的所有元素的NodeList。类名的先后顺序无所谓。</p>
+</li>
+<li><p>classLists属性</p>
+<pre><code>&lt;div id=&quot;dd&quot; class=&quot;bd user do&quot;&gt;2222&lt;/div&gt;
+
+var dd = document.querySelector(&quot;#dd&quot;);
+console.log(dd.classList);
+</code></pre></li>
+</ol>
+<p>add(value): 将给定的字符串添加到列表中，如果值有，就不添加</p>
+<p>contains(value): 表示列表中是否存在给定的值，如果存在则返回true，如果不存在false</p>
+<p>remove(value):从列表中删除给定的字符串</p>
+<p>toggle(value):如果列表中已经存在给定的值，删除它，如果列表中每一给定的值，添加它。</p>
+<h3 id="2-自定义数据属性"><a href="#2-自定义数据属性" class="headerlink" title="2 自定义数据属性"></a>2 自定义数据属性</h3><p>html5规定要添加非标准的属性，但是要加前缀data-，目的是为元素提供与渲染无关的信息，或者提供语义信息</p>
+<p>例如：</p>
+<pre><code>&lt;div id=&quot;myDiv&quot; data-appId=&quot;123&quot; data-myname=&quot;hzq&quot;&gt;
+</code></pre><p>t添加了自定义属性后，我们可以通过元素的dataset属性来访问自定义属性的值</p>
+<h3 id="3-插入标记"><a href="#3-插入标记" class="headerlink" title="3.插入标记"></a>3.插入标记</h3><p>使用场景：</p>
+<p>我们需要给文档插入大量新的标记，我们不仅要创建一系列DOM节点，然后还要小心的按照正确的顺序把他们连接起来。</p>
+<h4 id="a：innerHTML属性"><a href="#a：innerHTML属性" class="headerlink" title="a：innerHTML属性"></a>a：innerHTML属性</h4><p>在读模式，innerHTML属性返回与调用元素的所有子节点（包括元素，注释和文本节点）对应的HTML标记。</p>
+<p>在写模式，innnerHTML会根据制定的值创建新的DOM树，然后用这个DOM树完全替换调用元素原先的所有子节点。</p>
+<pre><code>&lt;div id=&quot;content&quot;&gt;
+    &lt;p&gt;hello&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+     &lt;/ul&gt;
+ &lt;/div&gt;
+
+var innerHTML = document.querySelector(&quot;#content&quot;).innerHTML;
+console.log(innerHTML);
+</code></pre><p>返回的是</p>
+<pre><code>&lt;p&gt;hello&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+        &lt;li&gt;item 1&lt;/li&gt;
+    &lt;/ul&gt;
+</code></pre><p> 写模式：</p>
+<pre><code>document.querySelector(&quot;#content&quot;).innerHTML = &quot;&lt;p&gt;hello,world&lt;/p&gt;&quot;;  
+ var innerHTML = document.querySelector(&quot;#content&quot;).innerHTML;
+ console.log(innerHTML);//&lt;p&gt;hello,world&lt;/p&gt;
+</code></pre><p>并不是所有元素都支持innerHTML属性，不支持的有：<br>    <code>&lt;col</code>&gt;,<code>&lt;colgroup</code>&gt;,<code>&lt;frameset&gt;</code>,<code>&lt;head&gt;</code>,<code>&lt;html&gt;</code>,<code>&lt;style&gt;</code>,<code>&lt;table&gt;</code>,<code>&lt;tbody&gt;</code>,<code>&lt;thead&gt;</code>,<code>&lt;tfoot&gt;</code>,<code>&lt;tr&gt;</code></p>
+<h4 id="b-outerHTML"><a href="#b-outerHTML" class="headerlink" title="b: outerHTML"></a>b: outerHTML</h4><p>在读模式，outerHTML返回调用它的元素及所有子节点的HTML标签，在写模式下，outerHTML会根据制定的HTML字符串去创建新的DOM子树，然后用这个DOM树去完全替换调用元素。</p>
+<h4 id="c：内存与性能问题"><a href="#c：内存与性能问题" class="headerlink" title="c：内存与性能问题"></a>c：内存与性能问题</h4><p>我们在使用这两个属性时，可能删除了之前的元素，元素上有一个事件处理程序，从文档树中删除了元素，但是元素与事件处理程序之间的绑定关系在内存中并没有删除，这样日积月累，页面占有的内存会越来越多，所以我们使用上面的方法时最好手动删除要被删除的元素的事件处理程序和js对象属性。</p>
+<h3 id="4-scrollIntoView"><a href="#4-scrollIntoView" class="headerlink" title="4.scrollIntoView()"></a>4.scrollIntoView()</h3><p>为了方便开发人员更好的控制页面滚动，HTML5选择了scrollIntoView()作为标准方法。</p>
+<p>scrollIntoView()可以在所有HTML元素上调用，通过滚动浏览器窗口或者某个容器元素，调用元素就会出现在视口中。如果给这个方法传入true作为参数，或者不传入参数，那么窗口滚动之后会 让调用元素的顶部与视口顶部尽可能齐平。如果传入false作为参数，调用元素会尽可能全部出现在视口中，可能的话调用元素的底部会与视口底部齐平。</p>
+<p>移动端开发可能用的比较多，input和键盘。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/JavaScript/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>JavaScript</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav card">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/08/28/变基git-rebase中的基是什么/" rel="next" title="变基git rebase中的基是什么"><i class="fas fa-angle-left"></i><span class="nav-title">变基git rebase中的基是什么</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/09/05/Git浅解/" rel="prev" title="Git浅解"><span class="nav-title">Git浅解</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  <!-- 来必力City版安装代码 -->
+<div class="card" id="lv-container" data-id="city" data-uid="MTAyMC80NjI2MC8yMjc3MQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" >
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/logo.jpg" alt="黄紫茜">
+  
+  <h1 class="author-name">黄紫茜</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">Archives</div>
+      <div><a href="/archives/">26</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">Categories</div>
+      <div><a href="/categories/">5</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">Tags</div>
+      <div><a href="/tags/">19</a></div>
+    </div>
+    
+  </div>
+  
+  
+  
+</div>
+
+
+  <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#DOM扩展"><span class="toc-text">DOM扩展</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、选择符API（重要）"><span class="toc-text">一、选择符API（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-querySelector"><span class="toc-text">1. querySelector()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-querySelectorAll"><span class="toc-text">2.querySelectorAll()</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-matchesSelector（）方法"><span class="toc-text">3.matchesSelector（）方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、元素遍历"><span class="toc-text">二、元素遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#三、HTML5（重要）"><span class="toc-text">三、HTML5（重要）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-与类相关的扩充"><span class="toc-text">1.与类相关的扩充</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-自定义数据属性"><span class="toc-text">2 自定义数据属性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-插入标记"><span class="toc-text">3.插入标记</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a：innerHTML属性"><span class="toc-text">a：innerHTML属性</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-outerHTML"><span class="toc-text">b: outerHTML</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#c：内存与性能问题"><span class="toc-text">c：内存与性能问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-scrollIntoView"><span class="toc-text">4.scrollIntoView()</span></a></li></ol></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>Social Links</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="hzq_56@163.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>Blogroll</div>
+  <ul>
+    
+    <li><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+  <div class="sidebar-sticky">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2317836514&auto=1&height=430"></iframe>
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">黄紫茜</span><span class="year"><i class="far fa-copyright"></i>2019</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+        <script type="text/javascript">
+          var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?48c373efcbce81f0eeeece327ced2945";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          })();
+    </script>
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  </body>
+</html>

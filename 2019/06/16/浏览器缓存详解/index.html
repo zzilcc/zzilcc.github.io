@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="黄紫茜的博客" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>浏览器缓存详解 | 黄紫茜的博客</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
+    
+    <li role="menuitem"><a href="/">Home</a></li>
+    
+    <li role="menuitem"><a href="/archives/">Archives</a></li>
+    
+    <li role="menuitem"><a href="/categories/">Categories</a></li>
+    
+    <li role="menuitem"><a href="/tags/">Tags</a></li>
+    
+    <li role="menuitem"><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/浏览器缓存详解/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">浏览器缓存详解</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T22:00:23+08:00">2019-06-16 22:00:23</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>可能有人会和以前的我一样，觉得缓存不是后台设置的吗，感觉和前端人员没有太大联系，平时关于缓存最常做的就是在浏览器<code>Ctrl+Shit+Delete</code>清空缓存。</p>
+<p>web缓存可以大致分为三类：</p>
+<pre><code>1. 浏览器缓存
+2. 代理缓存
+3. 网关缓存
+</code></pre><p>我们这篇文章主要讲的是浏览器缓存，浏览器主要是通过http/https和服务器进行通信，所以浏览器缓存我们也可以说是HTTP缓存。<br><a id="more"></a></p>
+<h2 id="二、什么是浏览器缓存"><a href="#二、什么是浏览器缓存" class="headerlink" title="二、什么是浏览器缓存"></a>二、什么是浏览器缓存</h2><blockquote>
+<p>浏览器缓存（Browser Caching）是为了节约网络的资源加速浏览，浏览器在用户磁盘上对最近请求过的文档进行存储，当访问者再次请求这个页面时，浏览器就可以从本地磁盘显示文档，这样就可以加速页面的阅览。-百度百科</p>
+</blockquote>
+<p>缓存了的文档应该怎么命中，应该什么时候删除，应该什么时候更新，所以有一套缓存机制去进行处理这些问题，下面会详细说明。</p>
+<h2 id="三、为什么用浏览器缓存"><a href="#三、为什么用浏览器缓存" class="headerlink" title="三、为什么用浏览器缓存"></a>三、为什么用浏览器缓存</h2><p>我们判断一个网站的用户体验的好坏的一个标准就是这个网站加载的速度，而影响速度的因素有很多，比如浏览器和服务器通信的时间，服务器处理时间等等，而缓存如果命中的话是从客户端取数据，所以不需要请求服务器，所以提高了加载速度。缓存存在以下优点：</p>
+<ol>
+<li>减少了等待时间</li>
+<li>减少了网络通信量</li>
+</ol>
+<h2 id="四、怎么设置浏览器缓存"><a href="#四、怎么设置浏览器缓存" class="headerlink" title="四、怎么设置浏览器缓存"></a>四、怎么设置浏览器缓存</h2><h3 id="HTTP响应头"><a href="#HTTP响应头" class="headerlink" title="HTTP响应头"></a>HTTP响应头</h3><h4 id="a-HTTP报文"><a href="#a-HTTP报文" class="headerlink" title="a. HTTP报文"></a>a. HTTP报文</h4><p>客户端和服务端通过HTTP报文进行通信，请求端（客户端）的HTTP报文叫做请求报文，响应端（服务器端）的叫做响应报文。</p>
+<p>HTTP报文大致可以分为报文首部和报文主体。</p>
+<p>如图：</p>
+<h5 id="HTTP请求报文"><a href="#HTTP请求报文" class="headerlink" title="HTTP请求报文"></a>HTTP请求报文</h5><p><img src="/2019/06/16/浏览器缓存详解/HTTP请求报文.png" alt="请求报文"></p>
+<p>这个是我本地的一个ajax请求的报文。</p>
+<p><img src="浏览器缓存详解/http请求报文真实.png" alt="http请求报文"></p>
+<p>代码如下</p>
+<figure class="hljs highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">oneClick () &#123;</span><br><span class="line">  <span class="keyword">this</span>.$axioss.get(<span class="string">'/users'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">  &#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到请求方法为GET，请求url为‘/users’，请求协议HTTP1.1，下面是一串头部字段名和值。</p>
+<p>下面列出了常用的几种请求方法</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. GET: 主要用于获取数据.</span><br><span class="line">2. HEAD: 请求一个与GET请求的响应相同的响应，但没有响应体.</span><br><span class="line">3. POST: 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。</span><br><span class="line">4. PUT: 从客户端向服务器传送的数据取代指定的文档的内容。</span><br><span class="line">5. DELETE: 删除指定的资源。</span><br></pre></td></tr></table></figure>
+<h5 id="HTTP响应报文"><a href="#HTTP响应报文" class="headerlink" title="HTTP响应报文"></a>HTTP响应报文</h5><p><img src="/2019/06/16/浏览器缓存详解/HTTP响应报文.png" alt="响应报文"></p>
+<p>响应代码如下</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line">  res.json(&#123;</span><br><span class="line">    code: 200,</span><br><span class="line">    success: true,</span><br><span class="line">    message: &apos;请求成功&apos;,</span><br><span class="line">    data: []</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>我们看真实的请求报文：</p>
+<p><img src="浏览器缓存详解/http响应报文真实.png" alt="http请求报文"></p>
+<p>一开始是http协议，然后是状态码，现在是200，然后是原因短语‘OK’，下面是一串响应头部字段。</p>
+<p>状态码描述了饭回的结果状态，用户可以根据状态码知道服务器是正常处理了请求，还是出现问题。<br>状态码主要类别有‘1xx’，‘2xx’，‘3xx’，‘4xx’，‘5xx’。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. 1xx：信息性状态码</span><br><span class="line">2. 2xx： 成功状态码</span><br><span class="line">	* 200 Ok 表示请求在服务端被正常的处理了</span><br><span class="line">	* 204 no content 服务器接受的请求已成功处理，但响应报文不包含实体的主体部分</span><br><span class="line">	* 206 partial content 表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求</span><br><span class="line">3. 3xx： 重定向状态码</span><br><span class="line">	* 301 moveed permanently 永久性重定向</span><br><span class="line">	* 302 found 临时性重定向</span><br><span class="line">	* 303 see other</span><br><span class="line">	* 304 not modified</span><br><span class="line">	* 307 temporary redirect 临时重定向</span><br><span class="line">4. 4xx：客户端错误状态码</span><br><span class="line">	* 400 bad request 请求报文存在语法错误</span><br><span class="line">	* 401 unauthorized 发送的请求需要有通过http认证的认证信息</span><br><span class="line">	* 403 forbidden 请求资源的访问被服务器拒绝</span><br><span class="line">	* 404 not found 服务器上无法找到请求的资源</span><br><span class="line">5. 5xx：服务器错误状态码</span><br><span class="line">	* 500 internal server error 服务器在执行请求时发生了错误</span><br><span class="line">	* 503 service unavailable 服务器暂时处于超负载或正在进行停机维护</span><br></pre></td></tr></table></figure>
+<h5 id="报文首部字段"><a href="#报文首部字段" class="headerlink" title="报文首部字段"></a>报文首部字段</h5><p>HTTP首部字段可以分为4种类型</p>
+<ol>
+<li>通用首部字段</li>
+<li>请求首部字段</li>
+<li>响应首部字段</li>
+<li>实体首部字段</li>
+</ol>
+<table><br>    <caption>通用首部字段</caption><br>    <tr><br>        <th>首部字段名</th><br>        <th>说明</th><br>    </tr><br>    <tr><br>        <td>Cache-Control</td><br>        <td>控制缓存的行为</td><br>    </tr><br>    <tr><br>        <td>Connection</td><br>        <td>逐跳首部、连接的管理</td><br>    </tr><br>    <tr><br>        <td>Date</td><br>        <td>创建报文的日期时间</td><br>    </tr><br>    <tr><br>        <td>Pragma</td><br>        <td>报文指令</td><br>    </tr><br>    <tr><br>        <td>Trailer</td><br>        <td>报文末端的首部一览</td><br>    </tr><br>    <tr><br>        <td>Transfer-Encoding</td><br>        <td>指定报文主体的传输编码方式</td><br>    </tr><br>    <tr><br>        <td>Upgrade</td><br>        <td>升级为其他协议</td><br>    </tr><br>    <tr><br>        <td>Via</td><br>        <td>代理服务器的相关信息</td><br>    </tr><br>    <tr><br>        <td>Warning</td><br>        <td>错误通知</td><br>    </tr><br></table>
+
+<table><br>    <caption>请求首部字段</caption><br>    <tr><br>        <th>首部字段名</th><br>        <th>说明</th><br>    </tr><br>    <tr><br>        <td>Accept</td><br>        <td>用户代理可以处理的媒体类型</td><br>    </tr><br>    <tr><br>        <td>Accept-Charset</td><br>        <td>优先的字符集</td><br>    </tr><br>    <tr><br>        <td>Accept-Encoding</td><br>        <td>优先的内容编码</td><br>    </tr><br>    <tr><br>        <td>Accept-Language</td><br>        <td>优优先的语言（自然语言）</td><br>    </tr><br>    <tr><br>        <td>Authorization</td><br>        <td>web认证信息</td><br>    </tr><br>    <tr><br>        <td>Expect</td><br>        <td>期待服务器的特定行为</td><br>    </tr><br>    <tr><br>        <td>From</td><br>        <td>用户的电子邮箱</td><br>    </tr><br>    <tr><br>        <td>Host</td><br>        <td>请求资源所在服务器</td><br>    </tr><br>    <tr><br>        <td>if-Match</td><br>        <td>比较实体标记（ETag）</td><br>    </tr><br>    <tr><br>        <td>if-modified-Since</td><br>        <td>比较资源的更新时间</td><br>    </tr><br>    <tr><br>        <td>if-none-Match</td><br>        <td>比较实体标记（ETag）</td><br>    </tr><br>    <tr><br>        <td>if-Range</td><br>        <td>资源未更新时发生实体Byte的范围请求</td><br>    </tr><br>    <tr><br>        <td>if-Unmodified-Since</td><br>        <td>比较资源的更新时间（与if-Modified-Since）</td><br>    </tr><br><br>    <tr><br>        <td>Max-Forwards</td><br>        <td>最大传输逐跳数</td><br>    </tr><br>    <tr><br>        <td>Proxy-Authorization</td><br>        <td>代理服务器邀请客户端的认证信息</td><br>    </tr><br><br>    <tr><br>        <td>Range</td><br>        <td>实体的字节范围请求</td><br>    </tr><br>    <tr><br>        <td>Referer</td><br>        <td>对请求中URI的原始获取方</td><br>    </tr><br><br>    <tr><br>        <td>TE</td><br>        <td>传输编码的优先级</td><br>    </tr><br><br>    <tr><br>        <td>User-Agent</td><br>        <td>HTTP客户端程序的信息</td><br>    </tr><br></table>
+
+
+<table><br>    <caption>响应首部字段</caption><br>    <tr><br>        <th>首部字段名</th><br>        <th>说明</th><br>    </tr><br>    <tr><br>        <td>Accept-Ranges</td><br>        <td>是否接受字节范围请求</td><br>    </tr><br>    <tr><br>        <td>ETag</td><br>        <td>资源的匹配信息</td><br>    </tr><br>    <tr><br>        <td>Location</td><br>        <td>令客户端重定向至指定URI</td><br>    </tr><br>    <tr><br>        <td>Proxy-Authenticate</td><br>        <td>代理服务器对客户端的认证信息</td><br>    </tr><br>    <tr><br>        <td>Retry-After</td><br>        <td>对再次发起请求的时机要求</td><br>    </tr><br>    <tr><br>        <td>Server</td><br>        <td>HTTP服务器的安装信息</td><br>    </tr><br>    <tr><br>        <td>Vary</td><br>        <td>代理服务器的缓存管理信息</td><br>    </tr><br>    <tr><br>        <td>WWW-Authenticate</td><br>        <td>服务器对客户端的认证信息</td><br>    </tr><br></table><br><table><br>    <caption>实体首部字段</caption><br>    <tr><br>        <th>首部字段名</th><br>        <th>说明</th><br>    </tr><br>    <tr><br>        <td>Allow</td><br>        <td>资源可支持的HTTP方法</td><br>    </tr><br>    <tr><br>        <td>Content-Encoding</td><br>        <td>实体主体适用的编码方法</td><br>    </tr><br>    <tr><br>        <td>Content-Language</td><br>        <td>实体主体的自然语言</td><br>    </tr><br>    <tr><br>        <td>Content-Length</td><br>        <td>实体主体的大小（单位：字节）</td><br>    </tr><br>    <tr><br>        <td>Content-Location</td><br>        <td>代替对应资源的URI</td><br>    </tr><br>    <tr><br>        <td>Content-MD5</td><br>        <td>实体主体的报文摘要</td><br>    </tr><br>    <tr><br>        <td>Content-Range</td><br>        <td>实体主体的位置范围</td><br>    </tr><br>    <tr><br>        <td>Content-Type</td><br>        <td>实体主体的媒体类型</td><br>    </tr><br>    <tr><br>        <td>Expires</td><br>        <td>实体主体过期的日期时间</td><br>    </tr><br>    <tr><br>        <td>Last-Modified</td><br>        <td>资源最后修改日期时间</td><br>    </tr><br><br></table>
+
+<h4 id="b-强缓存-Expires-vs-Cache-Control"><a href="#b-强缓存-Expires-vs-Cache-Control" class="headerlink" title="b. 强缓存(Expires vs Cache-Control)"></a>b. 强缓存(Expires vs Cache-Control)</h4><h5 id="Expires-http1-0"><a href="#Expires-http1-0" class="headerlink" title="Expires http1.0"></a>Expires http1.0</h5><p><img src="/2019/06/16/浏览器缓存详解/Exprires_we.jpeg" alt=""></p>
+<p>Expires 设置缓存过期时间</p>
+<figure class="hljs highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.setHeader(<span class="string">'Expires'</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.now() + <span class="number">600000</span>));<span class="comment">// 当前时间过十分钟后过期</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2019/06/16/浏览器缓存详解/Expires.jpg" alt="Expires"></p>
+<p>图中表示该文件在Tue Jun 25 2019 16:17:08 GMT+0800 日期过期，所以第一次请求的时候我们可以看到状态是200，然后下次请求时从缓存中获取的资源而没有请求服务器</p>
+<p>第一次请求</p>
+<p><img src="/2019/06/16/浏览器缓存详解/Expires1.png" alt=""></p>
+<p>第二次请求</p>
+<p><img src="/2019/06/16/浏览器缓存详解/Expires2.png" alt=""></p>
+<p>但是如果服务器时间和客户端时间不同步，如果服务器时间快于客户端时间的话，我们设置的缓存时间小于服务器大于客户端时间的话，那么我们设置的缓存时间就不起作用了；如果服务器时落后于客户端时间，有可能导致缓存时间已经过了，但是还是用的缓存。</p>
+<p>为了避免这个问题，http1.1推出了Cache-Control</p>
+<h5 id="Cache-Control-http1-1"><a href="#Cache-Control-http1-1" class="headerlink" title="Cache-Control http1.1"></a>Cache-Control http1.1</h5><p>Cache-Control的常见属性</p>
+<ol>
+<li>private: 客户端可以缓存</li>
+<li>public: 客户端和代理服务器都可缓存</li>
+<li>max-age=xxx: 缓存的内容将在 xxx 秒后失效</li>
+<li>no-cache: 需要使用对比缓存来验证缓存数据</li>
+<li>no-store: 所有内容都不会缓存，强制缓存，对比缓存都不会触发</li>
+</ol>
+<p><img src="/2019/06/16/浏览器缓存详解/Cache-Control.jpeg" alt=""></p>
+<p>Cache-Control设置的是相对时间</p>
+<pre><code>res.setHeader(&apos;Cache-Control&apos;, &apos;public, max-age=10&apos;);
+</code></pre><p>这个代码设置的是缓存相对于当前时间10s后过期，这样就算服务器和客户端时间不同步也不会影响。</p>
+<p>如果同时存在Expires和Cache-Control，Cache-Control的优先级更高。</p>
+<p>但是不管是Expires还是Cache-Control，都是设置缓存过期时间，但是缓存时间过期后其实资源并没有改变，但是还是去请求资源了，为了解决这样的问题，所以有了协商缓存。</p>
+<h4 id="c-协商缓存"><a href="#c-协商缓存" class="headerlink" title="c. 协商缓存"></a>c. 协商缓存</h4><p>强缓存都是浏览器通过响应报文的某个字段去设置缓存，协商缓存是通过一组字段结合起来进行缓存。</p>
+<h4 id="Last-Modified和If-Modified-Since"><a href="#Last-Modified和If-Modified-Since" class="headerlink" title="Last-Modified和If-Modified-Since"></a>Last-Modified和If-Modified-Since</h4><p><img src="/2019/06/16/浏览器缓存详解/Last.jpeg" alt=""></p>
+<p>Last-Modified 顾名思义是最后一次修改时间，这个是服务端获取到的，在响应报文里会返回，If-Modified-Since（等于上一次请求的Last-Modified）是浏览器根据服务端返回的Last—Modified设置的，可以理解成浏览器端存储的资源的最后修改时间。</p>
+<p>协商，也就是浏览器和服务器之间进行协商，如果资源有改动，那么服务器每次返回时会带上一个字段Last-Modified，该资源的最后修改时间，还有一个资源过期时间，可以是Cache-Control或者Expires，然后浏览器获取到这两个字段，并且保存下来，在缓存时间没有过期时，浏览器会从缓存中获取资源，不会请求服务器，等到缓存过期时，浏览器请求服务器，请求报文会带上一个字段If-Modified-Since，这个字段是上一次的Last-Modified，然后服务器会判断最新的Last-Modified和If-Modified-Since是否相等，如果相等，意味着该资源在这段时间并没有改动，那么浏览器会返回304，如果不想等的话，服务器会将最新的Last-Modified返回，并且返回改动后的资源，并且状态码为200</p>
+<p>下面的图是一个我们修改demo.js后浏览器和服务器的通信。</p>
+<p><img src="/2019/06/16/浏览器缓存详解/Last-modified.png" alt=""></p>
+<p>这个缓存方法有两个问题：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 因为Last-Modified的时间是GMT时间，只能精确到秒，如果文件在1秒内有多次改动，服务器并不知道文件有改动，那么浏览器获取不到最新的文件。</span><br><span class="line">2. 如果服务器上某资源被多次改动，但是内容并没有变化，服务器会更新改动时间，所以每次都会返回给客户端</span><br></pre></td></tr></table></figure>
+<p>为了解决这些问题，我们引入了ETag和If-None—Match</p>
+<h4 id="ETag和If-None-Match"><a href="#ETag和If-None-Match" class="headerlink" title="ETag和If-None-Match"></a>ETag和If-None-Match</h4><p>上面的Last-Modified是通过资源改动时间去判断是否该给客户端返回新的资源，现在是通过ETag：资源的唯一标识来判断，只有资源的内容改变时，ETag才会改变。</p>
+<p>If-None-Match是上一次的ETag。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>那么到这关于http缓存的几个首部字段且含义已经介绍完了，那么问题来了，浏览器无法主动得知资源的变化，只有没有Expires或者是Cache-Control设置的缓存时间过期后，浏览器主动请求服务端以此得知资源的变化。</p>
+<p>那么我们应该怎么解决这个问题？</p>
+<p><img src="/2019/06/16/浏览器缓存详解/黑人问号.jpeg" alt=""></p>
+<p><img src="/2019/06/16/浏览器缓存详解/answer.jpeg" onclick="document.getElementsByClassName('fd-img')[0].style.display='block'"></p>
+<p><style><br>.fd-img {<br>    display: none;<br>}<br></style><br><img src="/2019/06/16/浏览器缓存详解/version.png" class="fd-img"></p>
+<p>在公司呆的时间比较长的话看到第一段代码可能比较熟悉，以前用require.js的时候我们会在文件名后面加上版本号和时间戳，最近的项目用webpack的话，打包文件的时候也会在文件名后加上哈希数。</p>
+<p>这样做的思路就是因为每次文件有改动后，比如js，那么会导致html页面也会跟着改动，因为html里引用了该js文件，所以浏览器去访问html页面时发现页面已经改动了，就会去请求服务器。这样我们就能做到浏览器主动得知资源的变动。</p>
+<h2 id="五、浏览器本地缓存"><a href="#五、浏览器本地缓存" class="headerlink" title="五、浏览器本地缓存"></a>五、浏览器本地缓存</h2><h3 id="一-manifest（H5的应用缓存）"><a href="#一-manifest（H5的应用缓存）" class="headerlink" title="(一) manifest（H5的应用缓存）"></a>(一) manifest（H5的应用缓存）</h3><p>浏览器缓存中划分出了一块缓存区，如果想要在这个缓存中保存数据，可以用一个描述文件，列出要下载和缓存的资源，然后将该描述文件于页面关联起来，可以在<html>中的manifest属性中指定这个文件的路径，比如：</html></p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html manifest=&apos;/offline.manifest&apos;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="（二）storage-Web-存储机制"><a href="#（二）storage-Web-存储机制" class="headerlink" title="（二）storage(Web 存储机制)"></a>（二）storage(Web 存储机制)</h3><p>Web Storage 包含如下两种机制：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. sessionStorage 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。</span><br><span class="line">2. localStorage 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然存在。</span><br></pre></td></tr></table></figure>
+<h3 id="（三）indexDB"><a href="#（三）indexDB" class="headerlink" title="（三）indexDB"></a>（三）indexDB</h3><blockquote>
+<p>ndexedDB是一种低级API，用于客户端存储大量结构化数据(包括, 文件/ blobs)。该API使用索引来实现对该数据的高性能搜索。虽然 Web Storage 对于存储较少量的数据很有用，但对于存储更大量的结构化数据来说，这种方法不太有用。IndexedDB提供了一个解决方案。</p>
+</blockquote>
+<h3 id="（四）cookie"><a href="#（四）cookie" class="headerlink" title="（四）cookie"></a>（四）cookie</h3><blockquote>
+<p>HTTP Cookie（也叫Web Cookie或浏览器Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie使基于无状态的HTTP协议记录稳定的状态信息成为了可能。</p>
+</blockquote>
+<h2 id="六、后记"><a href="#六、后记" class="headerlink" title="六、后记"></a>六、后记</h2><h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ol>
+<li><p><a href="https://juejin.im/post/5b70edd4f265da27df0938bc" target="_blank" rel="noopener">前端也要懂Http缓存机制</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/5b3c87386fb9a04f9a5cb037" target="_blank" rel="noopener">面试精选之http缓存</a></p>
+</li>
+<li><p>《图解HTTP》</p>
+</li>
+<li>《JavaScript高级程序设计》</li>
+</ol>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/浏览器/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>浏览器</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav card">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2019/06/15/javaScript-数组方法总结/" rel="next" title="javaScript 数组方法总结"><i class="fas fa-angle-left"></i><span class="nav-title">javaScript 数组方法总结</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2019/07/02/Vue-Router学习（一）/" rel="prev" title="Vue Router学习（一）"><span class="nav-title">Vue Router学习（一）</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  <!-- 来必力City版安装代码 -->
+<div class="card" id="lv-container" data-id="city" data-uid="MTAyMC80NjI2MC8yMjc3MQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" >
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/logo.jpg" alt="黄紫茜">
+  
+  <h1 class="author-name">黄紫茜</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">Archives</div>
+      <div><a href="/archives/">26</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">Categories</div>
+      <div><a href="/categories/">5</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">Tags</div>
+      <div><a href="/tags/">19</a></div>
+    </div>
+    
+  </div>
+  
+  
+  
+</div>
+
+
+  <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#一、前言"><span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#二、什么是浏览器缓存"><span class="toc-text">二、什么是浏览器缓存</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#三、为什么用浏览器缓存"><span class="toc-text">三、为什么用浏览器缓存</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#四、怎么设置浏览器缓存"><span class="toc-text">四、怎么设置浏览器缓存</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#HTTP响应头"><span class="toc-text">HTTP响应头</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#a-HTTP报文"><span class="toc-text">a. HTTP报文</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#HTTP请求报文"><span class="toc-text">HTTP请求报文</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#HTTP响应报文"><span class="toc-text">HTTP响应报文</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#报文首部字段"><span class="toc-text">报文首部字段</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#b-强缓存-Expires-vs-Cache-Control"><span class="toc-text">b. 强缓存(Expires vs Cache-Control)</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#Expires-http1-0"><span class="toc-text">Expires http1.0</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#Cache-Control-http1-1"><span class="toc-text">Cache-Control http1.1</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#c-协商缓存"><span class="toc-text">c. 协商缓存</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Last-Modified和If-Modified-Since"><span class="toc-text">Last-Modified和If-Modified-Since</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#ETag和If-None-Match"><span class="toc-text">ETag和If-None-Match</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#五、浏览器本地缓存"><span class="toc-text">五、浏览器本地缓存</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#一-manifest（H5的应用缓存）"><span class="toc-text">(一) manifest（H5的应用缓存）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#（二）storage-Web-存储机制"><span class="toc-text">（二）storage(Web 存储机制)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#（三）indexDB"><span class="toc-text">（三）indexDB</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#（四）cookie"><span class="toc-text">（四）cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#六、后记"><span class="toc-text">六、后记</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#参考文档"><span class="toc-text">参考文档</span></a></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>Social Links</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="hzq_56@163.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>Blogroll</div>
+  <ul>
+    
+    <li><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+  <div class="sidebar-sticky">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2317836514&auto=1&height=430"></iframe>
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">黄紫茜</span><span class="year"><i class="far fa-copyright"></i>2019</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+        <script type="text/javascript">
+          var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?48c373efcbce81f0eeeece327ced2945";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          })();
+    </script>
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  </body>
+</html>
