@@ -1,0 +1,97 @@
+$grey-lighter = #eee;
+$grey-light = rgba(255,255,255,0.5);
+$grey = #ccc;
+$grey-dark = #999;
+$grey-dim = #666;
+$grey-deep = #444;
+$black-light = #ffb6b9;
+$black-dim = #252525;
+$black-deep = #222;
+$black-dark = #000;
+$red = #ff2a2a;
+$pink = #f8f8f8;
+$blue-bright = #cbeafb;
+$blue = #006bde;
+$blue-deep = #262a90;
+$orange = #fc6423;
+$green = #a3b354;
+
+$color-font = $black-dark;
+$color-quote = $grey-dim;
+$color-selection-background = $blue-bright;
+$color-selection-font = $black-deep;
+$color-background = $grey;
+$color-link = $grey-dim;
+$color-link-hover = $blue;
+$color-header-font = $grey-lighter;
+$color-header-background = $black-light;
+$color-title = $grey-lighter;
+$color-nav-link = $grey-light;
+$color-nav-background = $black-light;
+$color-nav-hover = $black-dim;
+$color-nav-link-hover = white;
+$color-nav-current-background = $black-deep;
+$color-main-background = $grey-lighter;
+$color-card-background = rgba(255,255,255,0.8);
+$color-sidebar-background = $grey-light;
+$color-footer-background = $black-light;
+$color-footer-font = $grey-lighter;
+$color-footer-link = $grey-light;
+$color-footer-link-hover = white;
+$color-search-font = white;
+$color-search-background = $blue;
+$color-button-font = white;
+$color-button-background = $grey-dark;
+$color-button-reward-background = $red;
+$color-button-commentjs-background = $red;
+$color-author-name = $black-dark;
+$color-author-description = $grey-deep;
+$color-code-background = $pink;
+$color-alert-red = #721c24;
+$color-alert-red-background = #f8d7da;
+$color-alert-red-border = #f5c6cb;
+$color-alert-green = #155724;
+$color-alert-green-background = #d4edda;
+$color-alert-green-border = #c3e6cb;
+$color-alert-blue = #004085;
+$color-alert-blue-background = #cce5ff;
+$color-alert-blue-border = #b8daff;
+$color-table-border = $grey-light;
+$color-table-head-border = $grey-dark;
+$color-table-head-background = white;
+$color-table-odd-row-background = $grey-lighter;
+$color-table-even-row-background = white;
+
+$font-sans = "Roboto", "Noto Sans", Helvetica, Arial, sans-serif;
+$font-serif = "Roboto Slab", "Noto Serif", Georgia, "Times New Roman", serif;
+$font-mono = "Monaco for Powerline", Monaco, Menlo, Consolas, monospace;
+// $font-all inherits $font-sans, other fonts inherit $font-all except $font-code.
+$font-all = $font-sans;
+if (hexo-config("custom_font.enable") && hexo-config("custom_font.main")) {
+  $font-all = hexo-config("custom_font.main"), $font-all;
+}
+$font-title = $font-all;
+if (hexo-config("custom_font.enable") && hexo-config("custom_font.title")) {
+  $font-title = hexo-config("custom_font.title"), $font-title;
+}
+$font-subtitle = $font-all;
+if (hexo-config("custom_font.enable") && hexo-config("custom_font.subtitle")) {
+  $font-subtitle = hexo-config("custom_font.subtitle"), $font-subtitle;
+}
+$font-main = $font-all;
+if (hexo-config("custom_font.enable") && hexo-config("custom_font.main")) {
+  $font-main = hexo-config("custom_font.main"), $font-main;
+}
+// $font-code inherits $font-mono;
+$font-code = $font-mono;
+if (hexo-config("custom_font.enable") && hexo-config("custom_font.code")) {
+  $font-code = hexo-config("custom_font.code"), $font-code;
+}
+$font-size = 16px;
+
+$corner-radius = 0.2em
+$search-height = 3em;
+$search-padding-top = 0.5em;
+$container-max-width = 80em;
+$media-footer-header-nav-fold-width = 40em;
+$media-main-fold-width = 60em;

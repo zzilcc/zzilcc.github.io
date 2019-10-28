@@ -1,0 +1,23 @@
+{% block header %}
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      {% if theme.logo %}
+      <div class="logo">
+        <img src="{{ url_for(theme.logo) }}" alt="logo">
+      </div>
+      {% endif %}
+    </div>
+    {% include "nav.njk" %}
+  </div>
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?48c373efcbce81f0eeeece327ced2945";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</header>
+{% endblock %}
