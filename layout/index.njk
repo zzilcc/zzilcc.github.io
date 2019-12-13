@@ -40,7 +40,7 @@
         <span class="post-categories">
           {# About `-`: https://mozilla.github.io/nunjucks/cn/templating.html#part-861ece9d8e5ce60c #}
           {% for cat in post.categories.toArray() -%}
-          {% if loop.first %}<i class="far fa-folder-open"></i>{% else %}<i class="fas fa-angle-right"></i>{% endif %}<span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="{{ url_for(cat.path) }}" itemprop="url" rel="index"><span itemprop="name">{{ cat.name }}</span></a></span>
+          {% if loop.first %}<i class="far fa-folder-open"></i>{% else %}<i class="fa fa-angle-right"></i>{% endif %}<span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="{{ url_for(cat.path) }}" itemprop="url" rel="index"><span itemprop="name">{{ cat.name }}</span></a></span>
           {%- endfor %}
         </span>
         {% endif %}
@@ -83,8 +83,8 @@
   <nav class="pagination">
     {{
       paginator({
-        prev_text: "<i class=\"fas fa-angle-left\" aria-label=\"" + __("accessibility.prev_page") + "\"></i>",
-        next_text: "<i class=\"fas fa-angle-right\" aria-label=\"" + __("accessibility.next_page") + "\"></i>",
+        prev_text: "<i class=\"fa fa-angle-left\" aria-label=\"" + __("accessibility.prev_page") + "\"></i>",
+        next_text: "<i class=\"fa fa-angle-right\" aria-label=\"" + __("accessibility.next_page") + "\"></i>",
         mid_size: 1,
         escape: false
       })
