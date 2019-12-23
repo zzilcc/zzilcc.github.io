@@ -110,44 +110,10 @@ Vue Test Utils 是 Vue.js 官方的单元测试实用工具库。
 
 Jest识别三种测试文件，以.test.j/ts结尾的文件，以.spec.j/ts结尾的文件，和放到__tests__ 文件夹中的文件
 
-### 遇到的问题
+# 结束语 
 
-#### BUG1: 测试文件里引入.vue文件,识别不了
+**怎么具体使用在Jest将在下篇文章中详细介绍**
 
-![](Jest在vue+ts项目中的应用/识别Bug.png)
+想要了解更多知识，可以关注我的公众号
 
-原因： 不知道为什么src/shims-vue.d.ts没有起作用，将这个文件移动到项目根目录就可以
- 
-
-## 怎么用Jest
-
-###  验证-匹配器
-
-基本的测试我们通过expect(value)去实现，比如我们有一个函数sum, 它的返回值是20，然后我们要校验它的返回值是不是20，就可以这么写测试
-
-```
-test('test function sum', () = > {
-    expect(sum()).toBe(20)
-})
-```
-
-toBe函数就是一个匹配，校验expect的参数的结果是不是和toBe的参数一致，如果一致，验证通过，否则验证不通过。
-
-除了toBe，还有很多匹配器，可以去官网看下 [API](https://jestjs.io/docs/zh-Hans/using-matchers)
-
-
-toBe是使用`Object.is()`,如果需要测试精确的相等，需要用toEqual
-
-```
-test('object assignment', () => {
-  const data = {one: 1};
-  data['two'] = 2;
-  expect(data).toEqual({one: 1, two: 2});
-});
-```
-
-下面图中显示了我们常用的一些匹配器
-
-![](Jest在vue+ts项目中的应用/匹配器.png)
-
-
+![](Jest在vue+ts项目中的应用/WechatIMG68.jpeg)
