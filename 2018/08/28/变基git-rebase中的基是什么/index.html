@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="黄紫茜的博客" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>变基git rebase中的基是什么 | 黄紫茜的博客</title>
+  <meta name="generator" content="Hexo 4.2.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-container">
+      
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+  <ul id="menu" role="menubar" aria-hidden="false">
+    
+    <li role="menuitem"><a href="/">Home</a></li>
+    
+    <li role="menuitem"><a href="/archives/">Archives</a></li>
+    
+    <li role="menuitem"><a href="/categories/">Categories</a></li>
+    
+    <li role="menuitem"><a href="/tags/">Tags</a></li>
+    
+    <li role="menuitem"><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?48c373efcbce81f0eeeece327ced2945";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">变基git rebase中的基是什么</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-08-28T00:01:26+08:00">2018-08-28 00:01:26</time></span>
+        </span>
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="变基-git-rebase-中的基是什么？"><a href="#变基-git-rebase-中的基是什么？" class="headerlink" title="变基(git rebase)中的基是什么？"></a>变基(git rebase)中的基是什么？</h1><p>git rebase 在官网中的定义是：重新应用commits到要合并到的分支的顶端。（一个英语渣的直译，见笑了）。其实也可以这么说是重新应用commits到要合并到的分支的最新提交。如果现在还没有理解，没有关系，现在我开始仔细说明git rebase都干了什么。</p>
+<p>假设我们现在是A研发人员，此时本地分支是master,然后远程有两个分支：origin/master,origin/develop。此时我们接到一个任务，我们要在develop分支上开发一个功能，所以此时我们要切换分支。</p>
+<a id="more"></a>
+
+<p><img src="%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/changj.png" alt=""></p>
+<p>切换分支我们需要用到的命令是：</p>
+<pre><code>git checkout -b local_develop origin/develop</code></pre><p>该命令其实做了两个操作，第一个是拷贝了远程的origin/develop到本地，致使本地多了一个分支，第二个是把该分支命名为local_develop。</p>
+<p>假设此时远程的origin/develop分支上已经有两个提交。，所以我们查看远程分支的日志（git log origin/develop）可以看到提交的树状图如下：</p>
+<p><img src="%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/001.png" alt=""></p>
+<p>此时你本地的提交日志（git log）的树状图如下：</p>
+<p><img src="%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/002.png" alt=""></p>
+<p>经过一段时间，你把功能开发完成了，此时提交代码(git commit -m “[+]添加功能”)，把你本地的代码提交到远程分支上。这时候你发现在你提交之前，有其他的同事在develop分支（这里指的是origin/develop）上提交了两次代码。所以此时的树状图是这样的：远程分支的提交已经有四次了，此时你的提交编号应该为5.</p>
+<p><img src="%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/003.png" alt=""></p>
+<p>commit后，如果有修改过但是未commit的文件，我们应该执行驻藏命令 git stash 将这些文件保留到驻藏区，然后进行代码的拉取git fetch ，然后执行合并分支，git rebase. </p>
+<p>该命令会执行两个步骤，第一个是把你本地分支的新添加的全部的commit的补丁（patch）,我理解为是备份，也就是把他们的备份临时放到.git/rebase目录下，然后把commit撤销掉。<br>也就是这样：</p>
+<p><img src="%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/004.png" alt=""></p>
+<p>第二个步骤是在要合并到的分支（origin/develop）的最新的commit的基础上应用这些补丁。也就是把4和5’进行合并，然后推送代码 git push.</p>
+<p><img src="%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/005.png" alt=""></p>
+<p>到这里，我们可以知道变基的基是什么了吧。就是要要合并到的分支（origin/develop）的最新的提交（在上面例子里，这个基就是4）。</p>
+<p>明白了git rebase的操作后，我们可以发现，如果使用git rebase命令来合并分支的话，分支的树状图都是“单线”，都是一条直线。这样的树状图是非常优美的。</p>
+<p>现在我们也可以来了解一下另一个合并分支的命令(git merge).</p>
+<p>merge命令非常简单粗暴，就是把你本地最新的提交和远程最新的提交合并一下，得到一份最新的提交。</p>
+<p><img src="%E5%8F%98%E5%9F%BAgit-rebase%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%98%AF%E4%BB%80%E4%B9%88/006.png" alt=""></p>
+<p>用merge命令的话树状图就会看着很乱，有各种线交叉，看着非常不友好。</p>
+<p>所以拉代码推荐git fetch + git rebase.</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/Git/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Git</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <div class="post-nav card">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2018/08/23/JavaScript%E7%9A%84%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/" rel="next" title="JavaScript的創建方法"><i class="fas fa-angle-left"></i><span class="nav-title">JavaScript的創建方法</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2018/09/04/%E3%80%8AJavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8BDOM%E6%89%A9%E5%B1%95/" rel="prev" title="《JavaScript高级程序设计》DOM扩展"><span class="nav-title">《JavaScript高级程序设计》DOM扩展</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  <!-- 来必力City版安装代码 -->
+<div class="card" id="lv-container" data-id="city" data-uid="MTAyMC80NjI2MC8yMjc3MQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" >
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/logo.jpg" alt="黄紫茜">
+  
+  <h1 class="author-name">黄紫茜</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">Archives</div>
+      <div><a href="/archives/">29</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">Categories</div>
+      <div><a href="/categories/">6</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">Tags</div>
+      <div><a href="/tags/">21</a></div>
+    </div>
+    
+  </div>
+  
+  
+  
+</div>
+
+
+  <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#变基-git-rebase-中的基是什么？"><span class="toc-text">变基(git rebase)中的基是什么？</span></a></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>Social Links</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="hzq_56@163.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>Blogroll</div>
+  <ul>
+    
+    <li><a href="https://github.com/zzilcc" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+  <div class="sidebar-sticky">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2317836514&auto=1&height=430"></iframe>
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">黄紫茜</span><span class="year"><i class="far fa-copyright"></i>2020</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+          <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+          <span class="post-meta-divider">|</span>
+          <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  </body>
+</html>
