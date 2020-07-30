@@ -77,7 +77,7 @@
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
     <title>黄紫茜的博客</title>
-  <meta name="generator" content="Hexo 4.2.0"></head>
+  <meta name="generator" content="Hexo 4.2.1"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
 <header id="header" class="header">
@@ -124,6 +124,97 @@
             
 
 <div id="index" class="index">
+  
+  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/LeetCode-120%E9%A2%98-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C%E8%A7%A3%E9%A2%98%E8%BF%87%E7%A8%8B/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黄紫茜">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2020/07/30/LeetCode-120%E9%A2%98-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C%E8%A7%A3%E9%A2%98%E8%BF%87%E7%A8%8B/" itemprop="url">LeetCode 120题 三角形最小路径和解题过程</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-07-30T22:39:17+08:00">2020-07-30 22:39:17</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一两个月每天下班去健身房锻炼1到2个小时，回到家比较晚，又累（借口），所以就没有刷力扣了。</p>
+<p>最近感觉，不行了，还是要继续刷题，不能太颓废。所以又开始刷题之旅。</p>
+<p>之前一想到动态规划，什么状态方程，状态转移，看到就很头疼，现在开始攻克他。</p>
+<p>这道题我还没有出生的时候就已经出现，是比我还老的一道经典题，用它来理解动态规划是比较好的。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
+<p>相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。</p>
+<p>例如，给定三角形：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">     [2],</span><br><span class="line">    [3,4],</span><br><span class="line">   [6,5,7],</span><br><span class="line">  [4,1,8,3]	</span><br><span class="line">]</span><br><span class="line">&#96;&#96;&#96;	</span><br><span class="line"></span><br><span class="line">自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 &#x3D; 11）。</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line"></span><br><span class="line">如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。</span><br><span class="line"></span><br><span class="line">## 解题思路及代码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">其实我们可以把这个想象成一道数学题。</span><br><span class="line"></span><br><span class="line">写数学题第一步是什么，写假设，假设x是什么，y是什么，然后找出x,y之间的关系。</span><br><span class="line"></span><br><span class="line">这道题也是这样的。</span><br><span class="line"></span><br><span class="line">### 动态规划</span><br><span class="line"></span><br><span class="line">首先我们要知道它是要找到自顶向下的最小路径和，所以我们需要用一个数组去存储从顶到每个坐标的最小路径和，这样，我们算到最后一行的时候，只需要到比较最后一行到时候到最小值。</span><br><span class="line"></span><br><span class="line">所以dp[i][j]代表着从顶到该坐标（i，j）的最小路径和，假设行数是row，列数是col，所以我们最后只需要找到第row行中最小的dp[row - 1 ][j]（0 &lt;&#x3D; j &lt; col）</span><br><span class="line"></span><br><span class="line">然后移动的时候是有条件的，每一步只能移动到下一行中相邻的结点上。</span><br><span class="line"></span><br><span class="line">所以我们可以得到常规情况下:</span><br></pre></td></tr></table></figure>
+<p>dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][ j - 1]) + triangle[i][j]</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后我们考虑边界情况，左边界的话，也就是j&#x3D;&#x3D;&#x3D;0的时候：</span><br></pre></td></tr></table></figure>
+<p>dp[i][j] = dp[i - 1][j]+ triangle[i][j] </p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">右边界，也就是 i&#x3D;&#x3D;&#x3D;j的时候</span><br></pre></td></tr></table></figure>
+<p>dp[i][j] = dp[i - 1][j - 1]+ triangle[i][j] </p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所以我们很容易得到如下代码</span><br></pre></td></tr></table></figure>
+<p>/**</p>
+<ul>
+<li>@param {number[][]} triangle</li>
+<li>@return {number}</li>
+<li>/<br>var minimumTotal = function(triangle) {<br>  let row = triangle.length<br>  if(row === 0) return 0<br>  let col = triangle[row - 1].length<br>  let dp = Array.from({length: row}, x =&gt; Array.from({length: col}))<br>  dp[0][0] = triangle[0][0]<br>  for (let i = 1; i &lt; row; i++) {<pre><code>for (let j = 0; j &lt;= i; j++) {
+    if (j === 0) {
+        dp[i][j] = dp[i - 1][j]+ triangle[i][j] 
+    }else if (i === j) {
+        dp[i][j] = dp[i - 1][j - 1]+ triangle[i][j] 
+    }else {
+        dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][ j - 1]) + triangle[i][j]
+    }
+}</code></pre>  }<br>  let min = Math.min(…dp[row - 1])<br>  return min<br>};<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 优化1 - 时间</span><br><span class="line"></span><br><span class="line">首先我们知道最后返回的是一个最小路径和，我们从顶到下去计算的话，最后要去判断一下最后一行中的最短路径的最小值，那么我们反过来呢，逆向思维，我们从底部开始往上走，最后我们走到顶的时候只有一个值了，那个值就是我们要找的最小值,这样就不需要去判断边界条件了。</span><br><span class="line"></span><br><span class="line">所以我们可以把遍历的稍稍改动一下：</span><br></pre></td></tr></table></figure>
+/**</li>
+<li>@param {number[][]} triangle</li>
+<li>@return {number}</li>
+<li>/<br>var minimumTotal = function(triangle) {<br>  let row = triangle.length<br>  if(row === 0) return 0<br>  let col = triangle[row - 1].length<br>  let dp = Array.from({length: row}, x =&gt; Array.from({length: col}).fill(0))<br>  for (let k = 0; k &lt; col; k++) {<pre><code>dp[row - 1][k] = triangle[row - 1][k]</code></pre>  }<br>  for (let i = row - 2; i &gt;= 0; i–) {<pre><code>for (let j = 0; j &lt;= i; j++) {
+    dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][ j + 1]) + triangle[i][j]
+}</code></pre>  }<br>  return dp[0][0]<br>};<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 优化2 - 空间</span><br><span class="line"></span><br><span class="line">我们前面的方法都是用的二维数组存储每个坐标上的最小路径和，比如我们计算第二行的最小路径和的时候，第四行的数据我们已经用不上了，因为第三行的数据把第四行的数据加上了，所以其实我们只需要维护一个长度为col的数组，每次计算后将上次的值覆盖就可以了，</span><br></pre></td></tr></table></figure>
+/**</li>
+<li>@param {number[][]} triangle</li>
+<li>@return {number}</li>
+<li>/<br>var minimumTotal = function(triangle) {<br>let row = triangle.length<br>if (row === 0) return 0<br>let dp = new Array(row +1).fill(0)<br>for (let i = row - 1; i &gt;=0; i–) {<br>  for (let j = 0; j &lt;= i; j++) {<pre><code>dp[j] = Math.min(dp[j], dp[j+1]) + triangle[i][j]</code></pre>  }<br>}<br>return dp[0]<br>};<br>```</li>
+</ul>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/%E7%AE%97%E6%B3%95/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法</a>
+        
+      </div>
+      
+    </footer>
+  </article>
   
   <article class="index-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
@@ -631,66 +722,9 @@
     </footer>
   </article>
   
-  <article class="index-article card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="黄紫茜">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/logo.jpg">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="黄紫茜的博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/07/27/20190727%E7%AE%97%E6%B3%95%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" itemprop="url">20190727算法题-两数之和</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-27T23:02:13+08:00">2019-07-27 23:02:13</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h2><p>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。</p>
-<p>你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。</p>
-<p>示例：</p>
-<p>给定 nums = [2, 7, 11, 15], target = 9</p>
-<p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        
-        
-        
-        <a class="post-tag button" href="/tags/%E7%AE%97%E6%B3%95/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fas fa-angle-right&quot; aria-label&#x3D;&quot;Next Page&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fas fa-angle-right&quot; aria-label&#x3D;&quot;Next Page&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
   
   
@@ -761,7 +795,7 @@ jQuery(document).ready(function($) {
     
     <div class="archives-count">
       <div class="site-count-title">Archives</div>
-      <div><a href="/archives/">30</a></div>
+      <div><a href="/archives/">31</a></div>
     </div>
     
     

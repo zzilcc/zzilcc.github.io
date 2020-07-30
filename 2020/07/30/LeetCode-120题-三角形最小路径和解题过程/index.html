@@ -79,7 +79,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>js实现树的深度优先遍历和广度优先遍历 | 黄紫茜的博客</title>
+    <title>LeetCode 120题 三角形最小路径和解题过程 | 黄紫茜的博客</title>
   <meta name="generator" content="Hexo 4.2.1"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -129,7 +129,7 @@
   
   <article class="post-article card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/js%E5%AE%9E%E7%8E%B0%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/LeetCode-120%E9%A2%98-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C%E8%A7%A3%E9%A2%98%E8%BF%87%E7%A8%8B/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="黄紫茜">
        <meta itemprop="description" content="">
@@ -140,11 +140,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">js实现树的深度优先遍历和广度优先遍历</h1>
+      <h1 class="post-title" itemprop="name headline">LeetCode 120题 三角形最小路径和解题过程</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-19T14:57:15+08:00">2019-07-19 14:57:15</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-07-30T22:39:17+08:00">2020-07-30 22:39:17</time></span>
         </span>
         
         
@@ -160,14 +160,45 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="树数据结构的介绍"><a href="#树数据结构的介绍" class="headerlink" title="树数据结构的介绍"></a>树数据结构的介绍</h2><p>数据结构可以分为顺序数据结构和非顺序结构。顺序数据结构是指把数据元素放在地址连续的存储单元里。非顺序结构可以把数据元素任意放在连续或者不连续的存储单元里。</p>
-<p>树是一种非顺序数据结构。族谱，公司里的组织结构都可以看成是树模型。</p>
-<p>树结构是包含一个根节点，还有内部节点，叶子节点。根节点是位于树的顶部。叶子节点是没有后代的节点。内部节点是除了根节点和叶子节点外的所有节点。一个节点可以有祖先和后代。根节点没有祖先。</p>
-<p>节点的深度是节点的祖先节点数。</p>
-<p>树的高度是所有节点深度中的最大的深度。</p>
-<p>树可以分层级，根节点在第零层，它的子节点是第一层，依次类推。</p>
-<p><img src="js%E5%AE%9E%E7%8E%B0%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/tree.jpg" alt=""></p>
-<h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><h2 id="js实现两种方式的遍历"><a href="#js实现两种方式的遍历" class="headerlink" title="js实现两种方式的遍历"></a>js实现两种方式的遍历</h2>
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一两个月每天下班去健身房锻炼1到2个小时，回到家比较晚，又累（借口），所以就没有刷力扣了。</p>
+<p>最近感觉，不行了，还是要继续刷题，不能太颓废。所以又开始刷题之旅。</p>
+<p>之前一想到动态规划，什么状态方程，状态转移，看到就很头疼，现在开始攻克他。</p>
+<p>这道题我还没有出生的时候就已经出现，是比我还老的一道经典题，用它来理解动态规划是比较好的。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
+<p>相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。</p>
+<p>例如，给定三角形：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">     [2],</span><br><span class="line">    [3,4],</span><br><span class="line">   [6,5,7],</span><br><span class="line">  [4,1,8,3]	</span><br><span class="line">]</span><br><span class="line">&#96;&#96;&#96;	</span><br><span class="line"></span><br><span class="line">自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 &#x3D; 11）。</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line"></span><br><span class="line">如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。</span><br><span class="line"></span><br><span class="line">## 解题思路及代码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">其实我们可以把这个想象成一道数学题。</span><br><span class="line"></span><br><span class="line">写数学题第一步是什么，写假设，假设x是什么，y是什么，然后找出x,y之间的关系。</span><br><span class="line"></span><br><span class="line">这道题也是这样的。</span><br><span class="line"></span><br><span class="line">### 动态规划</span><br><span class="line"></span><br><span class="line">首先我们要知道它是要找到自顶向下的最小路径和，所以我们需要用一个数组去存储从顶到每个坐标的最小路径和，这样，我们算到最后一行的时候，只需要到比较最后一行到时候到最小值。</span><br><span class="line"></span><br><span class="line">所以dp[i][j]代表着从顶到该坐标（i，j）的最小路径和，假设行数是row，列数是col，所以我们最后只需要找到第row行中最小的dp[row - 1 ][j]（0 &lt;&#x3D; j &lt; col）</span><br><span class="line"></span><br><span class="line">然后移动的时候是有条件的，每一步只能移动到下一行中相邻的结点上。</span><br><span class="line"></span><br><span class="line">所以我们可以得到常规情况下:</span><br></pre></td></tr></table></figure>
+<p>dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][ j - 1]) + triangle[i][j]</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后我们考虑边界情况，左边界的话，也就是j&#x3D;&#x3D;&#x3D;0的时候：</span><br></pre></td></tr></table></figure>
+<p>dp[i][j] = dp[i - 1][j]+ triangle[i][j] </p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">右边界，也就是 i&#x3D;&#x3D;&#x3D;j的时候</span><br></pre></td></tr></table></figure>
+<p>dp[i][j] = dp[i - 1][j - 1]+ triangle[i][j] </p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所以我们很容易得到如下代码</span><br></pre></td></tr></table></figure>
+<p>/**</p>
+<ul>
+<li>@param {number[][]} triangle</li>
+<li>@return {number}</li>
+<li>/<br>var minimumTotal = function(triangle) {<br>  let row = triangle.length<br>  if(row === 0) return 0<br>  let col = triangle[row - 1].length<br>  let dp = Array.from({length: row}, x =&gt; Array.from({length: col}))<br>  dp[0][0] = triangle[0][0]<br>  for (let i = 1; i &lt; row; i++) {<pre><code>for (let j = 0; j &lt;= i; j++) {
+    if (j === 0) {
+        dp[i][j] = dp[i - 1][j]+ triangle[i][j] 
+    }else if (i === j) {
+        dp[i][j] = dp[i - 1][j - 1]+ triangle[i][j] 
+    }else {
+        dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][ j - 1]) + triangle[i][j]
+    }
+}</code></pre>  }<br>  let min = Math.min(…dp[row - 1])<br>  return min<br>};<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 优化1 - 时间</span><br><span class="line"></span><br><span class="line">首先我们知道最后返回的是一个最小路径和，我们从顶到下去计算的话，最后要去判断一下最后一行中的最短路径的最小值，那么我们反过来呢，逆向思维，我们从底部开始往上走，最后我们走到顶的时候只有一个值了，那个值就是我们要找的最小值,这样就不需要去判断边界条件了。</span><br><span class="line"></span><br><span class="line">所以我们可以把遍历的稍稍改动一下：</span><br></pre></td></tr></table></figure>
+/**</li>
+<li>@param {number[][]} triangle</li>
+<li>@return {number}</li>
+<li>/<br>var minimumTotal = function(triangle) {<br>  let row = triangle.length<br>  if(row === 0) return 0<br>  let col = triangle[row - 1].length<br>  let dp = Array.from({length: row}, x =&gt; Array.from({length: col}).fill(0))<br>  for (let k = 0; k &lt; col; k++) {<pre><code>dp[row - 1][k] = triangle[row - 1][k]</code></pre>  }<br>  for (let i = row - 2; i &gt;= 0; i–) {<pre><code>for (let j = 0; j &lt;= i; j++) {
+    dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][ j + 1]) + triangle[i][j]
+}</code></pre>  }<br>  return dp[0][0]<br>};<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 优化2 - 空间</span><br><span class="line"></span><br><span class="line">我们前面的方法都是用的二维数组存储每个坐标上的最小路径和，比如我们计算第二行的最小路径和的时候，第四行的数据我们已经用不上了，因为第三行的数据把第四行的数据加上了，所以其实我们只需要维护一个长度为col的数组，每次计算后将上次的值覆盖就可以了，</span><br></pre></td></tr></table></figure>
+/**</li>
+<li>@param {number[][]} triangle</li>
+<li>@return {number}</li>
+<li>/<br>var minimumTotal = function(triangle) {<br>let row = triangle.length<br>if (row === 0) return 0<br>let dp = new Array(row +1).fill(0)<br>for (let i = row - 1; i &gt;=0; i–) {<br>  for (let j = 0; j &lt;= i; j++) {<pre><code>dp[j] = Math.min(dp[j], dp[j+1]) + triangle[i][j]</code></pre>  }<br>}<br>return dp[0]<br>};<br>```</li>
+</ul>
+
     </main>
     <footer class="post-footer">
       
@@ -176,7 +207,7 @@
         
         
         
-        <a class="post-tag button" href="/tags/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>树的遍历</a>
+        <a class="post-tag button" href="/tags/%E7%AE%97%E6%B3%95/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>算法</a>
         
       </div>
       
@@ -187,12 +218,10 @@
   <div class="post-nav card">
     <div class="post-nav-next post-nav-item">
       
-      <a href="/2019/07/02/Vue-Router%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="Vue Router学习（一）"><i class="fas fa-angle-left"></i><span class="nav-title">Vue Router学习（一）</span></a>
+      <a href="/2020/04/21/LeetCode-%E9%9D%A2%E8%AF%95%E9%A2%9853-I-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97-I/" rel="next" title="LeetCode 面试题53 - I. 在排序数组中查找数字 I"><i class="fas fa-angle-left"></i><span class="nav-title">LeetCode 面试题53 - I. 在排序数组中查找数字 I</span></a>
       
     </div>
     <div class="post-nav-prev post-nav-item">
-      
-      <a href="/2019/07/23/JavaScript%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%E6%AF%94%E8%BE%83/" rel="prev" title="JavaScript的三种编程范式比较"><span class="nav-title">JavaScript的三种编程范式比较</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </div>
@@ -281,7 +310,7 @@
 <hr>
 <div class="post-toc sidebar-item" id="toc-div">
   <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#树数据结构的介绍"><span class="toc-text">树数据结构的介绍</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#深度优先遍历"><span class="toc-text">深度优先遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#广度优先遍历"><span class="toc-text">广度优先遍历</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#js实现两种方式的遍历"><span class="toc-text">js实现两种方式的遍历</span></a></li></ol></div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#题目"><span class="toc-text">题目</span></a></li></ol></div>
 </div>
 
 
