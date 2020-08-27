@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>js Number类型的最大安全值为什么是1-2^53-2^53-1</title>
+      <link href="/2020/08/27/js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2-53-2-53-1/"/>
+      <url>/2020/08/27/js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2-53-2-53-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaScript Number IEEE754 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>diff算法详解</title>
       <link href="/2020/08/13/diff%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
       <url>/2020/08/13/diff%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
