@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,7 +47,7 @@
     
     
 <link rel="stylesheet" type="text/css" href="/css/page.css">
-<link rel="stylesheet" type="text/css" href="/css/categories.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
 
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
@@ -80,7 +79,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Categories | 黄紫茜的博客</title>
+    <title>js Number类型的最大安全值为什么是1-2^53至2^53-1 | 黄紫茜的博客</title>
   <meta name="generator" content="Hexo 4.2.1"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"  data-spy="scroll" data-target=".list-group">
     
@@ -98,7 +97,7 @@
     
     <li role="menuitem"><a href="/archives/">Archives</a></li>
     
-    <li role="menuitem"><a href="/categories/" class="current">Categories</a></li>
+    <li role="menuitem"><a href="/categories/">Categories</a></li>
     
     <li role="menuitem"><a href="/tags/">Tags</a></li>
     
@@ -126,23 +125,97 @@
         <div class="main-container">
           <div class="content">
             
-<div class="categories" id="categories">
-  <article class="page-article card">
-    <header class="page-header">
-      <h1 class="page-title" itemprop="name headline">Categories</h1>
-    </header>
-    <main class="page-main">
-      <h2 class="categories-counter">
+<div id="post" class="post">
+  
+  <article class="post-article card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2%5E53%E8%87%B32%5E53-1/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="黄紫茜">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/logo.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="黄紫茜的博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">js Number类型的最大安全值为什么是1-2^53至2^53-1</h1>
+      <div class="post-meta">
         
-        You have 6 categories!
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2020-08-27T15:32:14+08:00">2020-08-27 15:32:14</time></span>
+        </span>
         
-      </h2>
-      <div class="categories-list">
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">单元测试</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">6</span></li></ul>
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+        </span>
+        
+        
       </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近才发现自己一直混淆了Number.Max_Value和Number.MAX_SAFE_INTEGER，然后经过一段的研究和学习，终于搞懂了。耐心看完这一篇你会了解到IEEE 754标准的浮点数的表示，了解到JS Number对象的最大（小）值，最大（小）安全值都是怎么来的；NAN，正负无穷大，正0，负0在计算机中都是怎么存储的；还有为什么0.1+0.2==0.3 为什么是false</p>
+<h2 id="为什么是1-2-53至2-53-1"><a href="#为什么是1-2-53至2-53-1" class="headerlink" title="为什么是1-2^53至2^53-1"></a>为什么是1-2^53至2^53-1</h2><h3 id="双精度浮点数-（IEEE-754）"><a href="#双精度浮点数-（IEEE-754）" class="headerlink" title="双精度浮点数 （IEEE 754）"></a>双精度浮点数 （IEEE 754）</h3><p>JavaScript的Number类型为双精度IEEE 754 64位浮点类型。我们来看下图</p>
+<p><img src="js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2%5E53%E8%87%B32%5E53-1/%E5%8F%8C%E7%B2%BE%E5%BA%A6%E6%A0%BC%E5%BC%8F.png" alt=""></p>
+<p>IEEE 754 双精度的格式：<code>(-1)^s*1.M*2^(E-127)</code></p>
+<h4 id="符号位"><a href="#符号位" class="headerlink" title="符号位"></a>符号位</h4><p>1 代表负，0代表正</p>
+<h4 id="指数位"><a href="#指数位" class="headerlink" title="指数位"></a>指数位</h4><p>指数位是IEEE 754的阶码，是用移码表示，移码和补码只有符号位是相反的，所以补码的符号位1代表正数，0代表负数 </p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2>
     </main>
-    <footer class="page-footer"></footer>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/tags/javaScript-Number-IEEE754/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>javaScript Number IEEE754</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <div class="post-nav card">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/2020/08/13/diff%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" rel="next" title="diff算法详解"><i class="fas fa-angle-left"></i><span class="nav-title">diff算法详解</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/2020/12/03/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E9%9D%A2%E8%AF%95%E9%A2%983-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/" rel="prev" title="《剑指offer》面试题3 数组中重复的数字"><span class="nav-title">《剑指offer》面试题3 数组中重复的数字</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+  <!-- 来必力City版安装代码 -->
+<div class="card" id="lv-container" data-id="city" data-uid="MTAyMC80NjI2MC8yMjc3MQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
 </div>
 
           </div>
@@ -198,6 +271,20 @@
 
 
   <div >
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#为什么是1-2-53至2-53-1"><span class="toc-text">为什么是1-2^53至2^53-1</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#双精度浮点数-（IEEE-754）"><span class="toc-text">双精度浮点数 （IEEE 754）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#符号位"><span class="toc-text">符号位</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#指数位"><span class="toc-text">指数位</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#结束语"><span class="toc-text">结束语</span></a></li></ol></div>
+</div>
+
+
+
     
     
     
@@ -283,5 +370,3 @@
 
   </body>
 </html>
-
-

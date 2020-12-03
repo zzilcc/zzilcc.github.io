@@ -4,11 +4,30 @@
   
     
     <entry>
-      <title>js Number类型的最大安全值为什么是1-2^53-2^53-1</title>
-      <link href="/2020/08/27/js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2-53-2-53-1/"/>
-      <url>/2020/08/27/js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2-53-2-53-1/</url>
+      <title>《剑指offer》面试题3 数组中重复的数字</title>
+      <link href="/2020/12/03/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E9%9D%A2%E8%AF%95%E9%A2%983-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+      <url>/2020/12/03/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E9%9D%A2%E8%AF%95%E9%A2%983-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="《剑指offer》面试题3-数组中重复的数字"><a href="#《剑指offer》面试题3-数组中重复的数字" class="headerlink" title="《剑指offer》面试题3 数组中重复的数字"></a>《剑指offer》面试题3 数组中重复的数字</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>找出数组中重复的数字。</p><p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p><p>示例 1：</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[2, 3, 1, 0, 2, 5, 3]</span><br><span class="line">输出：2 或 3</span><br><span class="line"></span><br><span class="line">限制：</span><br><span class="line">2 &lt;&#x3D; n &lt;&#x3D; 100000</span><br></pre></td></tr></table></figure><p>来源：力扣（LeetCode）</p><h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><h3 id="方法一-双层循环对比"><a href="#方法一-双层循环对比" class="headerlink" title="方法一  双层循环对比"></a>方法一  双层循环对比</h3><p>a:  [2, 3, 1, 0, 2, 5, 3]</p><p>b:  [2, 3, 1, 0, 2, 5, 3]</p><p>拿第一层循环数组的i依次对比第二层循环的数组的i+1元素。</p><p>a 取2，然后分别遍历[3,1,0,2,5,3], 如果有重复的，就return，没有的话就i+1，依次类推。</p><p>代码如下</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var findRepeatNumber &#x3D; function(nums) &#123;</span><br><span class="line">  let len &#x3D; nums.length;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">  for (let j &#x3D; i+1; j &lt; len; j++) &#123;</span><br><span class="line">  if (nums[i] &#x3D;&#x3D;&#x3D; nums[j])&#123;</span><br><span class="line">  return nums[i]</span><br><span class="line">  &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>因为有两层遍历，所以时间复杂度是O(n^2)</p><h3 id="方法二-一层循环-哈希表"><a href="#方法二-一层循环-哈希表" class="headerlink" title="方法二 一层循环 + 哈希表"></a>方法二 一层循环 + 哈希表</h3><ol><li>首先定义一个Map</li><li>然后遍历数组，判断Map里没有这个值，没有的话set一下，有的话说明这个值已经重复了，所以可以直接输出</li></ol><p>代码如下</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var findRepeatNumber &#x3D; function(nums) &#123;</span><br><span class="line">    let map &#x3D; new Map()</span><br><span class="line">    let len &#x3D; nums.length</span><br><span class="line">    for (let i &#x3D;0; i&lt;len;i++) &#123;</span><br><span class="line">        if (map.has(nums[i]))&#123;</span><br><span class="line">            return nums[i];</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            map.set(nums[i], 1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>因为只有一层遍历，所以时间复杂度是O(n)</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>从时间复杂度上看，当然是建议使用方法二。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js Number类型的最大安全值为什么是1-2^53至2^53-1</title>
+      <link href="/2020/08/27/js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2%5E53%E8%87%B32%5E53-1/"/>
+      <url>/2020/08/27/js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2%5E53%E8%87%B32%5E53-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近才发现自己一直混淆了Number.Max_Value和Number.MAX_SAFE_INTEGER，然后经过一段的研究和学习，终于搞懂了。耐心看完这一篇你会了解到IEEE 754标准的浮点数的表示，了解到JS Number对象的最大（小）值，最大（小）安全值都是怎么来的；NAN，正负无穷大，正0，负0在计算机中都是怎么存储的；还有为什么0.1+0.2==0.3 为什么是false</p><h2 id="为什么是1-2-53至2-53-1"><a href="#为什么是1-2-53至2-53-1" class="headerlink" title="为什么是1-2^53至2^53-1"></a>为什么是1-2^53至2^53-1</h2><h3 id="双精度浮点数-（IEEE-754）"><a href="#双精度浮点数-（IEEE-754）" class="headerlink" title="双精度浮点数 （IEEE 754）"></a>双精度浮点数 （IEEE 754）</h3><p>JavaScript的Number类型为双精度IEEE 754 64位浮点类型。我们来看下图</p><p><img src="js-Number%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E5%80%BC%E8%8C%83%E5%9B%B4%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF1-2%5E53%E8%87%B32%5E53-1/%E5%8F%8C%E7%B2%BE%E5%BA%A6%E6%A0%BC%E5%BC%8F.png" alt=""></p><p>IEEE 754 双精度的格式：<code>(-1)^s*1.M*2^(E-127)</code></p><h4 id="符号位"><a href="#符号位" class="headerlink" title="符号位"></a>符号位</h4><p>1 代表负，0代表正</p><h4 id="指数位"><a href="#指数位" class="headerlink" title="指数位"></a>指数位</h4><p>指数位是IEEE 754的阶码，是用移码表示，移码和补码只有符号位是相反的，所以补码的符号位1代表正数，0代表负数 </p><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2>]]></content>
       
       
       <categories>
