@@ -78,5 +78,6 @@ theme: aria
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:zzilcc/zzilcc.github.io.git
+  # repository: git@github.com:zzilcc/zzilcc.github.io.git
+  repository: git@106.52.110.158:/var/repo/blog.git
   branch: master
